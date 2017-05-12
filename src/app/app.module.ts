@@ -25,12 +25,15 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
-import { AboutComponent } from './about';
+import { SuppliersComponent } from './suppliers';
+import { ProjectsComponent } from './projects';
+import { HowItWorksComponent } from './how-it-works';
+import { SignUpComponent } from './sign-up';
+import { LogInComponent } from './log-in';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
 import '../styles/styles.scss';
-import '../styles/headings.css';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -51,8 +54,12 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
     HomeComponent,
+    SuppliersComponent,
+    ProjectsComponent,
+    HowItWorksComponent,
+    SignUpComponent,
+    LogInComponent,
     NoContentComponent,
     XLargeDirective
   ],

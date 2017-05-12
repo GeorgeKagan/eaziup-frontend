@@ -1,37 +1,20 @@
 <div>
-  <h1 x-large class="sample-content">Your Content Here</h1>
-
-  <hr>
 
   <div>
-    For hot module reloading run
-    <pre>npm run start:hmr</pre>
-  </div>
+    <p>
+      <strong>9,621</strong> specialist suppliers registered and available today<br>
+      <strong>51</strong> specialist supplier teams available in all categories today<br>
+      <strong>98</strong> projects uploaded so far<br>
+      <strong>53</strong> successfully completed projects so far<br>
+    </p>
 
-  <hr>
+    <p>
+      <strong>EaziUp is the affordable marketplace where your projects cost up to 80% less and<br>
+        are completed by a team of highly educated specialists who know how each other work.<br>
+        This enables you to transform your idea into reality for a small investment.</strong>
+    </p>
 
-  <div>
-    <h4>Local State</h4>
-
-    <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
-
-      <input
-        [value]="localState.value"
-        (input)="localState.value = $event.target.value"
-        placeholder="Submit Local State to App State"
-        autofocus>
-
-      <button>Submit Value</button>
-    </form>
-    <!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
-      -->
-
-    <pre>this.localState = {{ localState | json }}</pre>
-
+    Add a new project or job today by clicking <a href="">here</a>
   </div>
 
 </div>

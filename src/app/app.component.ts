@@ -19,26 +19,32 @@ import { AppState } from './app.service';
     './app.component.css'
   ],
   template: `
+    <div>
+      <span [routerLink]=" ['./'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        <img [src]="appLogo" width="200px">
+      </span>
+      {{slogan}}
+    </div>
     <nav>
-      <a [routerLink]=" ['./'] "
+      <a [routerLink]=" ['./suppliers'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Index
+        Suppliers
       </a>
-      <a [routerLink]=" ['./home'] "
+      <a [routerLink]=" ['./projects'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Home
+        Projects & Sellers
       </a>
-      <a [routerLink]=" ['./detail'] "
+      <a [routerLink]=" ['./how-it-works'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Detail
+        How The System Works
       </a>
-      <a [routerLink]=" ['./barrel'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Barrel
+      <a [routerLink]=" ['./sign-up'] "
+         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Sign Up
       </a>
-      <a [routerLink]=" ['./about'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        About
+      <a [routerLink]=" ['./log-in'] "
+         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Login
       </a>
     </nav>
 
@@ -46,22 +52,12 @@ import { AppState } from './app.service';
       <router-outlet></router-outlet>
     </main>
 
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
-    <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-      <div>
-        <a [href]="url">
-          <img [src]="appLogo" width="25%">
-        </a>
-      </div>
-    </footer>
+    <footer>EaZiUp 2017</footer>
   `
 })
 export class AppComponent implements OnInit {
   public appLogo = 'assets/img/eaziup-logo.png';
-  public name = 'Angular 2 Webpack Starter';
-  public url = 'https://twitter.com/AngularClass';
+  public slogan = 'Turning Ideas Into Results…';
 
   constructor(
     public appState: AppState
