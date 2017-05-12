@@ -15,4 +15,5 @@
 # TECHNOLOGY COLOPHON
 
   HTML5, CSS3
+  Bootstrap 4, ng-bootstrap
   Angular2, TypeScript, Webpack
