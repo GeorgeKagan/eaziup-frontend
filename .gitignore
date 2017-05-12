@@ -1,1 +1,5 @@
 .idea/
+.awcache/
+node_modules/
+dll/
+dist/
