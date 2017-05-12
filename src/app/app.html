@@ -1,0 +1,47 @@
+<div class="container">
+  <div id="logo">
+    <img [src]="appLogo" [routerLink]=" ['./'] ">
+    <span>{{slogan}}</span>
+  </div>
+
+  <nav class="navbar">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]=" ['./suppliers'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Suppliers
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]=" ['./projects'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Projects & Sellers
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]=" ['./how-it-works'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          How The System Works
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]=" ['./sign-up'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Sign Up
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]=" ['./log-in'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Login
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="col-xs-12">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>EaZiUp 2017</footer>
+</div>

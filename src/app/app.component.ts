@@ -18,42 +18,7 @@ import { AppState } from './app.service';
   styleUrls: [
     './app.component.css'
   ],
-  template: `
-    <div>
-      <span [routerLink]=" ['./'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        <img [src]="appLogo" width="200px">
-      </span>
-      {{slogan}}
-    </div>
-    <nav>
-      <a [routerLink]=" ['./suppliers'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Suppliers
-      </a>
-      <a [routerLink]=" ['./projects'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Projects & Sellers
-      </a>
-      <a [routerLink]=" ['./how-it-works'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        How The System Works
-      </a>
-      <a [routerLink]=" ['./sign-up'] "
-         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Sign Up
-      </a>
-      <a [routerLink]=" ['./log-in'] "
-         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Login
-      </a>
-    </nav>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-    <footer>EaZiUp 2017</footer>
-  `
+  templateUrl: './app.html'
 })
 export class AppComponent implements OnInit {
   public appLogo = 'assets/img/eaziup-logo.png';
