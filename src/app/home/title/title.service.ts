@@ -17,7 +17,7 @@ export class Title {
      * .map(res => res.json());
      */
     return {
-      value: 'AngularClass'
+      value: 'EaZiUp'
     };
   }
 

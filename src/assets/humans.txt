@@ -3,7 +3,8 @@
 
 # TEAM
 
-  <name> -- <role> -- <twitter>
+  George Kagan -- Front-end developer
+  Itzik Cohen - Java developer
 
 # THANKS
 
