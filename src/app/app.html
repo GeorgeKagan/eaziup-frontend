@@ -1,29 +1,13 @@
 <div class="container">
   <div id="logo">
-    <img [src]="appLogo" [routerLink]=" ['./'] ">
+    <img [src]="appLogo" [routerLink]="['./']">
     <span>{{slogan}}</span>
   </div>
 
   <nav class="nav nav-pills">
-    <a class="nav-link" [routerLink]=" ['./suppliers'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      Suppliers
-    </a>
-    <a class="nav-link" [routerLink]=" ['./projects'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      Projects & Sellers
-    </a>
-    <a class="nav-link" [routerLink]=" ['./how-it-works'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      How The System Works
-    </a>
-    <a class="nav-link" [routerLink]=" ['./sign-up'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      Sign Up
-    </a>
-    <a class="nav-link" [routerLink]=" ['./log-in'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      Login
+    <a class="nav-link" [routerLink]="[item.link]" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}" *ngFor="let item of topNav">
+      {{item.label}}
     </a>
   </nav>
 
@@ -36,7 +20,7 @@
       <div class="col-md-3" *ngFor="let nav of footerNav">
         <h6 class="ml-3">{{nav.label}}</h6>
         <nav class="nav flex-column">
-          <a class="nav-link" [routerLink]=" [link.link] " routerLinkActive="active" *ngFor="let link of nav.items">
+          <a class="nav-link" [routerLink]="[link.link]" routerLinkActive="active" *ngFor="let link of nav.items">
             {{link.label}}
           </a>
         </nav>
