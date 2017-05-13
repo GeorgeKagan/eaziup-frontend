@@ -4,44 +4,47 @@
     <span>{{slogan}}</span>
   </div>
 
-  <nav class="navbar">
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]=" ['./suppliers'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          Suppliers
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]=" ['./projects'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          Projects & Sellers
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]=" ['./how-it-works'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          How The System Works
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]=" ['./sign-up'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          Sign Up
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]=" ['./log-in'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          Login
-        </a>
-      </li>
-    </ul>
+  <nav class="nav nav-pills">
+    <a class="nav-link" [routerLink]=" ['./suppliers'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Suppliers
+    </a>
+    <a class="nav-link" [routerLink]=" ['./projects'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Projects & Sellers
+    </a>
+    <a class="nav-link" [routerLink]=" ['./how-it-works'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      How The System Works
+    </a>
+    <a class="nav-link" [routerLink]=" ['./sign-up'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Sign Up
+    </a>
+    <a class="nav-link" [routerLink]=" ['./log-in'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Login
+    </a>
   </nav>
 
-  <main class="col-xs-12">
+  <main>
     <router-outlet></router-outlet>
   </main>
 
-  <footer>EaZiUp 2017</footer>
+  <footer>
+    <div class="row">
+      <div class="col-md-2">
+        <h6>Company</h6>
+        <nav class="nav flex-column">
+          <a class="nav-link" [routerLink]=" ['/.stub'] " routerLinkActive="active">About</a>
+          <a class="nav-link" [routerLink]=" ['/.stub'] " routerLinkActive="active">How it works?</a>
+          <a class="nav-link" [routerLink]=" ['/.stub'] " routerLinkActive="active">Careers</a>
+          <a class="nav-link" [routerLink]=" ['/.stub'] " routerLinkActive="active">Our team</a>
+          <a class="nav-link" [routerLink]=" ['/.stub'] " routerLinkActive="active">Press</a>
+          <a class="nav-link" [routerLink]=" ['/.stub'] " routerLinkActive="active">Confidentiality</a>
+          <a class="nav-link" [routerLink]=" ['/.stub'] " routerLinkActive="active">Terms & Conditions</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
 </div>
