@@ -4,9 +4,12 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   ViewEncapsulation
 } from '@angular/core';
+import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { AppState } from './app.service';
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 
 /**
  * App Component
@@ -58,13 +61,32 @@ export class AppComponent implements OnInit {
       {label: 'Project database', link: '/stub'}
     ]}
   ];
+  private sub: any;
 
   constructor(
-    public appState: AppState
-  ) {}
+    public appState: AppState,
+    private slimLoader: SlimLoadingBarService,
+    private router: Router
+  ) {
+    this.sub = this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.slimLoader.start();
+      } else if ( event instanceof NavigationEnd ||
+        event instanceof NavigationCancel ||
+        event instanceof NavigationError) {
+        this.slimLoader.complete();
+      }
+    }, (error: any) => {
+      this.slimLoader.complete();
+    });
+  }
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
+  }
+
+  ngOnDestroy(): any {
+    this.sub.unsubscribe();
   }
 
 }

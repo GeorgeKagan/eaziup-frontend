@@ -16,6 +16,7 @@ import {
 } from '@angular/router';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -75,7 +76,8 @@ type StoreType = {
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    SlimLoadingBarModule.forRoot()
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
