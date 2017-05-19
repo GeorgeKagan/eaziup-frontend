@@ -1,1 +1,15 @@
-/*styles for home content only*/
+@import '../../styles/variables';
+
+.ez-highlights-wrapper {
+  background: $orange;
+
+  .ez-highlights {
+    h2 {
+      color: #fff;
+      text-shadow: 1px 1px 5px hsla(0, 0, 0, 0.3);
+    }
+    p {
+      color: #eee;
+    }
+  }
+}

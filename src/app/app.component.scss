@@ -1,1 +1,35 @@
+@import '../styles/variables';
 
+#logo {
+  user-select: none;
+  cursor: default;
+  img {
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    left: 15px;
+    top: -3px;
+  }
+  div {
+    position: relative;
+    top: -30px;
+    left: 14px;
+  }
+}
+
+nav {
+  margin-top: 0;
+
+  &.nav-pills .nav-link.active {
+    color: #fff !important;
+    background-color: $orange;
+  }
+}
+
+.ez-top {
+  background: #fff;
+}
+
+.ez-main {
+  background: #fff;
+}

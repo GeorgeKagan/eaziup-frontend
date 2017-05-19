@@ -25,7 +25,6 @@ import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 })
 export class AppComponent implements OnInit {
   public appLogo = 'assets/img/eaziup-logo.png';
-  public slogan = 'Turning Ideas Into Results';
   public topNav = [
     {label: 'Suppliers', link: './suppliers'},
     {label: 'Projects / Sellers', link: './projects'},
