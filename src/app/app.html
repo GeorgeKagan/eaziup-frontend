@@ -1,36 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div id="logo" class="col-sm-3">
-      <img width="200" height="150" [src]="appLogo" [routerLink]="['./']">
-      <div class="text-muted">{{slogan}}</div>
+<div class="container-fluid pb-5" style="background: #fff">
+  <div class="container">
+    <div class="row">
+      <div id="logo" class="col-sm-3">
+        <img width="200" height="150" [src]="appLogo" [routerLink]="['./']">
+        <div class="text-muted">{{slogan}}</div>
+      </div>
+
+      <nav class="nav nav-pills nav-fill mt-5 col-sm-8">
+        <li class="nav-item" *ngFor="let item of topNav">
+          <a class="nav-link text-muted" [routerLink]="[item.link]" routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: true}">
+            {{item.label}}
+          </a>
+        </li>
+      </nav>
     </div>
 
-    <nav class="nav nav-pills nav-fill mt-5 col-sm-8">
-      <li class="nav-item" *ngFor="let item of topNav">
-        <a class="nav-link text-muted" [routerLink]="[item.link]" routerLinkActive="active"
-           [routerLinkActiveOptions]="{exact: true}">
-          {{item.label}}
-        </a>
-      </li>
-    </nav>
+    <main class="container">
+      <router-outlet></router-outlet>
+    </main>
   </div>
+</div>
 
-  <main class="container">
-    <router-outlet></router-outlet>
-  </main>
-
-  <footer>
+<footer class="container-fluid pt-5">
+  <div class="container">
     <div class="row">
       <div class="col-md-3" *ngFor="let nav of footerNav">
         <h6 class="ml-3">{{nav.label}}</h6>
         <nav class="nav flex-column">
-          <a class="nav-link text-muted" [routerLink]="[link.link]" routerLinkActive="active" *ngFor="let link of nav.items">
+          <a class="nav-link text-muted" [routerLink]="[link.link]" routerLinkActive="active"
+             *ngFor="let link of nav.items">
             {{link.label}}
           </a>
         </nav>
       </div>
     </div>
-  </footer>
-</div>
+  </div>
+</footer>
 
 <ng2-slim-loading-bar [color]="'#5cb85c'"></ng2-slim-loading-bar>
