@@ -9,7 +9,9 @@ import { ActivatedRoute } from '@angular/router';
   styles: [`
   `],
   template: `
-    <h1>How The System Works</h1>
+    <h3 class="mb-4 text-success">
+      How the System Works
+    </h3>
     <div>
       ...
     </div>

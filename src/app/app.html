@@ -1,17 +1,21 @@
 <div class="container">
-  <div id="logo">
-    <img [src]="appLogo" [routerLink]="['./']">
-    <span>{{slogan}}</span>
+  <div class="row">
+    <div id="logo" class="col-sm-3">
+      <img [src]="appLogo" [routerLink]="['./']">
+      <div class="text-muted">{{slogan}}</div>
+    </div>
+
+    <nav class="nav nav-pills nav-fill mt-5 col-sm-8">
+      <li class="nav-item" *ngFor="let item of topNav">
+        <a class="nav-link text-muted" [routerLink]="[item.link]" routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}">
+          {{item.label}}
+        </a>
+      </li>
+    </nav>
   </div>
 
-  <nav class="nav nav-pills">
-    <a class="nav-link" [routerLink]="[item.link]" routerLinkActive="active"
-       [routerLinkActiveOptions]="{exact: true}" *ngFor="let item of topNav">
-      {{item.label}}
-    </a>
-  </nav>
-
-  <main>
+  <main class="container">
     <router-outlet></router-outlet>
   </main>
 
@@ -20,7 +24,7 @@
       <div class="col-md-3" *ngFor="let nav of footerNav">
         <h6 class="ml-3">{{nav.label}}</h6>
         <nav class="nav flex-column">
-          <a class="nav-link" [routerLink]="[link.link]" routerLinkActive="active" *ngFor="let link of nav.items">
+          <a class="nav-link text-muted" [routerLink]="[link.link]" routerLinkActive="active" *ngFor="let link of nav.items">
             {{link.label}}
           </a>
         </nav>

@@ -22,13 +22,13 @@ import { AppState } from './app.service';
 })
 export class AppComponent implements OnInit {
   public appLogo = 'assets/img/eaziup-logo.png';
-  public slogan = 'Turning Ideas Into Results…';
+  public slogan = 'Turning Ideas Into Results';
   public topNav = [
     {label: 'Suppliers', link: './suppliers'},
-    {label: 'Projects & Sellers', link: './projects'},
-    {label: 'How The System Works', link: './how-it-works'},
+    {label: 'Projects / Sellers', link: './projects'},
+    {label: 'How the System Works', link: './how-it-works'},
     {label: 'Sign Up', link: './sign-up'},
-    {label: 'Login', link: './log-in'},
+    {label: 'Log In', link: './log-in'},
   ];
   public footerNav = [
     {label: 'Company', items: [

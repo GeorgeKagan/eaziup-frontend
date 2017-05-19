@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
   styles: [`
   `],
   template: `
-    <h1>Projects & Sellers</h1>
-    <div>
-      ...
-    </div>
+    <h3 class="mb-5 text-success">
+      Projects / Sellers<br>
+      <small class="text-muted">Add a new project or job</small>
+    </h3>
+    <project-form></project-form>
   `
 })
 export class ProjectsComponent implements OnInit {

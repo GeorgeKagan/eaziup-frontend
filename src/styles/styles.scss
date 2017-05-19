@@ -4,18 +4,36 @@
 @import 'variables';
 
 #logo {
+  user-select: none;
+  cursor: default;
   img {
     width: 200px;
     outline: none;
     cursor: pointer;
+    position: relative;
+    left: 5px;
+    top: -3px;
   }
-  user-select: none;
+  div {
+    position: relative;
+    top: -30px;
+    left: 14px;
+  }
 }
 
 nav {
   margin-top: 0;
+
+  &.nav-pills .nav-link.active {
+    color: #fff !important;
+    background-color: $orange;
+  }
 }
 
 main {
   margin-top: 40px;
+}
+
+footer {
+  margin: 100px 0 0 0;
 }

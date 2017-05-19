@@ -4,7 +4,10 @@ import { Component } from '@angular/core';
   selector: 'no-content',
   template: `
     <div>
-      <h1>404: page missing</h1>
+      <h1 class="display-4 text-danger">
+        404: not found!
+      </h1>
+      <p class="lead text-muted">Sorry about that...</p>
     </div>
   `
 })

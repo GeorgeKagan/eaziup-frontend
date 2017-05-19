@@ -34,6 +34,7 @@ import { SignUpComponent } from './sign-up';
 import { LogInComponent } from './log-in';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
+import { ProjectFormComponent } from './components/project/project-form.component';
 
 import '../styles/styles.scss';
 
@@ -63,7 +64,8 @@ type StoreType = {
     SignUpComponent,
     LogInComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    ProjectFormComponent
   ],
   /**
    * Import Angular's modules.

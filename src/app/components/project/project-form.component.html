@@ -1,0 +1,19 @@
+<form class="row" (ngSubmit)="onSubmit()" #projectForm="ngForm">
+
+  <div class="form-group col-md-5">
+    <label for="companyName">Company name <small class="text-muted">(If you have one)</small></label>
+    <input type="text" class="form-control" id="companyName" required
+           name="companyName" [(ngModel)]="model.companyName" #companyName="ngModel">
+    <div [hidden]="companyName.valid || companyName.pristine"
+         class="alert alert-danger mt-2">
+      Company name is required
+    </div>
+  </div>
+
+  <div class="col-md-12 mt-5">
+    <button type="submit" class="btn btn-success btn-lg" role="button" [disabled]="!projectForm.form.valid">
+      Submit your project
+    </button>
+  </div>
+</form>
+<!--<div class="mt-5">{{diagnostic}}</div>-->

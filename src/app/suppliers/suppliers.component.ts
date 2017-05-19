@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styles: [`
   `],
   template: `
-    <h1>Suppliers</h1>
+    <h3 class="mb-4 text-success">Suppliers</h3>
     <div>
       ...
     </div>
