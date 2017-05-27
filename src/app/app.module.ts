@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   NgModule,
   ApplicationRef
@@ -27,14 +27,14 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { SuppliersComponent } from './suppliers';
-import { ProjectsComponent } from './projects';
-import { HowItWorksComponent } from './how-it-works';
-import { SignUpComponent } from './sign-up';
-import { LogInComponent } from './log-in';
-import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
+import { HomeComponent } from './states/home';
+import { SuppliersComponent } from './states/suppliers';
+import { ProjectsComponent } from './states/projects';
+import { HowItWorksComponent } from './states/how-it-works';
+import { SignUpComponent } from './states/sign-up';
+import { LogInComponent } from './states/log-in';
+import { NoContentComponent } from './states/no-content';
+import { MyFormError } from './directives/my-form-error';
 import { ProjectFormComponent } from './components/project/project-form.component';
 
 import '../styles/styles.scss';
@@ -65,7 +65,7 @@ type StoreType = {
     SignUpComponent,
     LogInComponent,
     NoContentComponent,
-    XLargeDirective,
+    MyFormError,
     ProjectFormComponent
   ],
   /**
@@ -73,7 +73,7 @@ type StoreType = {
    */
   imports: [
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
     NgbModule.forRoot(),

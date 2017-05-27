@@ -1,12 +1,12 @@
-@import '../../styles/variables';
+@import '../../../styles/variables';
 
 .ez-highlights-wrapper {
   background: $orange;
 
   .ez-highlights {
     h2 {
-      color: #fff;
-      text-shadow: 1px 1px 5px hsla(0, 0, 0, 0.3);
+      color: #fafafa;
+      text-shadow: 1px 1px 6px hsla(0, 0, 0, 0.5);
     }
     p {
       color: #eee;

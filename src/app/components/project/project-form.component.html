@@ -1,19 +1,58 @@
-<form class="row" (ngSubmit)="onSubmit()" #projectForm="ngForm">
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate>
 
-  <div class="form-group col-md-5">
-    <label for="companyName">Company name <small class="text-muted">(If you have one)</small></label>
-    <input type="text" class="form-control" id="companyName" required
-           name="companyName" [(ngModel)]="model.companyName" #companyName="ngModel">
-    <div [hidden]="companyName.valid || companyName.pristine"
-         class="alert alert-danger mt-2">
-      Company name is required
-    </div>
-  </div>
+    <section formGroupName="buyerInfo">
 
-  <div class="col-md-12 mt-5">
-    <button type="submit" class="btn btn-success btn-lg" role="button" [disabled]="!projectForm.form.valid">
-      Submit your project
-    </button>
-  </div>
+        <!-- COMPANY NAME -->
+        <div>
+            <label>
+                Company name
+                <small>(optional)</small>
+                <input type="text" formControlName="companyName">
+            </label>
+            <div *ngIf="gotError('buyerInfo.companyName')">{{ formErrors['buyerInfo.companyName'] }}</div>
+        </div>
+
+        <div></div>
+
+        <!-- COUNTRY -->
+        <div>
+            <label>
+                Country
+                <select formControlName="country">
+                    <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+                </select>
+            </label>
+            <div *ngIf="gotError('buyerInfo.country')">{{ formErrors['buyerInfo.country'] }}</div>
+        </div>
+
+    </section>
+
+    <h5>Project / Job Information</h5>
+
+    <section formGroupName="projectInfo">
+
+        <!-- COMPANY NAME -->
+        <div>
+            <label>
+                Project name
+                <input type="text" formControlName="projectName">
+            </label>
+            <div *ngIf="gotError('projectInfo.projectName')">{{ formErrors['projectInfo.projectName'] }}</div>
+        </div>
+
+    </section>
+
+    <section>
+        <!-- SUBMIT -->
+        <div>
+            <button type="submit" role="button">Submit your project</button>
+        </div>
+    </section>
+
 </form>
-<!--<div class="mt-5">{{diagnostic}}</div>-->
+
+<br><br>
+<!--<p>Street value: {{ heroForm.get('address.street').value}}</p>-->
+
+<p>Form value: {{ projectForm.value | json }}</p>
+<p>Form status: {{ projectForm.status | json }}</p>

@@ -1,25 +1,24 @@
 import {
-  Component,
   Directive,
   ElementRef,
   Renderer
 } from '@angular/core';
 /**
  * Directive
- * XLarge is a simple directive to show how one is made
+ * Helper for displaying form errors
  */
 @Directive({
-  selector: '[x-large]' // using [ ] means selecting attributes
+  selector: 'my-form-error'
 })
-export class XLargeDirective {
+export class MyFormError {
   constructor(
     public element: ElementRef,
     public renderer: Renderer
   ) {
     /**
-     * Simple DOM manipulation to set font size to x-large
+     * Simple DOM manipulation to set font size to my-form-error
      * `nativeElement` is the direct reference to the DOM element
-     * element.nativeElement.style.fontSize = 'x-large';
+     * element.nativeElement.style.fontSize = 'my-form-error';
      *
      * for server/webworker support use the renderer
      */
