@@ -1,4 +1,4 @@
-import { Validators } from '@angular/forms';
+import {Validators} from '@angular/forms';
 
 export class BuyerInfo {
   companyName = [''];

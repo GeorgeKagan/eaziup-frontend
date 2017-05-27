@@ -4,16 +4,16 @@ import {Http} from '@angular/http';
 @Injectable()
 export class ProjectService {
 
-    constructor(public http: Http) {
-    }
+  constructor(public http: Http) {
+  }
 
-    public getData() {
+  public getData() {
 
-    }
+  }
 
-    public saveProject(data) {
-        console.log(data);
+  public saveProject(data) {
+    console.log(data);
 
-        return this.http.post('/api/project', data);
-    }
+    return this.http.post('/api/project', data);
+  }
 }
