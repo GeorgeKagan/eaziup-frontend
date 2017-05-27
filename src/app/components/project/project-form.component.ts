@@ -2,13 +2,13 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, FormArray} from '@angular/forms';
 import {countries} from '../../data-model';
 import {BuyerInfo, ProjectInfo} from './project';
-import {Project} from '../../services/project/project.service';
+import {ProjectService} from '../../services/project/project.service';
 
 @Component({
     selector: 'project-form',
     templateUrl: './project-form.component.html',
     providers: [
-        Project
+        ProjectService
     ]
 })
 export class ProjectFormComponent {
@@ -35,7 +35,8 @@ export class ProjectFormComponent {
         }
     };
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: FormBuilder,
+                private projectService: ProjectService) {}
 
     ngOnInit(): void {
         this.buildForm();
@@ -74,9 +75,13 @@ export class ProjectFormComponent {
     }
 
     onSubmit() {
-        this.submitted = true;
         this.markAsTouchedAndDirty(this.projectForm);
         this.onValueChanged();
+
+        if (this.projectForm.valid) {
+            this.projectService.saveProject(this.projectForm.value);
+            this.submitted = true;
+        }
     }
 
     markAsTouchedAndDirty(group: FormGroup | FormArray) {
