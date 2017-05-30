@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, FormArray} from '@angular/forms';
+import {trigger, style, animate, transition} from '@angular/animations';
 import {countries} from '../../data-model';
 import {BuyerInfo, ProjectInfo} from './project';
 import {ProjectService} from '../../services/project/project.service';
@@ -9,6 +10,17 @@ import {ProjectService} from '../../services/project/project.service';
   templateUrl: './project-form.component.html',
   providers: [
     ProjectService
+  ],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({opacity: 0, 'max-height': 0, 'padding-top': 0, 'padding-bottom': 0, 'margin-top': 0, 'margin-bottom': 0, overflow: 'hidden'}),
+        animate(350, style({opacity: 1, 'max-height': '*', 'padding-top': '*', 'padding-bottom': '*', 'margin-top': '*', 'margin-bottom': '*'}))
+      ]),
+      transition(':leave', [
+        animate(350, style({opacity: 0, height: 0, 'padding-top': 0, 'padding-bottom': 0, 'margin-top': 0, 'margin-bottom': 0, overflow: 'hidden'}))
+      ])
+    ])
   ]
 })
 export class ProjectFormComponent {

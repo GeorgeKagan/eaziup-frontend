@@ -1,14 +1,6 @@
-/**
- * Angular 2 decorators and services
- */
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  ViewEncapsulation
-} from '@angular/core';
-import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
-import { AppState } from './app.service';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError} from '@angular/router';
+import {AppState} from './app.service';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 
 /**

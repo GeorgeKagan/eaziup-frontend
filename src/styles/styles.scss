@@ -46,6 +46,7 @@ form {
         @extend .alert;
         @extend .alert-danger;
         @extend .mt-2;
+        max-height: 50px;
       }
     }
   }
