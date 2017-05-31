@@ -21,7 +21,7 @@
                     <option *ngFor="let country of countries" [value]="country">{{country}}</option>
                 </select>
             </label>
-            <div [@fadeInOut]="gotError('buyerInfo.country')" *ngIf="gotError('buyerInfo.country')">{{ formErrors['buyerInfo.country'] }}</div>
+            <div [@fadeInOut]="gotError('buyerInfo.country')" *ngIf="gotError('buyerInfo.country')">{{formErrors['buyerInfo']['country']}}</div>
         </div>
 
     </section>
@@ -36,7 +36,7 @@
                 Project name
                 <input type="text" formControlName="projectName">
             </label>
-            <div [@fadeInOut]="gotError('projectInfo.projectName')" *ngIf="gotError('projectInfo.projectName')">{{ formErrors['projectInfo.projectName'] }}</div>
+            <div [@fadeInOut]="gotError('projectInfo.projectName')" *ngIf="gotError('projectInfo.projectName')">{{formErrors['projectInfo']['projectName']}}</div>
         </div>
 
     </section>

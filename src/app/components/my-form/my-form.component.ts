@@ -57,19 +57,24 @@ export class MyFormComponent {
     }
     const form = this.myForm;
 
-    for (const field in this.formErrors) {
-      // clear previous error message (if any)
-      this.formErrors[field] = '';
-      const control = form.get(field);
+    for (const group in this.formErrors) {
+      if (!this.formErrors.hasOwnProperty(group)) { break; }
 
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
+      for (const field in this.formErrors[group]) {
+        if (!this.formErrors[group].hasOwnProperty(field)) { break; }
 
-        for (const key in control.errors) {
-          if (!control.errors.hasOwnProperty(key)) {
-            break;
+        // Clear previous error message (if any)
+        this.formErrors[group][field] = '';
+        const control = form.get([group, field]);
+
+        if (control && control.dirty && !control.valid) {
+          const messages = this.validationMessages[group][field];
+
+          // If the control has errors, set for display as defined in validationMessages
+          for (const key in control.errors) {
+            if (!control.errors.hasOwnProperty(key)) { break; }
+            this.formErrors[group][field] += messages[key] + ' ';
           }
-          this.formErrors[field] += messages[key] + ' ';
         }
       }
     }
@@ -115,7 +120,8 @@ export class MyFormComponent {
    * @returns {any|boolean}
    */
   gotError(inputName) {
-    return this.formErrors[inputName] && this.myForm.get(inputName).touched;
+    let [group, name] = inputName.split('.');
+    return this.formErrors[group][name] && this.myForm.get([group, name]).touched;
   }
 
   /**
