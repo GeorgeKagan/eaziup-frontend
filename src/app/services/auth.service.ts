@@ -6,7 +6,8 @@ import {CONFIG} from "../consts/config";
 export class AuthService {
 
   private lock;
-  public isAuthenticated: boolean;
+  public profile: Object = {};
+  public isAuthenticated: boolean = false;
 
   /**
    * Init Auth0 Lock widget and listen for authentication event.
@@ -53,6 +54,9 @@ export class AuthService {
 
     // On page load, set the isAuthenticated variable
     this.isAuthenticated = !!localStorage.getItem('accessToken');
+    // Set the profile from local storage
+    this.profile = JSON.parse(localStorage.getItem('profile'));
+    console.log(this.profile);
   }
 
   /**

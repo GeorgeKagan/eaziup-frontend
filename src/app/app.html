@@ -15,15 +15,32 @@
       </nav>
 
       <div class="mt-5 col-sm-3">
+
+        <!-- Sign up / Log in -->
         <button class="btn btn-success font-weight-bold mt-1 pull-right" role="button" *ngIf="!auth.isAuthenticated" (click)="auth.doSignUp()">
           Sign up
         </button>
         <span class="text-muted mt-2 mr-4 pull-right" role="button" *ngIf="!auth.isAuthenticated" (click)="auth.doLogIn()">
           Log in
         </span>
-        <span class="text-muted mt-2 pull-right" role="button" *ngIf="auth.isAuthenticated" (click)="auth.doLogOut()">
-          Logout
-        </span>
+        <!-- end -->
+
+        <!-- Account links + log out -->
+        <div class="text-muted mt-2 pull-right" *ngIf="auth.isAuthenticated">
+          <div ngbDropdown>
+            <div role="button" ngbDropdownToggle>
+              <img class="rounded-circle mr-2" width="25" height="25" [src]="auth.profile['picture']">
+              {{auth.profile['nickname']}}
+            </div>
+            <div class="dropdown-menu mt-2">
+              <button class="dropdown-item text-muted disabled" role="button">Settings</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item text-muted" role="button" (click)="auth.doLogOut()">Logout</button>
+            </div>
+          </div>
+        </div>
+        <!-- end -->
+
       </div>
     </div>
 
