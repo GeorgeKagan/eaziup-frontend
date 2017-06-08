@@ -2,6 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError} from '@angular/router';
 import {AppState} from './app.service';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
+import {AuthService} from './services/auth.service';
 
 /**
  * App Component
@@ -18,11 +19,9 @@ import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 export class AppComponent implements OnInit {
   public appLogo = 'assets/img/eaziup-logo.png';
   public topNav = [
-    {label: 'Suppliers', link: './suppliers'},
-    {label: 'Projects / Sellers', link: './projects'},
-    {label: 'How the System Works', link: './how-it-works'},
-    {label: 'Sign Up', link: './sign-up'},
-    {label: 'Log In', link: './log-in'},
+    {label: 'Projects', link: './suppliers'},
+    {label: 'Add new project', link: './projects'},
+    {label: 'How it works', link: './how-it-works'}
   ];
   public footerNav = [
     {label: 'Company', items: [
@@ -56,6 +55,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     public appState: AppState,
+    public auth: AuthService,
     private slimLoader: SlimLoadingBarService,
     private router: Router
   ) {
@@ -79,5 +79,4 @@ export class AppComponent implements OnInit {
   ngOnDestroy(): any {
     this.sub.unsubscribe();
   }
-
 }

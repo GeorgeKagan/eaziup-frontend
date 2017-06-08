@@ -28,14 +28,17 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
+// States
 import { HomeComponent } from './states/home';
 import { SuppliersComponent } from './states/suppliers';
 import { ProjectsComponent } from './states/projects';
 import { HowItWorksComponent } from './states/how-it-works';
-import { SignUpComponent } from './states/sign-up';
-import { LogInComponent } from './states/log-in';
 import { NoContentComponent } from './states/no-content';
+// Directives
 import { MyFormError } from './directives/my-form-error';
+// Services
+import {AuthService} from "./services/auth.service";
+// Components
 import { ProjectFormComponent } from './components/project/project-form.component';
 
 import '../styles/styles.scss';
@@ -43,7 +46,8 @@ import '../styles/styles.scss';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  AuthService
 ];
 
 type StoreType = {
@@ -63,8 +67,6 @@ type StoreType = {
     SuppliersComponent,
     ProjectsComponent,
     HowItWorksComponent,
-    SignUpComponent,
-    LogInComponent,
     NoContentComponent,
     MyFormError,
     ProjectFormComponent

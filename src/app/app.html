@@ -5,7 +5,7 @@
         <img width="200" height="150" [src]="appLogo" [routerLink]="['./']">
       </div>
 
-      <nav class="nav nav-pills nav-fill mt-5 col-sm-8">
+      <nav class="nav nav-pills mt-5 col-sm-6">
         <span class="nav-item" *ngFor="let item of topNav">
           <a class="nav-link text-muted" [routerLink]="[item.link]" routerLinkActive="active"
              [routerLinkActiveOptions]="{exact: true}">
@@ -13,7 +13,20 @@
           </a>
         </span>
       </nav>
+
+      <div class="mt-5 col-sm-3">
+        <button class="btn btn-success font-weight-bold mt-1 pull-right" role="button" *ngIf="!auth.isAuthenticated" (click)="auth.doSignUp()">
+          Sign up
+        </button>
+        <span class="text-muted mt-2 mr-4 pull-right" role="button" *ngIf="!auth.isAuthenticated" (click)="auth.doLogIn()">
+          Log in
+        </span>
+        <span class="text-muted mt-2 pull-right" role="button" *ngIf="auth.isAuthenticated" (click)="auth.doLogOut()">
+          Logout
+        </span>
+      </div>
     </div>
+
   </div>
 </div>
 
