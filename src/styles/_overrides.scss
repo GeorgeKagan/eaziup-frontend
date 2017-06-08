@@ -1,0 +1,16 @@
+// Override auth0 lock widget
+.auth0-lock .auth0-lock-widget {
+  img.auth0-lock-header-logo {
+    width: 200px;
+    height: 150px;
+    position: relative;
+    top: -28px;
+  }
+  .auth0-lock-name {
+    display: none;
+  }
+}
+.auth0-lock-badge-bottom {
+  display: none;
+}
+//end

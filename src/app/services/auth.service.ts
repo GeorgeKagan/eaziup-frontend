@@ -20,7 +20,7 @@ export class AuthService {
       CONFIG.AUTH.DOMAIN, {
         autoclose: true,
         closable: true,
-        rememberLastLogin: true,
+        rememberLastLogin: false,
         language: 'en',
         theme: {
           logo: CONFIG.ASSETS.LOGO,
