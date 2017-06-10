@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {countries} from './data-model';
 import {BuyerInfo, ProjectInfo} from './project';
-import {ProjectService} from '../../services/project/project.service';
+import {ProjectService} from '../../services/project.service';
 import {MyFormComponent} from '../my-form/my-form.component';
 import {slideDown} from '../../consts/animations';
 import {formErrors, validationMessages} from './project-form-errors'
