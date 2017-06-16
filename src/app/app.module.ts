@@ -88,7 +88,8 @@ type StoreType = {
    */
   providers: [
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    {provide: ErrorHandler, useClass: MyErrorHandler}
   ]
 })
 export class AppModule {
