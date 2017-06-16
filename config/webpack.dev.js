@@ -133,6 +133,11 @@ module.exports = function (options) {
        * NOTE: when adding more properties, make sure you include them in custom-typings.d.ts
        */
       new DefinePlugin({
+        'SITE_URL': JSON.stringify('http://localhost:3000'),
+        'API_URL': JSON.stringify('http://localhost:3000/api'),
+        'IS_DEV': JSON.stringify(true),
+        'IS_TEST': JSON.stringify(false),
+        'IS_PROD': JSON.stringify(false),
         'ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR,
         'process.env': {
@@ -149,11 +154,7 @@ module.exports = function (options) {
             {
               name: 'zone.js',
               path: 'zone.js/dist/zone.js'
-            },
-            {
-              name: 'zone.js',
-              path: 'zone.js/dist/long-stack-trace-zone.js'
-            },
+            }
           ],
           vendor: [
             '@angular/platform-browser',

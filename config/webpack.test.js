@@ -202,6 +202,11 @@ module.exports = function (options) {
        * NOTE: when adding more properties make sure you include them in custom-typings.d.ts
        */
       new DefinePlugin({
+        'SITE_URL': JSON.stringify('https://eaziup-test-47293.firebaseapp.com'),
+        'API_URL': JSON.stringify('https://test.eaziup.com/api'),
+        'IS_DEV': JSON.stringify(false),
+        'IS_TEST': JSON.stringify(true),
+        'IS_PROD': JSON.stringify(false),
         'ENV': JSON.stringify(ENV),
         'HMR': false,
         'process.env': {
