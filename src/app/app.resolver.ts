@@ -1,12 +1,12 @@
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import {Restangular} from 'ngx-restangular';
 
 @Injectable()
-export class DataResolver implements Resolve<any> {
+export class CountriesResolver implements Resolve<any> {
+  constructor(private rest: Restangular) {}
   public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return Observable.of({ res: 'I am data'});
+    return this.rest.all('countries').customGET();
   }
 }
 
@@ -14,5 +14,5 @@ export class DataResolver implements Resolve<any> {
  * An array of services to resolve routes with data.
  */
 export const APP_RESOLVER_PROVIDERS = [
-  DataResolver
+  CountriesResolver
 ];

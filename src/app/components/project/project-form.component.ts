@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {countries} from './data-model';
 import {BuyerInfo, ProjectInfo} from './project';
 import {ProjectService} from '../../services/project.service';
 import {MyFormComponent} from '../my-form/my-form.component';
 import {slideDown} from '../../consts/animations';
 import {formErrors, validationMessages} from './project-form-errors'
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'project-form',
@@ -13,12 +13,18 @@ import {formErrors, validationMessages} from './project-form-errors'
   animations: [slideDown]
 })
 export class ProjectFormComponent extends MyFormComponent {
-  countries = countries;
+  countries: string[] = [];
 
-  constructor(private projectService: ProjectService) {
+  constructor(private route: ActivatedRoute,
+              private projectService: ProjectService) {
     super();
+  }
+
+  ngOnInit() {
+    this.init();
     this.setFormErrors(formErrors);
     this.setValidationMessages(validationMessages);
+    this.route.data.subscribe(data => this.countries = data.countries);
   }
 
   /**

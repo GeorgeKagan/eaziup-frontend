@@ -7,24 +7,24 @@ export class MyFormComponent {
   fb: FormBuilder;
   myForm: FormGroup;
   submitted: boolean = false;
-  formErrors = {};
-  validationMessages = {};
+  formErrors: object = {};
+  validationMessages: object = {};
 
   constructor() {
     this.fb = new FormBuilder();
   }
 
   /**
-   * Build the form shortly after component creation
+   * Init the form
    */
-  ngOnInit(): void {
+  public init(): void {
     this.buildForm();
   }
 
   /**
    * Build form and listen for input changes
    */
-  buildForm() {
+  protected buildForm(): void {
     this.myForm.valueChanges
       .subscribe(data => this.onValueChanged());
 
@@ -35,7 +35,7 @@ export class MyFormComponent {
    * Set form errors state map
    * @param errors
    */
-  setFormErrors(errors: object) {
+  public setFormErrors(errors: object): void {
     this.formErrors = errors;
   }
 
@@ -43,7 +43,7 @@ export class MyFormComponent {
    * Set form validation messages map
    * @param messages
    */
-  setValidationMessages(messages: object) {
+  public setValidationMessages(messages: object): void {
     this.validationMessages = messages;
   }
 
@@ -51,7 +51,7 @@ export class MyFormComponent {
    * Called every time a form input changes
    * Clears errors and then sets any that are relevant
    */
-  onValueChanged() {
+  private onValueChanged(): void {
     if (!this.myForm) {
       return;
     }
@@ -84,7 +84,7 @@ export class MyFormComponent {
    * From submit handler
    * Marks all inputs and touched and dirty, so validations would show up
    */
-  onSubmit() {
+  public onSubmit(): void {
     this.markAsTouchedAndDirty(this.myForm);
     this.onValueChanged();
 
@@ -98,7 +98,7 @@ export class MyFormComponent {
    * Used for showing validation messages when submit is clicked
    * @param group
    */
-  markAsTouchedAndDirty(group: FormGroup | FormArray) {
+  private markAsTouchedAndDirty(group: FormGroup | FormArray): void {
     group.markAsTouched();
     group.markAsDirty();
     for (let i in group.controls) {
@@ -119,7 +119,7 @@ export class MyFormComponent {
    * @param inputName
    * @returns {any|boolean}
    */
-  gotError(inputName) {
+  public gotError(inputName): boolean {
     let [group, name] = inputName.split('.');
     return this.formErrors[group][name] && this.myForm.get([group, name]).touched;
   }
@@ -128,7 +128,7 @@ export class MyFormComponent {
    * get the form data
    * @returns {any}
    */
-  getPayload() {
+  public getPayload() {
     return this.myForm.value;
   }
 
@@ -136,7 +136,7 @@ export class MyFormComponent {
    * Is the form valid?
    * @returns {boolean}
    */
-  isValid() {
+  public isValid(): boolean {
     return this.myForm.valid;
   }
 

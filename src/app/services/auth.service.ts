@@ -6,7 +6,7 @@ import {CONFIG} from "../consts/config";
 export class AuthService {
 
   private lock;
-  public profile: Object = {};
+  public profile: object = {};
   public isAuthenticated: boolean = false;
 
   /**

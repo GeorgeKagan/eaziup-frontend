@@ -1,11 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpModule } from '@angular/http';
-import { ReactiveFormsModule } from '@angular/forms';
-import {
-  NgModule,
-  ApplicationRef
-} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpModule} from '@angular/http';
+import {ReactiveFormsModule} from '@angular/forms';
+import {NgModule, ApplicationRef, ErrorHandler} from '@angular/core';
 import {
   removeNgStyles,
   createNewHosts,
@@ -16,31 +13,41 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
+// Conditional modules
+if (IS_DEV) {
+  System.import('mimic').then();
+}
+
+// Third party modules
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
+import {RestangularModule} from 'ngx-restangular';
 
-/*
- * Platform and Environment providers/directives/pipes
- */
-import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
-// App is our top level component
-import { AppComponent } from './app.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AppState, InternalStateType } from './app.service';
+// Platform and Environment providers/directives/pipes
+import {ENV_PROVIDERS} from './environment';
+import {ROUTES} from './app.routes';
+import {AppComponent} from './app.component';
+import {APP_RESOLVER_PROVIDERS} from './app.resolver';
+import {AppState, InternalStateType} from './app.service';
+import {MyErrorHandler} from './my-error-handler';
+
 // States
-import { HomeComponent } from './states/home';
-import { SuppliersComponent } from './states/suppliers';
-import { ProjectsComponent } from './states/projects';
-import { HowItWorksComponent } from './states/how-it-works';
-import { NoContentComponent } from './states/no-content';
+import {HomeComponent} from './states/home';
+import {SuppliersComponent} from './states/suppliers';
+import {ProjectsComponent} from './states/projects';
+import {HowItWorksComponent} from './states/how-it-works';
+import {NoContentComponent} from './states/no-content';
+
 // Directives
-import { MyFormError } from './directives/my-form-error';
+import {MyFormError} from './directives/my-form-error';
+
 // Services
 import {AuthService} from "./services/auth.service";
-// Components
-import { ProjectFormComponent } from './components/project/project-form.component';
 
+// Components
+import {ProjectFormComponent} from './components/project/project-form.component';
+
+// Style
 import '../styles/styles.scss';
 
 // Application wide providers
@@ -56,11 +63,17 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
+export function RestangularConfigFactory(RestangularProvider) {
+  RestangularProvider.setBaseUrl(API_URL);
+  //todo: use jwt here
+  RestangularProvider.setDefaultHeaders({'Authorization': 'Bearer UDXPx-Xko0w4BRKajozCVy20X11MRZs1'});
+}
+
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     HomeComponent,
@@ -79,9 +92,10 @@ type StoreType = {
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
     NgbModule.forRoot(),
-    SlimLoadingBarModule.forRoot()
+    SlimLoadingBarModule.forRoot(),
+    RestangularModule.forRoot(RestangularConfigFactory),
+    RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules})
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
@@ -94,10 +108,9 @@ type StoreType = {
 })
 export class AppModule {
 
-  constructor(
-    public appRef: ApplicationRef,
-    public appState: AppState
-  ) {}
+  constructor(public appRef: ApplicationRef,
+              public appState: AppState) {
+  }
 
   public hmrOnInit(store: StoreType) {
     if (!store || !store.state) {
@@ -135,7 +148,7 @@ export class AppModule {
     /**
      * Save input values
      */
-    store.restoreInputValues  = createInputTransfer();
+    store.restoreInputValues = createInputTransfer();
     /**
      * Remove styles
      */
