@@ -2,6 +2,8 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'home',
@@ -9,9 +11,18 @@ import {
   templateUrl: 'home.component.html'
 })
 export class HomeComponent implements OnInit {
-  constructor() {
+  constructor(private router: Router,
+              private auth: AuthService) {
   }
 
   public ngOnInit() {
+  }
+
+  public addNewProject() {
+    if (this.auth.isAuthenticated) {
+      this.router.navigate(['./new-project']).then();
+    } else {
+      this.auth.doLogIn();
+    }
   }
 }
