@@ -42,7 +42,8 @@ import {NoContentComponent} from './states/no-content';
 import {MyFormError} from './directives/my-form-error';
 
 // Services
-import {AuthService} from "./services/auth.service";
+import {AuthService} from './services/auth.service';
+import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
 
 // Components
 import {ProjectFormComponent} from './components/project/project-form.component';
@@ -54,7 +55,8 @@ import '../styles/styles.scss';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  AuthService
+  AuthService,
+  OnlyLoggedInUsersGuard
 ];
 
 type StoreType = {

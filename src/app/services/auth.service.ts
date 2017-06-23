@@ -6,8 +6,8 @@ import {CONFIG} from "../consts/config";
 export class AuthService {
 
   private lock;
-  public profile: object = {};
-  public isAuthenticated: boolean = false;
+  private _isAuthenticated: boolean = false;
+  private _profile: object = {};
 
   /**
    * Init Auth0 Lock widget and listen for authentication event.
@@ -53,10 +53,9 @@ export class AuthService {
     });
 
     // On page load, set the isAuthenticated variable
-    this.isAuthenticated = !!localStorage.getItem('accessToken');
+    this._isAuthenticated = !!localStorage.getItem('accessToken');
     // Set the profile from local storage
-    this.profile = JSON.parse(localStorage.getItem('profile'));
-    console.log(this.profile);
+    this._profile = JSON.parse(localStorage.getItem('profile'));
   }
 
   /**
@@ -81,5 +80,13 @@ export class AuthService {
     localStorage.removeItem('idToken');
     localStorage.removeItem('profile');
     this.lock.logout({returnTo: window.location.origin});
+  }
+
+  get isAuthenticated() {
+    return this._isAuthenticated;
+  }
+
+  get profile() {
+    return this._profile;
   }
 }

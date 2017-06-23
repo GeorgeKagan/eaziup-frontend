@@ -19,9 +19,9 @@ import {AuthService} from './services/auth.service';
 export class AppComponent implements OnInit {
   public appLogo = 'assets/img/eaziup-logo.png';
   public topNav = [
-    {label: 'Projects', link: './suppliers'},
-    {label: 'Add new project', link: './projects'},
-    {label: 'How it works', link: './how-it-works'}
+    {label: 'Projects', link: './suppliers', isAllowed: true},
+    {label: 'Add new project', link: './projects', isAllowed: this.auth.isAuthenticated},
+    {label: 'How it works', link: './how-it-works', isAllowed: true}
   ];
   public footerNav = [
     {label: 'Company', items: [

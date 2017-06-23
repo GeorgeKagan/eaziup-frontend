@@ -8,7 +8,7 @@
       <nav class="nav nav-pills mt-5 col-sm-6">
         <span class="nav-item" *ngFor="let item of topNav">
           <a class="nav-link text-muted" [routerLink]="[item.link]" routerLinkActive="active"
-             [routerLinkActiveOptions]="{exact: true}">
+             [routerLinkActiveOptions]="{exact: true}" *ngIf="item.isAllowed">
             {{item.label}}
           </a>
         </span>
