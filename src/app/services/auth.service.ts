@@ -82,11 +82,11 @@ export class AuthService {
     this.lock.logout({returnTo: window.location.origin});
   }
 
-  get isAuthenticated() {
+  public get isAuthenticated() {
     return this._isAuthenticated;
   }
 
-  get profile() {
+  public get profile() {
     return this._profile;
   }
 }

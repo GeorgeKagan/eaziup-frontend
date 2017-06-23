@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError} from '@angular/router';
-import {AppState} from './app.service';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {AuthService} from './services/auth.service';
 
@@ -19,8 +18,8 @@ import {AuthService} from './services/auth.service';
 export class AppComponent implements OnInit {
   public appLogo = 'assets/img/eaziup-logo.png';
   public topNav = [
-    {label: 'Projects', link: './suppliers', isAllowed: true},
-    {label: 'Add new project', link: './projects', isAllowed: this.auth.isAuthenticated},
+    {label: 'Projects', link: './projects', isAllowed: true},
+    {label: 'Add new project', link: './new-project', isAllowed: this.auth.isAuthenticated},
     {label: 'How it works', link: './how-it-works', isAllowed: true}
   ];
   public footerNav = [
@@ -53,16 +52,14 @@ export class AppComponent implements OnInit {
   ];
   private sub: any;
 
-  constructor(
-    public appState: AppState,
-    public auth: AuthService,
-    private slimLoader: SlimLoadingBarService,
-    private router: Router
-  ) {
+  constructor(public auth: AuthService,
+              private slimLoader: SlimLoadingBarService,
+              private router: Router) {
+    // Subsribe for router events to display the state loader
     this.sub = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.slimLoader.start();
-      } else if ( event instanceof NavigationEnd ||
+      } else if (event instanceof NavigationEnd ||
         event instanceof NavigationCancel ||
         event instanceof NavigationError) {
         this.slimLoader.complete();
@@ -73,7 +70,7 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
+
   }
 
   ngOnDestroy(): any {
