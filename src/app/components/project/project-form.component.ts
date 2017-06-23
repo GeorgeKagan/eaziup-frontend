@@ -24,6 +24,7 @@ export class ProjectFormComponent extends MyFormComponent {
     this.init();
     this.setFormErrors(formErrors);
     this.setValidationMessages(validationMessages);
+    // All form data is to be fetched via resolves
     this.route.data.subscribe(data => this.countries = data.countries);
   }
 

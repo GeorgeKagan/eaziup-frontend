@@ -15,7 +15,7 @@ import {
 
 // Conditional modules
 if (IS_DEV) {
-  System.import('mimic').then();
+  require('mimic');
 }
 
 // Third party modules
