@@ -1,0 +1,147 @@
+<div [formGroup]="myForm">
+  <section formGroupName="buyerInfo">
+
+    <h5><span>Tell us about yourself</span></h5>
+
+    <!-- FIRST & LAST NAMES -->
+    <div>
+      <div>
+        <label>
+          <strong>First name</strong>
+          <input type="text" formControlName="firstName">
+        </label>
+        <div [@fadeInOut]="gotError('buyerInfo.firstName')" *ngIf="gotError('buyerInfo.firstName')">{{formErrors['buyerInfo']['firstName']}}</div>
+      </div>
+      <div>
+        <label>
+          <strong>Last name</strong>
+          <input type="text" formControlName="lastName">
+        </label>
+        <div [@fadeInOut]="gotError('buyerInfo.lastName')" *ngIf="gotError('buyerInfo.lastName')">{{formErrors['buyerInfo']['lastName']}}</div>
+      </div>
+    </div>
+
+    <!-- CONTACT E-MAIL -->
+    <div>
+      <div>
+        <label>
+          <strong>Contact email</strong>
+          <input type="text" formControlName="contactEmail">
+        </label>
+        <div [@fadeInOut]="gotError('buyerInfo.contactEmail')" *ngIf="gotError('buyerInfo.contactEmail')">{{formErrors['buyerInfo']['contactEmail']}}</div>
+      </div>
+    </div>
+
+    <!-- PHONE -->
+    <div>
+      <div>
+        <label>
+          <strong>Contact phone</strong>
+          <input type="text" formControlName="contactPhone">
+        </label>
+        <div [@fadeInOut]="gotError('buyerInfo.contactPhone')" *ngIf="gotError('buyerInfo.contactPhone')">{{formErrors['buyerInfo']['contactPhone']}}</div>
+      </div>
+    </div>
+
+    <h5><span>Where are you located?</span></h5>
+
+    <!-- COUNTRY & CITY -->
+    <div>
+      <div>
+        <label>
+          <strong>Country</strong>
+          <select formControlName="country">
+            <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+          </select>
+        </label>
+        <div [@fadeInOut]="gotError('buyerInfo.country')" *ngIf="gotError('buyerInfo.country')">{{formErrors['buyerInfo']['country']}}</div>
+      </div>
+      <div>
+        <label>
+          <strong>City</strong>
+          <select formControlName="city">
+            <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+          </select>
+        </label>
+        <div [@fadeInOut]="gotError('buyerInfo.city')" *ngIf="gotError('buyerInfo.city')">{{formErrors['buyerInfo']['city']}}</div>
+      </div>
+    </div>
+
+    <!-- ADDRESS LINE 1 -->
+    <div>
+      <div>
+        <label>
+          <strong>Address line 1</strong>
+          <input type="text" formControlName="addressLine1">
+        </label>
+        <div [@fadeInOut]="gotError('buyerInfo.addressLine1')" *ngIf="gotError('buyerInfo.addressLine1')">{{formErrors['buyerInfo']['addressLine1']}}</div>
+      </div>
+    </div>
+
+    <!-- ADDRESS LINE 2 & 3 -->
+    <div>
+      <div>
+        <label>
+          Address line 2
+          <small>(optional)</small>
+          <input type="text" formControlName="addressLine2">
+        </label>
+      </div>
+      <div>
+        <label>
+          Address line 3
+          <small>(optional)</small>
+          <input type="text" formControlName="addressLine3">
+        </label>
+      </div>
+    </div>
+
+    <h5><span>Are you part of a company?</span></h5>
+
+    <!-- COMPANY NAME -->
+    <div>
+      <div>
+        <label>
+          Company name
+          <small>(optional)</small>
+          <input type="text" formControlName="companyName">
+        </label>
+      </div>
+    </div>
+
+    <!-- POSITION -->
+    <div>
+      <div>
+        <label>
+          Position in the company
+          <small>(optional)</small>
+          <input type="text" formControlName="companyPosition">
+        </label>
+      </div>
+    </div>
+
+    <!-- WHAT COMPANY DOES -->
+    <div>
+      <div>
+        <label>
+          <strong>What does your company do?</strong>
+          <small>This information will not be disclosed to the supplier until the project is allocated to a supplier.</small>
+          <textarea formControlName="whatCompanyDoes"></textarea>
+        </label>
+        <div [@fadeInOut]="gotError('buyerInfo.whatCompanyDoes')" *ngIf="gotError('buyerInfo.whatCompanyDoes')">{{formErrors['buyerInfo']['whatCompanyDoes']}}</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Continue button -->
+  <div class="ez-buttons d-flex justify-content-start">
+    <div class="ml-auto">
+      <small class="ml-3 mr-3">* Psst, <strong>bold</strong> fields are mandatory!</small>
+      <button class="btn btn-lg btn-success" type="button" role="button" nextStep [disabled]="myForm.controls.buyerInfo.invalid">
+        Continue<i class="fa fa-angle-right ml-2 font-weight-bold"></i>
+      </button>
+    </div>
+  </div>
+
+</div>

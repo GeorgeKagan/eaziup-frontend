@@ -41,9 +41,9 @@ import {AuthService} from './services/auth.service';
 import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
 
 // Components
-import {ProjectFormComponent} from './components/project/project-form.component';
-import {ProjectFormBuyerInfoComponent} from './components/project/project-form-buyer-info.component';
-import {ProjectFormProjectInfoComponent} from './components/project/project-form-project-info.component';
+import {ProjectFormComponent} from './components/project-form/project-form.component';
+import {ProjectFormBuyerInfoComponent} from './components/project-form/project-form-buyer-info.component';
+import {ProjectFormProjectInfoComponent} from './components/project-form/project-form-project-info.component';
 
 // Style
 import '../styles/styles.scss';

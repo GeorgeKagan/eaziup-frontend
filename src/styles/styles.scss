@@ -8,18 +8,21 @@
 /* FORM */
 
 form {
+  @extend .pt-3;
+
   // Row
   section {
-    padding: 60px 0 30px 0;
+    padding: 40px 0 30px 0;
 
     > div {
       @extend .row;
       width: 100%;
+      padding: 0 15px;
 
       // A form group (col)
       > div {
         @extend .form-group;
-        @extend .col-md-5;
+        @extend .col-md-6;
 
         // Label
         > label {
@@ -28,6 +31,7 @@ form {
 
           strong {
             @extend .text-muted;
+            display: block;
           }
           small {
             @extend .text-muted;
@@ -36,9 +40,14 @@ form {
           // Inputs
 
           > input,
+          > textarea,
           > select {
             @extend .mt-2;
             @extend .form-control;
+          }
+
+          > textarea {
+            min-height: 100px;
           }
 
           > select {
@@ -66,9 +75,26 @@ form {
   }
 
   h5 {
-    @extend .mt-4;
+    @extend .mt-5;
     @extend .mb-5;
-    @extend .text-success;
+    color: $ez_green;
+    font-weight: normal;
+    text-align: center;
+    position: relative;
+    span {
+      display: inline-block;
+      background: $ez_white;
+      position: relative;
+      padding: 0 20px;
+    }
+    &:before {
+      content: '';
+      border-top: 1px solid hsla(0, 0, 0, 0.1);
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 50%;
+    }
   }
 }
 

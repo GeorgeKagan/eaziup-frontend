@@ -1,4 +1,5 @@
 import {FormBuilder, FormGroup, FormControl, FormArray} from '@angular/forms';
+import {CONFIG} from '../../consts/config';
 
 /**
  * Base form component
@@ -71,9 +72,13 @@ export class MyFormComponent {
           const messages = this.validationMessages[group][field];
 
           // If the control has errors, set for display as defined in validationMessages
-          for (const key in control.errors) {
-            if (!control.errors.hasOwnProperty(key)) { break; }
-            this.formErrors[group][field] += messages[key] + ' ';
+          if (CONFIG.FORM.IS_SHOW_ONE_ERROR) {
+            this.formErrors[group][field] = messages[Object.keys(control.errors)[0]] + ' ';
+          } else {
+            for (const key in control.errors) {
+              if (!control.errors.hasOwnProperty(key)) { break; }
+              this.formErrors[group][field] += messages[key] + ' ';
+            }
           }
         }
       }

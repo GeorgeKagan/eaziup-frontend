@@ -1,8 +1,14 @@
-<form class="pt-2" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
 
   <wizard [navBarLayout]="'large-filled-symbols'">
     <wizard-step data-title="General" navigationSymbol="1">
-      <project-form-buyer-info [myForm]="myForm" [countries]="countries" [formErrors]="formErrors" [gotError]="gotError"></project-form-buyer-info>
+      <project-form-buyer-info
+        [myForm]="myForm"
+        [formErrors]="formErrors"
+        [gotError]="gotError"
+        [countries]="countries"
+        [cities]="cities"
+      ></project-form-buyer-info>
     </wizard-step>
 
     <wizard-step data-title="Project info" navigationSymbol="2">

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BuyerInfo, ProjectInfo} from './project';
+import {BuyerInfo, ProjectInfo} from './project-form-model';
 import {ProjectService} from '../../services/project.service';
 import {MyFormComponent} from '../my-form/my-form.component';
 import {formErrors, validationMessages} from './project-form-errors'
@@ -12,6 +12,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProjectFormComponent extends MyFormComponent {
   countries: string[] = [];
+  cities: string[] = [];
 
   constructor(private route: ActivatedRoute,
               private projectService: ProjectService) {
@@ -23,7 +24,10 @@ export class ProjectFormComponent extends MyFormComponent {
     this.setFormErrors(formErrors);
     this.setValidationMessages(validationMessages);
     // All form data is to be fetched via resolves
-    this.route.data.subscribe(data => this.countries = data.countries);
+    this.route.data.subscribe(data => {
+      this.countries = data.countries;
+      this.cities = data.cities;
+    });
   }
 
   /**

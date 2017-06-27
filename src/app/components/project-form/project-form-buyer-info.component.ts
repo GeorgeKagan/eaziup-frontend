@@ -12,4 +12,5 @@ export class ProjectFormBuyerInfoComponent {
   @Input() formErrors: object = {};
   @Input() gotError: Function;
   @Input() countries: string[] = [];
+  @Input() cities: string[] = [];
 }

@@ -6,7 +6,15 @@ import {Restangular} from 'ngx-restangular';
 export class CountriesResolver implements Resolve<any> {
   constructor(private rest: Restangular) {}
   public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.rest.all('countries').customGET();
+    return this.rest.all('countries').customGET().toPromise();
+  }
+}
+
+@Injectable()
+export class CitiesResolver implements Resolve<any> {
+  constructor(private rest: Restangular) {}
+  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.rest.all('cities').customGET().toPromise();
   }
 }
 
@@ -14,5 +22,6 @@ export class CountriesResolver implements Resolve<any> {
  * An array of services to resolve routes with data.
  */
 export const APP_RESOLVER_PROVIDERS = [
-  CountriesResolver
+  CountriesResolver,
+  CitiesResolver
 ];
