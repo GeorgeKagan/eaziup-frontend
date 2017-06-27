@@ -1,6 +1,8 @@
 export const formErrors = {
   buyerInfo: {
     companyName: '',
+    firstName: '',
+    lastName: '',
     country: ''
   },
   projectInfo: {
@@ -13,6 +15,12 @@ export const validationMessages = {
     companyName: {
       required: 'Company name is required.',
       minlength: 'Company name must be at least 4 characters long.'
+    },
+    firstName: {
+      required: 'First name is required.'
+    },
+    lastName: {
+      required: 'Last name is required.'
     },
     country: {
       required: 'Country is required.'

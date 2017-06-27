@@ -1,52 +1,46 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
 
-    <section formGroupName="buyerInfo">
+  <wizard [navBarLayout]="'large-filled-symbols'">
+    <wizard-step data-title="General" navigationSymbol="1">
+      <project-form-buyer-info [myForm]="myForm" [countries]="countries" [formErrors]="formErrors" [gotError]="gotError"></project-form-buyer-info>
+    </wizard-step>
 
-        <!-- COMPANY NAME -->
-        <div>
-            <label>
-                Company name
-                <small>(optional)</small>
-                <input type="text" formControlName="companyName">
-            </label>
+    <wizard-step data-title="Project info" navigationSymbol="2">
+      <project-form-project-info [myForm]="myForm" [formErrors]="formErrors" [gotError]="gotError"></project-form-project-info>
+    </wizard-step>
+
+    <wizard-step data-title="Team" navigationSymbol="3">
+      <section>
+        Content of Step 3
+      </section>
+      <div class="ez-buttons d-flex justify-content-start">
+        <button class="btn btn-secondary" type="button" role="button" previousStep>
+          <i class="fa fa-angle-left mr-2 font-weight-bold"></i>Go back
+        </button>
+        <div class="ml-auto">
+          <small class="ml-3 mr-3">* Psst, <strong>bold</strong> fields are mandatory!</small>
+          <button class="btn btn-lg btn-success" type="button" role="button" nextStep [disabled]="myForm.controls.projectInfo.invalid">
+            Continue<i class="fa fa-angle-right ml-2 font-weight-bold"></i>
+          </button>
         </div>
+      </div>
+    </wizard-step>
 
-        <div></div>
+    <wizard-step data-title="Payment" navigationSymbol="4">
+      <section>
+        Content of Step 4
+      </section>
+      <div class="ez-buttons d-flex justify-content-start">
+        <button class="btn btn-secondary" type="button" role="button" previousStep>Go back</button>
+        <button class="ml-auto btn btn-lg btn-success" type="submit" role="button" nextStep>Submit your project</button>
+      </div>
+    </wizard-step>
 
-        <!-- COUNTRY -->
-        <div>
-            <label>
-                Country
-                <select formControlName="country">
-                    <option *ngFor="let country of countries" [value]="country">{{country}}</option>
-                </select>
-            </label>
-            <div [@fadeInOut]="gotError('buyerInfo.country')" *ngIf="gotError('buyerInfo.country')">{{formErrors['buyerInfo']['country']}}</div>
-        </div>
+    <wizard-completion-step data-title="Done" navigationSymbol="5">
+      <section>Thanks!</section>
+    </wizard-completion-step>
+  </wizard>
 
-    </section>
-
-    <h5>Project / Job Information</h5>
-
-    <section formGroupName="projectInfo">
-
-        <!-- COMPANY NAME -->
-        <div>
-            <label>
-                Project name
-                <input type="text" formControlName="projectName">
-            </label>
-            <div [@fadeInOut]="gotError('projectInfo.projectName')" *ngIf="gotError('projectInfo.projectName')">{{formErrors['projectInfo']['projectName']}}</div>
-        </div>
-
-    </section>
-
-    <section>
-        <!-- SUBMIT -->
-        <div>
-            <button type="submit" role="button">Submit your project</button>
-        </div>
-    </section>
 
 </form>
 

@@ -2,6 +2,8 @@ import {Validators} from '@angular/forms';
 
 export class BuyerInfo {
   companyName = [''];
+  firstName = ['', Validators.required];
+  lastName = ['', Validators.required];
   country = ['', Validators.required];
 }
 

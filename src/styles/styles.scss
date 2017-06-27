@@ -9,66 +9,66 @@
 
 form {
   // Row
-  > section {
-    @extend .row;
+  section {
+    padding: 60px 0 30px 0;
 
-    // A form group (col)
     > div {
-      @extend .form-group;
-      @extend .col-md-5;
+      @extend .row;
+      width: 100%;
 
-      // Label
-      > label {
-        @extend .form-control-label;
-        display: block;
-
-        small {
-          @extend .text-muted;
-        }
-
-        // Inputs
-
-        > input,
-        > select {
-          @extend .mt-2;
-          @extend .form-control;
-        }
-
-        > select {
-          @extend .custom-select;
-        }
-
-        // end Inputs
-      }
-      // end Label
-
-      // Error message
+      // A form group (col)
       > div {
-        @extend .alert;
-        @extend .alert-danger;
-        @extend .mt-2;
-        max-height: 50px;
+        @extend .form-group;
+        @extend .col-md-5;
+
+        // Label
+        > label {
+          @extend .form-control-label;
+          display: block;
+
+          strong {
+            @extend .text-muted;
+          }
+          small {
+            @extend .text-muted;
+          }
+
+          // Inputs
+
+          > input,
+          > select {
+            @extend .mt-2;
+            @extend .form-control;
+          }
+
+          > select {
+            @extend .custom-select;
+          }
+
+          // end Inputs
+        }
+        // end Label
+
+        // Error message
+        > div {
+          @extend .alert;
+          @extend .alert-danger;
+          @extend .mt-2;
+          max-height: 50px;
+        }
       }
     }
+  }
+
+  // Buttons row
+  .ez-buttons {
+    @extend .mt-5;
   }
 
   h5 {
     @extend .mt-4;
     @extend .mb-5;
     @extend .text-success;
-  }
-
-  // Last row
-  > section:last-child {
-    > div {
-      @extend .mt-5;
-
-      > [type="submit"] {
-        @extend .btn;
-        @extend .btn-success;
-        @extend .btn-lg;
-      }
-    }
   }
 }
 

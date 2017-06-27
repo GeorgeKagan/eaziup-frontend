@@ -2,15 +2,13 @@ import {Component} from '@angular/core';
 import {BuyerInfo, ProjectInfo} from './project';
 import {ProjectService} from '../../services/project.service';
 import {MyFormComponent} from '../my-form/my-form.component';
-import {slideDown} from '../../consts/animations';
 import {formErrors, validationMessages} from './project-form-errors'
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'project-form',
   templateUrl: './project-form.component.html',
-  providers: [ProjectService],
-  animations: [slideDown]
+  providers: [ProjectService]
 })
 export class ProjectFormComponent extends MyFormComponent {
   countries: string[] = [];
