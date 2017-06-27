@@ -17,6 +17,7 @@ if (IS_DEV) {
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {RestangularModule} from 'ngx-restangular';
+import {WizardModule} from "ng2-archwizard/dist";
 
 // Platform and Environment providers/directives/pipes
 import {ENV_PROVIDERS} from './environment';
@@ -81,6 +82,7 @@ export function RestangularConfigFactory(RestangularProvider) {
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpModule,
+    WizardModule,
     NgbModule.forRoot(),
     SlimLoadingBarModule.forRoot(),
     RestangularModule.forRoot(RestangularConfigFactory),

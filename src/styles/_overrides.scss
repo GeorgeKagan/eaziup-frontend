@@ -1,3 +1,5 @@
+@import './_variables';
+
 // Override auth0 lock widget
 .auth0-lock .auth0-lock-widget {
   img.auth0-lock-header-logo {
@@ -12,5 +14,25 @@
 }
 .auth0-lock-badge-bottom {
   display: none;
+}
+//end
+
+// Override archwizard
+.horizontal.large-filled-symbols ul.steps-indicator li:after {
+  line-height: 47px !important;
+}
+// Current step
+.horizontal.large-filled-symbols ul.steps-indicator li.current:after,
+// Editing (went back)
+.horizontal.large-filled-symbols ul.steps-indicator li.editing:after {
+  background: $orange !important;
+  font-weight: bold;
+  color: #fff !important;
+  text-shadow: 1px 1px 3px hsla(0, 0, 0, 0.5);
+  font-size: 1.2rem;
+}
+// Complete step
+.horizontal.large-filled-symbols ul.steps-indicator li.done:after {
+  background: $green !important;
 }
 //end
