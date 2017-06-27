@@ -1,4 +1,4 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+<form class="pt-2" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
 
   <wizard [navBarLayout]="'large-filled-symbols'">
     <wizard-step data-title="General" navigationSymbol="1">
@@ -45,6 +45,5 @@
 </form>
 
 <!--<br><br>-->
-<!--<p>Street value: {{ heroForm.get('address.street').value}}</p>-->
 <!--<p>Form value: {{ myForm.value | json }}</p>-->
 <!--<p>Form status: {{ myForm.status | json }}</p>-->
