@@ -44,6 +44,7 @@ form {
           > select {
             @extend .mt-2;
             @extend .form-control;
+            @extend .text-muted;
           }
 
           > textarea {

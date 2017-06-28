@@ -12,7 +12,13 @@
     </wizard-step>
 
     <wizard-step data-title="Project info" navigationSymbol="2">
-      <project-form-project-info [myForm]="myForm" [formErrors]="formErrors" [gotError]="gotError"></project-form-project-info>
+      <project-form-project-info
+        [myForm]="myForm"
+        [formErrors]="formErrors"
+        [gotError]="gotError"
+        [cats]="cats"
+        [subCats]="subCats"
+      ></project-form-project-info>
     </wizard-step>
 
     <wizard-step data-title="Team" navigationSymbol="3">

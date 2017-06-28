@@ -6,9 +6,34 @@
       <div>
         <label>
           <strong>Project name</strong>
+          <small>
+            The name of your project is not displayed publicly on the system to suppliers and will not be
+            searchable by project searchers. The name is only revealed to the supplier / suppliers once
+            the project has been allocated to them. Initially, a temporary name will be used such as PROJECT4435.
+          </small>
           <input type="text" formControlName="projectName">
         </label>
         <div [@fadeInOut]="gotError('projectInfo.projectName')" *ngIf="gotError('projectInfo.projectName')">{{formErrors['projectInfo']['projectName']}}</div>
+      </div>
+    </div>
+
+    <!-- CATEGORY & SUB CATEGORY -->
+    <div>
+      <div>
+        <label>
+          <strong>Category</strong>
+          <select formControlName="cat">
+            <option *ngFor="let cat of cats" [value]="cat">{{cat}}</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label>
+          <strong>Sub Category</strong>
+          <select formControlName="subCat">
+            <option *ngFor="let subCat of subCats" [value]="subCat">{{subCat}}</option>
+          </select>
+        </label>
       </div>
     </div>
 

@@ -18,10 +18,28 @@ export class CitiesResolver implements Resolve<any> {
   }
 }
 
+@Injectable()
+export class CatsResolver implements Resolve<any> {
+  constructor(private rest: Restangular) {}
+  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.rest.all('cats').customGET().toPromise();
+  }
+}
+
+@Injectable()
+export class SubCatsResolver implements Resolve<any> {
+  constructor(private rest: Restangular) {}
+  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.rest.all('subCats').customGET().toPromise();
+  }
+}
+
 /**
  * An array of services to resolve routes with data.
  */
 export const APP_RESOLVER_PROVIDERS = [
   CountriesResolver,
-  CitiesResolver
+  CitiesResolver,
+  CatsResolver,
+  SubCatsResolver
 ];

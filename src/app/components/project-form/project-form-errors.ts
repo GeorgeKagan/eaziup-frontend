@@ -6,8 +6,6 @@ export const formErrors = {
     companyPosition: '',
     contactEmail: '',
     contactPhone: '',
-    country: '',
-    city: '',
     addressLine1: '',
     addressLine2: '',
     addressLine3: '',
@@ -32,12 +30,6 @@ export const validationMessages = {
     },
     contactPhone: {
       required: 'Contact phone is required'
-    },
-    country: {
-      required: 'Country is required'
-    },
-    city: {
-      required: 'City is required'
     },
     addressLine1: {
       required: 'Address line 1 is required'

@@ -13,6 +13,8 @@ import {ActivatedRoute} from "@angular/router";
 export class ProjectFormComponent extends MyFormComponent {
   countries: string[] = [];
   cities: string[] = [];
+  cats: string[] = [];
+  subCats: string[] = [];
 
   constructor(private route: ActivatedRoute,
               private projectService: ProjectService) {
@@ -27,6 +29,8 @@ export class ProjectFormComponent extends MyFormComponent {
     this.route.data.subscribe(data => {
       this.countries = data.countries;
       this.cities = data.cities;
+      this.cats = data.cats;
+      this.subCats = data.subCats;
     });
   }
 

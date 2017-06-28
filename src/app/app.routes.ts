@@ -4,7 +4,7 @@ import {ProjectsComponent} from './states/projects';
 import {NewProjectComponent} from './states/new-project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
-import {CountriesResolver, CitiesResolver} from './app.resolver';
+import {CountriesResolver, CitiesResolver, CatsResolver, SubCatsResolver} from './app.resolver';
 import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
 
 export const ROUTES: Routes = [
@@ -15,7 +15,9 @@ export const ROUTES: Routes = [
     component: NewProjectComponent,
     resolve: {
       countries: CountriesResolver,
-      cities: CitiesResolver
+      cities: CitiesResolver,
+      cats: CatsResolver,
+      subCats: SubCatsResolver,
     },
     canActivate: [OnlyLoggedInUsersGuard]
   },
