@@ -51,17 +51,16 @@
         <label>
           <strong>Country</strong>
           <select formControlName="country">
-            <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+            <option *ngFor="let country of countries" [value]="country.id">{{country.label}}</option>
           </select>
         </label>
       </div>
       <div>
         <label>
           <strong>City</strong>
-          <select formControlName="city">
-            <option *ngFor="let city of cities" [value]="city">{{city}}</option>
-          </select>
+          <input type="text" formControlName="city">
         </label>
+        <div [@fadeInOut]="gotError('buyerInfo.city')" *ngIf="gotError('buyerInfo.city')">{{formErrors['buyerInfo']['city']}}</div>
       </div>
     </div>
 

@@ -3,6 +3,7 @@ export const formErrors = {
     companyName: '',
     firstName: '',
     lastName: '',
+    city: '',
     companyPosition: '',
     contactEmail: '',
     contactPhone: '',
@@ -23,6 +24,9 @@ export const validationMessages = {
     },
     lastName: {
       required: 'Last name is required'
+    },
+    city: {
+      required: 'City is required'
     },
     contactEmail: {
       required: 'Contact email is required',

@@ -20,7 +20,7 @@ export class BuyerInfo {
       this.lastName[0] = 'Kagan';
       this.contactEmail[0] = 'georgekagan@gmail.com';
       this.contactPhone[0] = '+972546253553';
-      this.country[0] = 'Israel';
+      this.country[0] = '1';
       this.city[0] = 'Lod';
       this.addressLine1[0] = 'Hativat Harel 4/7';
       this.addressLine2[0] = 'Entrance B';
@@ -34,13 +34,11 @@ export class BuyerInfo {
 export class ProjectInfo {
   projectName = ['', [Validators.required, Validators.minLength(4)]];
   cat = ['', Validators.required];
-  subCat = ['', Validators.required];
 
   constructor() {
     if (IS_DEV) {
       this.projectName[0] = 'Expensr';
-      this.cat[0] = 'Software';
-      this.subCat[0] = 'Web Application';
+      this.cat[0] = '1';
     }
   }
 }

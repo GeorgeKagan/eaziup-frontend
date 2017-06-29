@@ -17,21 +17,15 @@
       </div>
     </div>
 
-    <!-- CATEGORY & SUB CATEGORY -->
+    <!-- CATEGORY -->
     <div>
       <div>
         <label>
           <strong>Category</strong>
           <select formControlName="cat">
-            <option *ngFor="let cat of cats" [value]="cat">{{cat}}</option>
-          </select>
-        </label>
-      </div>
-      <div>
-        <label>
-          <strong>Sub Category</strong>
-          <select formControlName="subCat">
-            <option *ngFor="let subCat of subCats" [value]="subCat">{{subCat}}</option>
+            <optgroup [label]="group.label" *ngFor="let group of cats">
+              <option *ngFor="let cat of group.cats" [value]="cat.id">{{cat.label}}</option>
+            </optgroup>
           </select>
         </label>
       </div>

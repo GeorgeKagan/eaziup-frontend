@@ -12,5 +12,4 @@ export class ProjectFormProjectInfoComponent {
   @Input() formErrors: object = {};
   @Input() gotError: Function;
   @Input() cats: string[] = [];
-  @Input() subCats: string[] = [];
 }
