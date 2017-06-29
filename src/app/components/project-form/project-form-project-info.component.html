@@ -6,13 +6,19 @@
       <div>
         <label>
           <strong>Project name</strong>
-          <small>
-            The name of your project is not displayed publicly on the system to suppliers and will not be
-            searchable by project searchers. The name is only revealed to the supplier / suppliers once
-            the project has been allocated to them. Initially, a temporary name will be used such as PROJECT4435.
-          </small>
           <input type="text" formControlName="projectName">
         </label>
+        <ng-template #projectNameTooltip>
+          <p>
+            The name of your project is not displayed publicly on the system to suppliers and will not be
+            searchable by project searchers.
+          </p>
+          <p>
+            The name is only revealed to the supplier / suppliers once
+            the project has been allocated to them. Initially, a temporary name will be used such as <strong>PROJECT4435</strong>.
+          </p>
+        </ng-template>
+        <i class="fa fa-question-circle" triggers="click:blur" tabindex="0" container="body" [ngbTooltip]="projectNameTooltip"></i>
         <div [@fadeInOut]="gotError('projectInfo.projectName')" *ngIf="gotError('projectInfo.projectName')">{{formErrors['projectInfo']['projectName']}}</div>
       </div>
     </div>
@@ -28,6 +34,34 @@
             </optgroup>
           </select>
         </label>
+      </div>
+    </div>
+
+    <!-- BASIC DESCRIPTION -->
+    <div>
+      <div>
+        <label>
+          <strong>Basic description of project</strong>
+          <textarea formControlName="basicDesc"></textarea>
+        </label>
+        <ng-template #basicDescTooltip>
+          <strong>Do not provide any detailed information.</strong>
+          <p>
+            Give information about the basic type of
+            features the system must include. This is what is publicly made available on the system
+            and is marketed on the site for suppliers to view and search and should not give away
+            any of your ideas or secrets.
+          </p>
+          Ideas for describing basic features about your software requirements:
+          <ul>
+            <li>Searchable database of subscribers</li>
+            <li>Ability to search web-sites for specifics types of information</li>
+            <li>Creation of a results table based on rankings</li>
+          </ul>
+          List all basic features in the box below so suppliers have a rough idea what you require.
+        </ng-template>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="basicDescTooltip"></i>
+        <div [@fadeInOut]="gotError('projectInfo.basicDesc')" *ngIf="gotError('projectInfo.basicDesc')">{{formErrors['projectInfo']['basicDesc']}}</div>
       </div>
     </div>
 

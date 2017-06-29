@@ -26,7 +26,8 @@ export class BuyerInfo {
       this.addressLine2[0] = 'Entrance B';
       this.companyName[0] = 'Expensr';
       this.companyPosition[0] = 'Lead Front-End Developer';
-      this.whatCompanyDoes[0] = 'My product strives to make sense in the sea of monthly expenses that most of the people are in. I try to help make right decisions in the pursuit of more savings each month.'
+      this.whatCompanyDoes[0] = 'My product strives to make sense in the sea of monthly expenses that most of the people are in. ' +
+        'I try to help make right decisions in the pursuit of more savings each month.'
     }
   }
 }
@@ -34,11 +35,15 @@ export class BuyerInfo {
 export class ProjectInfo {
   projectName = ['', [Validators.required, Validators.minLength(4)]];
   cat = ['', Validators.required];
+  basicDesc = ['', Validators.required];
 
   constructor() {
     if (IS_DEV) {
       this.projectName[0] = 'Expensr';
       this.cat[0] = '1';
+      this.basicDesc[0] = 'Searchable database of subscribers\n' +
+        'Ability to search web-sites for specifics types of information\n' +
+        'Creation of a results table based on rankings';
     }
   }
 }

@@ -54,3 +54,31 @@
 }
 
 /** end **/
+
+
+
+/** Override ngb tooltip **/
+
+ngb-tooltip-window.tooltip.show {
+  opacity: 1;
+  div.tooltip-inner {
+    max-width: 500px;
+    padding: 15px 25px 20px 25px;
+    color: #222;
+    text-align: inherit;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    line-height: 25px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    p:last-child {
+      margin-bottom: 0;
+    }
+    &::before {
+      border-top-color: #ccc;
+    }
+  }
+}
+
+/** end **/

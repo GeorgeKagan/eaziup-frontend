@@ -29,11 +29,10 @@ form {
           @extend .form-control-label;
           display: block;
 
-          strong {
-            @extend .text-muted;
+          > strong {
             display: block;
           }
-          small {
+          strong, small {
             @extend .text-muted;
           }
 
@@ -45,10 +44,12 @@ form {
             @extend .mt-2;
             @extend .form-control;
             @extend .text-muted;
+            font-family: $font-family-base;
           }
 
           > textarea {
-            min-height: 100px;
+            min-height: 120px;
+            line-height: 22px;
           }
 
           > select {
@@ -58,6 +59,17 @@ form {
           // end Inputs
         }
         // end Label
+
+        // Tooltip
+        > i.fa {
+          position: absolute;
+          top: 5px;
+          right: 15px;
+          cursor: pointer;
+          outline: none;
+          color: $ez_green;
+        }
+        // end Tooltip
 
         // Error message
         > div {

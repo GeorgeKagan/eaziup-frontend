@@ -13,7 +13,8 @@ export const formErrors = {
     whatCompanyDoes: ''
   },
   projectInfo: {
-    projectName: ''
+    projectName: '',
+    basicDesc: ''
   }
 };
 
@@ -46,6 +47,9 @@ export const validationMessages = {
     projectName: {
       required: 'Project name is required',
       minlength: 'Project name must be at least 4 characters long'
+    },
+    basicDesc: {
+      required: 'Basic description is required',
     }
   }
 };
