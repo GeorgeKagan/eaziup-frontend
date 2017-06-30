@@ -17,7 +17,6 @@ form {
     > div {
       @extend .row;
       width: 100%;
-      padding: 0 15px;
 
       // A form group (col)
       > div {
@@ -28,12 +27,11 @@ form {
         > label {
           @extend .form-control-label;
           display: block;
+          color: $ez_cream_darker2;
 
           > strong {
             display: block;
-          }
-          strong, small {
-            @extend .text-muted;
+            font-weight: 500;
           }
 
           // Inputs
@@ -44,7 +42,6 @@ form {
             @extend .mt-2;
             @extend .form-control;
             @extend .text-muted;
-            font-family: $font-family-base;
           }
 
           > textarea {
@@ -86,29 +83,53 @@ form {
   .ez-buttons {
     @extend .mt-5;
   }
+}
 
-  h5 {
-    @extend .mt-5;
-    @extend .mb-5;
-    color: $ez_green;
-    font-weight: normal;
-    text-align: center;
-    position: relative;
-    span {
-      display: inline-block;
-      background: $ez_white;
-      position: relative;
-      padding: 0 20px;
-    }
-    &:before {
-      content: '';
-      border-top: 1px solid hsla(0, 0, 0, 0.1);
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 50%;
-    }
+button, input, optgroup, select, textarea {
+  font-family: $font-family-base;
+}
+
+input, optgroup, select, textarea {
+  border: 1px solid $ez_cream_darker !important;
+  &:focus {
+    border-color: $ez_orange !important;
   }
 }
 
 /* end FORM */
+
+
+
+/* BASIC UI */
+
+h3 {
+  color: $ez_cream_darker2;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+h5 {
+  @extend .mt-3;
+  @extend .mb-4;
+  color: $ez_green;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  text-transform: capitalize;
+  span {
+    display: inline-block;
+    background: $ez_cream;
+    position: relative;
+    padding: 0 10px;
+  }
+  &:before {
+    content: '';
+    border-top: 1px solid $ez_cream_darker;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+  }
+}
+
+/* end BASIC UI */

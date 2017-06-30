@@ -1,5 +1,14 @@
 @import './_variables';
 
+/** Override auth0 lock widget **/
+
+button.btn-lg,
+.btn-group-lg > button.btn {
+  padding: 0.75rem 1.5rem 0.95rem 1.5rem;
+}
+
+/** end */
+
 
 
 /** Override auth0 lock widget **/
@@ -20,26 +29,41 @@
   display: none;
 }
 
-/** end*/
+/** end */
 
 
 
 /** Override archwizard **/
 
-// Step circle
-.horizontal.large-filled-symbols ul.steps-indicator li:after {
-  line-height: 47px !important;
+wizard-navigation-bar {
+  margin: 0 0 10px 0;
 }
 
-// Current step
-.horizontal.large-filled-symbols ul.steps-indicator li.current:after,
-// Editing (went back)
-.horizontal.large-filled-symbols ul.steps-indicator li.editing:after {
-  background: $ez_orange !important;
-  font-weight: bold;
-  color: #fff !important;
-  text-shadow: 1px 1px 3px hsla(0, 0, 0, 0.5);
-  font-size: 1.2rem;
+// Step circle
+.horizontal.large-filled-symbols ul.steps-indicator li {
+  a {
+    font-size: 0.9rem !important;
+  }
+  &:after {
+    line-height: 47px !important;
+    background: darken($ez_cream, 10%) !important;
+    font-weight: 500;
+  }
+}
+
+// Current step & editing (went back)
+.horizontal.large-filled-symbols ul.steps-indicator li.current,
+.horizontal.large-filled-symbols ul.steps-indicator li.editing{
+  a {
+    font-weight: 500 !important;
+  }
+  &:after,
+  &:after {
+    background: $ez_orange !important;
+    color: #fff !important;
+    text-shadow: 0 1px 2px hsla(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+  }
 }
 
 // Complete step
@@ -51,6 +75,11 @@
 .horizontal ul.steps-indicator li div a {
   font-weight: normal !important;
   text-transform: none !important;
+}
+
+// Connector
+.horizontal.large-filled-symbols  ul.steps-indicator li:not(:last-child):before {
+  background-color: $ez_cream_darker !important;
 }
 
 /** end **/
@@ -70,13 +99,14 @@ ngb-tooltip-window.tooltip.show {
     border-radius: 0.5rem;
     line-height: 25px;
     border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     cursor: default;
     p:last-child {
       margin-bottom: 0;
     }
     &::before {
-      border-top-color: #ccc;
+      bottom: 1px;
+      border-top-color: #fff;
     }
   }
 }

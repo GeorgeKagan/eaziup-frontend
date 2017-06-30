@@ -5,11 +5,20 @@
 
   .ez-highlights {
     h2 {
-      color: #fafafa;
-      text-shadow: 1px 1px 5px hsla(0, 0, 0, 0.5);
+      color: $ez_cream;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+      font-weight: 500;
+      font-size: 3rem;
     }
     p {
-      color: #eee;
+      color: $ez_cream;
+      padding: 0 10px;
+    }
+    > div {
+      border-right: 1px solid darken($ez_orange, 7%);
+      &:last-child {
+        border: 0;
+      }
     }
   }
 }

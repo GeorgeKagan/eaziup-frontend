@@ -8,7 +8,7 @@ import {
   template: `
     <div class="container pb-5">
       <div class="col-sm-12">
-        <h3 class="mb-4 text-success">Projects</h3>
+        <h3 class="mb-4">Projects</h3>
         <div>
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempor magna ac diam ultricies, a pretium urna blandit. 
