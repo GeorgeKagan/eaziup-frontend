@@ -1,11 +1,14 @@
-<div class="ez-top pb-5">
+<div class="ez-top">
   <div class="container">
     <div class="row">
+      <!-- Logo -->
       <div id="logo" class="col-sm-3">
-        <img width="200" height="150" [src]="appLogo" [routerLink]="['./']">
+        <img width="133" height="100" [src]="appLogo" [routerLink]="['./']">
       </div>
+      <!-- end -->
 
-      <nav class="nav nav-pills mt-5 col-sm-6">
+      <!-- Nav -->
+      <nav class="nav nav-pills col-sm-6">
         <span class="nav-item" *ngFor="let item of topNav">
           <a class="nav-link text-muted" [routerLink]="[item.link]" routerLinkActive="active"
              [routerLinkActiveOptions]="{exact: true}" *ngIf="item.isAllowed">
@@ -13,8 +16,10 @@
           </a>
         </span>
       </nav>
+      <!-- end -->
 
-      <div class="mt-5 col-sm-3">
+      <!-- Aside -->
+      <div class="ez-top-aside col-sm-3">
 
         <!-- Sign up / Log in -->
         <button class="btn btn-success font-weight-bold mt-1 pull-right" role="button" *ngIf="!auth.isAuthenticated" (click)="auth.doSignUp()">
@@ -42,6 +47,7 @@
         <!-- end -->
 
       </div>
+      <!-- end -->
     </div>
 
   </div>

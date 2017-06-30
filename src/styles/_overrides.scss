@@ -59,7 +59,7 @@ wizard-navigation-bar {
   }
   &:after,
   &:after {
-    background: $ez_orange !important;
+    background: $ez_green !important;
     color: #fff !important;
     text-shadow: 0 1px 2px hsla(0, 0, 0, 0.5);
     font-size: 1.2rem;
@@ -68,7 +68,7 @@ wizard-navigation-bar {
 
 // Complete step
 .horizontal.large-filled-symbols ul.steps-indicator li.done:after {
-  background: $ez_green !important;
+  background: lighten($ez_green, 10%) !important;
 }
 
 // Step text
@@ -79,7 +79,7 @@ wizard-navigation-bar {
 
 // Connector
 .horizontal.large-filled-symbols  ul.steps-indicator li:not(:last-child):before {
-  background-color: $ez_cream_darker !important;
+  background-color: darken($ez_cream_darker, 3%) !important;
 }
 
 /** end **/
@@ -89,11 +89,12 @@ wizard-navigation-bar {
 /** Override ngb tooltip **/
 
 ngb-tooltip-window.tooltip.show {
+  margin-top: 0px;
   opacity: 1;
   div.tooltip-inner {
     max-width: 500px;
     padding: 15px 25px 20px 25px;
-    color: #222;
+    color: $ez_cream_darker3;
     text-align: inherit;
     background-color: #fff;
     border-radius: 0.5rem;

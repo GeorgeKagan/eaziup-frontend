@@ -1,35 +1,40 @@
 @import '../styles/variables';
 
-#logo {
-  user-select: none;
-  cursor: default;
-  img {
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    left: 15px;
-    top: -3px;
-  }
-  div {
-    position: relative;
-    top: -30px;
-    left: 14px;
-  }
-}
-
-nav {
-  margin-top: 0;
-
-  &.nav-pills .nav-link.active {
-    color: $ez_cream !important;
-    background-color: $ez_orange;
-  }
-}
-
 .ez-top {
-  background: $ez_cream;
+  background: $ez_white;
+  color: $ez_cream_darker2;
+
+  #logo {
+    user-select: none;
+    cursor: default;
+    img {
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      left: 20px;
+      top: 0;
+    }
+  }
+
+  nav {
+    padding: 30px 0 0 0;
+    text-transform: capitalize;
+
+    &.nav-pills .nav-link.active {
+      color: $ez_cream !important;
+      background-color: $ez_orange;
+      margin: 0 10px;
+    }
+  }
+
+  .ez-top-aside {
+    padding: 30px 0 0 0;
+  }
 }
+
 
 .ez-main {
   background: $ez_cream;
+  padding: 50px 0 0 0;
+  color: $ez_cream_darker2;
 }
