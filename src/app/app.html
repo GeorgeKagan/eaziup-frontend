@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row">
       <!-- Logo -->
-      <div id="logo" class="col-sm-3">
+      <div id="logo" class="col-sm-2">
         <img width="133" height="100" [src]="appLogo" [routerLink]="['./']">
       </div>
       <!-- end -->
 
       <!-- Nav -->
-      <nav class="nav nav-pills col-sm-6">
+      <nav class="nav nav-pills col-sm-7">
         <span class="nav-item" *ngFor="let item of topNav">
           <a class="nav-link text-muted" [routerLink]="[item.link]" routerLinkActive="active"
              [routerLinkActiveOptions]="{exact: true}" *ngIf="item.isAllowed">
@@ -54,6 +54,7 @@
 </div>
 
 <main class="ez-main">
+  <div class="ml-auto mr-auto pb-5 text-success ez-state-loader my-loader" *ngIf="!isResolvesLoaded"><i class="fa fa-circle-o-notch fa-spin fa-2x"></i></div>
   <router-outlet></router-outlet>
 </main>
 

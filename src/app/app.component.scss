@@ -11,7 +11,7 @@
       outline: none;
       cursor: pointer;
       position: relative;
-      left: 20px;
+      left: -20px;
       top: 0;
     }
   }
@@ -34,7 +34,9 @@
 
 
 .ez-main {
+  position: relative;
   background: $ez_cream;
   padding: 50px 0 0 0;
   color: $ez_cream_darker2;
+  min-height: 663px;
 }

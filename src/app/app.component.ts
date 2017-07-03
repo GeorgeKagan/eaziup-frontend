@@ -16,6 +16,7 @@ import {AuthService} from './services/auth.service';
   templateUrl: './app.html'
 })
 export class AppComponent implements OnInit {
+  public isResolvesLoaded: boolean = false;
   public appLogo = 'assets/img/eaziup-logo.png';
   public topNav = [
     {label: 'Projects', link: './projects', isAllowed: true},
@@ -63,6 +64,7 @@ export class AppComponent implements OnInit {
         event instanceof NavigationCancel ||
         event instanceof NavigationError) {
         this.slimLoader.complete();
+        this.isResolvesLoaded = true;
       }
     }, (error: any) => {
       this.slimLoader.complete();

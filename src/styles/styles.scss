@@ -41,7 +41,6 @@ form {
           > select {
             @extend .mt-2;
             @extend .form-control;
-            @extend .text-muted;
           }
 
           > textarea {
@@ -90,6 +89,7 @@ button, input, optgroup, select, textarea {
 }
 
 input, optgroup, select, textarea {
+  color: $ez_cream_darker3 !important;
   border: 1px solid $ez_cream_darker !important;
   &:focus {
     border-color: $ez_orange !important;
