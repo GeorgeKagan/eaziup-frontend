@@ -52,7 +52,7 @@
             and is marketed on the site for suppliers to view and search and should not give away
             any of your ideas or secrets.
           </p>
-          Ideas for describing basic features about your software requirements:
+          <p>Ideas for describing basic features about your software requirements:</p>
           <ul>
             <li>Searchable database of subscribers</li>
             <li>Ability to search web-sites for specifics types of information</li>
@@ -79,6 +79,45 @@
         </ng-template>
         <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="fullDescTooltip"></i>
         <div [@fadeInOut]="gotError('projectInfo.fullDesc')" *ngIf="gotError('projectInfo.fullDesc')">{{formErrors['projectInfo']['fullDesc']}}</div>
+      </div>
+    </div>
+
+    <!-- TECHNOLOGY REQUIREMENTS -->
+    <div>
+      <div>
+        <label>
+          <strong>Technology requirements</strong>
+          <textarea formControlName="techReqs" rows="7"></textarea>
+        </label>
+        <ng-template #techReqsTooltip>
+          Provide information about any technology requirements that are required, such as
+          <em>HTML5, Apple IOS mobile application development, Android application development,
+            CSS, MySQL, Oracle, Java</em> or any other software development technologies required.
+        </ng-template>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="techReqsTooltip"></i>
+        <div [@fadeInOut]="gotError('projectInfo.techReqs')" *ngIf="gotError('projectInfo.techReqs')">{{formErrors['projectInfo']['techReqs']}}</div>
+      </div>
+    </div>
+
+    <!-- SOFTWARE DEVELOPER REQUIREMENTS -->
+    <div>
+      <div>
+        <label>
+          <strong>Software developer requirements</strong>
+          <textarea formControlName="developerReqs"></textarea>
+        </label>
+        <ng-template #developerReqsTooltip>
+          <p>Provide information about any specific skills that the software developers must be
+            proficient in such as:</p>
+          <ul>
+            <li>Fluent English (writing, reading and speaking)</li>
+            <li>Ability to work remotely</li>
+            <li>Project experience of working in HTML5</li>
+            <li>Project experience of working in Java</li>
+          </ul>
+        </ng-template>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="developerReqsTooltip"></i>
+        <div [@fadeInOut]="gotError('projectInfo.developerReqs')" *ngIf="gotError('projectInfo.developerReqs')">{{formErrors['projectInfo']['developerReqs']}}</div>
       </div>
     </div>
 

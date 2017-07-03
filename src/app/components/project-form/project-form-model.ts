@@ -37,6 +37,8 @@ export class ProjectInfo {
   cat = ['', Validators.required];
   basicDesc = ['', Validators.required];
   fullDesc = ['', Validators.required];
+  techReqs = ['', Validators.required];
+  developerReqs = ['', Validators.required];
 
   constructor() {
     if (IS_DEV) {
@@ -46,6 +48,8 @@ export class ProjectInfo {
         'Ability to search web-sites for specifics types of information\n' +
         'Creation of a results table based on rankings';
       this.fullDesc[0] = 'The app will track your expenses and tell your where exactly to cut and what kind of savings you can expect, among other things!';
+      this.techReqs[0] = 'HTML5\nCSS3\nAngular 4\nWebpack 2\nES6'
+      this.developerReqs[0] = 'Fluent English'
     }
   }
 }

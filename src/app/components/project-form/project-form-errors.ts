@@ -15,7 +15,9 @@ export const formErrors = {
   projectInfo: {
     projectName: '',
     basicDesc: '',
-    fullDesc: ''
+    fullDesc: '',
+    techReqs: '',
+    developerReqs: ''
   }
 };
 
@@ -54,6 +56,12 @@ export const validationMessages = {
     },
     fullDesc: {
       required: 'Full description is required',
+    },
+    techReqs: {
+      required: 'Technology requirements are required',
+    },
+    developerReqs: {
+      required: 'Software developer requirements are required',
     }
   }
 };
