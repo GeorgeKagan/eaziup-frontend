@@ -65,6 +65,23 @@
       </div>
     </div>
 
+    <!-- FULL DESCRIPTION -->
+    <div>
+      <div>
+        <label>
+          <strong>Full description of project</strong>
+          <textarea formControlName="fullDesc" rows="10"></textarea>
+        </label>
+        <ng-template #fullDescTooltip>
+          Provide detailed software features and functionality required. This information will only
+          be made available once a <strong>Non-Disclosure and Confidentiality Agreement</strong> is signed by all
+          software development suppliers and is only viewable by them via the system.
+        </ng-template>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="fullDescTooltip"></i>
+        <div [@fadeInOut]="gotError('projectInfo.fullDesc')" *ngIf="gotError('projectInfo.fullDesc')">{{formErrors['projectInfo']['fullDesc']}}</div>
+      </div>
+    </div>
+
   </section>
 
   <div class="ez-buttons d-flex justify-content-start">

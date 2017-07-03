@@ -36,6 +36,7 @@ export class ProjectInfo {
   projectName = ['', [Validators.required, Validators.minLength(4)]];
   cat = ['', Validators.required];
   basicDesc = ['', Validators.required];
+  fullDesc = ['', Validators.required];
 
   constructor() {
     if (IS_DEV) {
@@ -44,6 +45,7 @@ export class ProjectInfo {
       this.basicDesc[0] = 'Searchable database of subscribers\n' +
         'Ability to search web-sites for specifics types of information\n' +
         'Creation of a results table based on rankings';
+      this.fullDesc[0] = 'The app will track your expenses and tell your where exactly to cut and what kind of savings you can expect, among other things!';
     }
   }
 }
