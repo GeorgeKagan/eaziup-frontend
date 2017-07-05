@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {slideDown} from '../../consts/animations';
+import {CONFIG} from "../../consts/config";
 
 @Component({
   selector: 'project-form-project-info',
@@ -12,4 +13,6 @@ export class ProjectFormProjectInfoComponent {
   @Input() formErrors: object = {};
   @Input() gotError: Function;
   @Input() cats: string[] = [];
+
+  operatingSystems = CONFIG.OS;
 }

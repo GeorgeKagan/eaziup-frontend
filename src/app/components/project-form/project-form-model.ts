@@ -1,4 +1,5 @@
-import {Validators} from '@angular/forms';
+import {Validators, FormBuilder} from '@angular/forms';
+import {CONFIG} from "../../consts/config";
 
 export class BuyerInfo {
   firstName = ['', Validators.required];
@@ -39,8 +40,13 @@ export class ProjectInfo {
   fullDesc = ['', Validators.required];
   techReqs = ['', Validators.required];
   developerReqs = ['', Validators.required];
+  osReqs;
 
   constructor() {
+    let fb = new FormBuilder();
+
+    this.buildOsRequirements(fb);
+
     if (IS_DEV) {
       this.projectName[0] = 'Expensr';
       this.cat[0] = '1';
@@ -48,8 +54,21 @@ export class ProjectInfo {
         'Ability to search web-sites for specifics types of information\n' +
         'Creation of a results table based on rankings';
       this.fullDesc[0] = 'The app will track your expenses and tell your where exactly to cut and what kind of savings you can expect, among other things!';
-      this.techReqs[0] = 'HTML5\nCSS3\nAngular 4\nWebpack 2\nES6'
-      this.developerReqs[0] = 'Fluent English'
+      this.techReqs[0] = 'HTML5\nCSS3\nAngular 4\nWebpack 2\nES6';
+      this.developerReqs[0] = 'Fluent English';
+      this.osReqs.get('android').setValue(true);
     }
+  }
+
+  /**
+   * Build a hash from an array that represents OSs in a checkbox UI
+   * @param fb
+   */
+  private buildOsRequirements(fb) {
+    let map = CONFIG.OS.reduce((map, os) => {
+      map[os.key] = [''];
+      return map;
+    }, {});
+    this.osReqs = fb.group(map);
   }
 }

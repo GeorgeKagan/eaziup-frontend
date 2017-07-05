@@ -11,5 +11,13 @@ export const CONFIG = {
   },
   FORM: {
     IS_SHOW_ONE_ERROR: true
-  }
+  },
+  OS: [
+    {key: 'win', label: 'Windows'},
+    {key: 'linux', label: 'Linux'},
+    {key: 'macos', label: 'macOS'},
+    {key: 'winMobile', label: 'Windows Mobile'},
+    {key: 'android', label: 'Android'},
+    {key: 'ios', label: 'iOS'}
+  ]
 };

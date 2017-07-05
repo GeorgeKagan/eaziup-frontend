@@ -123,6 +123,22 @@
       </div>
     </div>
 
+    <!-- KNOWLEDGE OF OPERATING SYSTEMS -->
+    <div>
+      <div formGroupName="osReqs">
+        <span class="dummy-label">
+          <strong>Knowledge of operating systems</strong>
+          <div class="ez-inputs-group">
+            <label class="custom-control custom-checkbox col-sm-4 mr-0" *ngFor="let os of operatingSystems">
+              <input type="checkbox" class="custom-control-input" [formControlName]="os.key">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">{{os.label}}</span>
+            </label>
+          </div>
+        </span>
+      </div>
+    </div>
+
   </section>
 
   <div class="ez-buttons d-flex justify-content-start">

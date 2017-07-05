@@ -24,7 +24,8 @@ form {
         @extend .col-md-6;
 
         // Label
-        > label {
+        > label,
+        > .dummy-label {
           @extend .form-control-label;
           display: block;
           color: $ez_cream_darker2;
@@ -78,9 +79,14 @@ form {
     }
   }
 
-  // Buttons row
+  // Various
+
   .ez-buttons {
     @extend .mt-5;
+  }
+
+  .ez-inputs-group {
+    margin-top: 0.5rem;
   }
 }
 
