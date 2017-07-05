@@ -126,8 +126,9 @@
     <!-- KNOWLEDGE OF OPERATING SYSTEMS -->
     <div>
       <div formGroupName="osReqs">
-        <span class="dummy-label">
-          <strong>Knowledge of operating systems</strong>
+        <div class="dummy-label">
+          Knowledge of operating systems
+          <small>(optional)</small>
           <div class="ez-inputs-group">
             <label class="custom-control custom-checkbox col-sm-4 mr-0" *ngFor="let os of operatingSystems">
               <input type="checkbox" class="custom-control-input" [formControlName]="os.key">
@@ -135,7 +136,24 @@
               <span class="custom-control-description">{{os.label}}</span>
             </label>
           </div>
-        </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEVELOPER COUNT -->
+    <div>
+      <div>
+        <div class="dummy-label">
+          <strong>Number of software developers</strong>
+          <div class="ez-inputs-group">
+            <label class="custom-control custom-radio" *ngFor="let i of developerCounts">
+              <input type="radio" class="custom-control-input" name="developerCount" formControlName="developerCount" [value]="i.key"
+                     [checked]="i.key===myForm.get(['projectInfo', 'developerCount']).value">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">{{i.label}}</span>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
 

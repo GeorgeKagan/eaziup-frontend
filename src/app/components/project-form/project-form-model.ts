@@ -41,6 +41,7 @@ export class ProjectInfo {
   techReqs = ['', Validators.required];
   developerReqs = ['', Validators.required];
   osReqs;
+  developerCount = [CONFIG.DEFAULTS.DEV_COUNT];
 
   constructor() {
     let fb = new FormBuilder();

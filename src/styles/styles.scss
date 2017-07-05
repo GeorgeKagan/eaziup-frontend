@@ -69,7 +69,7 @@ form {
         // end Tooltip
 
         // Error message
-        > div {
+        > div:not(.dummy-label) {
           @extend .alert;
           @extend .alert-danger;
           @extend .mt-2;
