@@ -1,7 +1,7 @@
 import {Validators, FormBuilder} from '@angular/forms';
 import {CONFIG} from "../../consts/config";
 
-export class BuyerInfo {
+export class BuyerInfoModel {
   firstName = ['', Validators.required];
   lastName = ['', Validators.required];
   contactEmail = ['', [Validators.required, Validators.email]];
@@ -32,7 +32,7 @@ export class BuyerInfo {
   }
 }
 
-export class ProjectInfo {
+export class ProjectInfoModel {
   projectName = ['', [Validators.required, Validators.minLength(4)]];
   cat = ['', Validators.required];
   basicDesc = ['', Validators.required];
@@ -70,5 +70,15 @@ export class ProjectInfo {
       return map;
     }, {});
     this.osReqs = fb.group(map);
+  }
+}
+
+export class DesignModel {
+  logoSlogan = ['', Validators.required];
+
+  constructor() {
+    if (IS_DEV) {
+
+    }
   }
 }

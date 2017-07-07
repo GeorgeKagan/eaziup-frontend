@@ -44,6 +44,7 @@ import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
 import {ProjectFormComponent} from './components/project-form/project-form.component';
 import {ProjectFormBuyerInfoComponent} from './components/project-form/project-form-buyer-info.component';
 import {ProjectFormProjectInfoComponent} from './components/project-form/project-form-project-info.component';
+import {ProjectFormDesignComponent} from './components/project-form/project-form-design.component';
 
 // Style
 import '../styles/styles.scss';
@@ -76,7 +77,8 @@ export function RestangularConfigFactory(RestangularProvider) {
     MyFormError,
     ProjectFormComponent,
     ProjectFormBuyerInfoComponent,
-    ProjectFormProjectInfoComponent
+    ProjectFormProjectInfoComponent,
+    ProjectFormDesignComponent,
   ],
   /**
    * Import Angular's modules.

@@ -17,6 +17,9 @@ export const formErrors = {
     fullDesc: '',
     techReqs: '',
     developerReqs: ''
+  },
+  design: {
+    logoSlogan: ''
   }
 };
 
@@ -61,6 +64,11 @@ export const validationMessages = {
     },
     developerReqs: {
       required: 'Software developer requirements are required',
+    }
+  },
+  design: {
+    logoSlogan: {
+      required: 'Logo & slogan are required'
     }
   }
 };

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BuyerInfo, ProjectInfo} from './project-form-model';
+import {BuyerInfoModel, ProjectInfoModel, DesignModel} from './project-form-model';
 import {ProjectService} from '../../services/project.service';
 import {MyFormComponent} from '../my-form/my-form.component';
 import {formErrors, validationMessages} from './project-form-errors'
@@ -35,8 +35,9 @@ export class ProjectFormComponent extends MyFormComponent {
    */
   buildForm() {
     this.myForm = this.fb.group({
-      buyerInfo: this.fb.group(new BuyerInfo()),
-      projectInfo: this.fb.group(new ProjectInfo())
+      buyerInfo: this.fb.group(new BuyerInfoModel()),
+      projectInfo: this.fb.group(new ProjectInfoModel()),
+      design: this.fb.group(new DesignModel())
     });
     super.buildForm();
   }
