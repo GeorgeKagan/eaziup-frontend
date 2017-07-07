@@ -10,7 +10,6 @@ export class BuyerInfo {
   city = ['', Validators.required];
   addressLine1 = ['', Validators.required];
   addressLine2 = [''];
-  addressLine3 = [''];
   companyName = [''];
   companyPosition = [''];
   whatCompanyDoes = ['', Validators.required];

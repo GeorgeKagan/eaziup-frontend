@@ -9,7 +9,6 @@ export const formErrors = {
     contactPhone: '',
     addressLine1: '',
     addressLine2: '',
-    addressLine3: '',
     whatCompanyDoes: ''
   },
   projectInfo: {

@@ -1,8 +1,8 @@
 <div [formGroup]="myForm">
   <section formGroupName="buyerInfo">
 
-    <!-- FIRST & LAST NAMES -->
     <div>
+      <!-- FIRST NAME -->
       <div>
         <label>
           <strong>First name</strong>
@@ -10,6 +10,7 @@
         </label>
         <div [@fadeInOut]="gotError('buyerInfo.firstName')" *ngIf="gotError('buyerInfo.firstName')">{{formErrors['buyerInfo']['firstName']}}</div>
       </div>
+      <!-- LAST NAME -->
       <div>
         <label>
           <strong>Last name</strong>
@@ -19,8 +20,8 @@
       </div>
     </div>
 
-    <!-- CONTACT E-MAIL -->
     <div>
+      <!-- CONTACT E-MAIL -->
       <div>
         <label>
           <strong>Contact email</strong>
@@ -28,10 +29,7 @@
         </label>
         <div [@fadeInOut]="gotError('buyerInfo.contactEmail')" *ngIf="gotError('buyerInfo.contactEmail')">{{formErrors['buyerInfo']['contactEmail']}}</div>
       </div>
-    </div>
-
-    <!-- PHONE -->
-    <div>
+      <!-- PHONE -->
       <div>
         <label>
           <strong>Contact phone</strong>
@@ -43,8 +41,8 @@
 
     <h5><span>Location</span></h5>
 
-    <!-- COUNTRY & CITY -->
     <div>
+      <!-- COUNTRY -->
       <div>
         <label>
           <strong>Country</strong>
@@ -53,6 +51,7 @@
           </select>
         </label>
       </div>
+      <!-- CITY -->
       <div>
         <label>
           <strong>City</strong>
@@ -62,8 +61,8 @@
       </div>
     </div>
 
-    <!-- ADDRESS LINE 1 -->
     <div>
+      <!-- ADDRESS LINE 1 -->
       <div>
         <label>
           <strong>Address line 1</strong>
@@ -71,10 +70,7 @@
         </label>
         <div [@fadeInOut]="gotError('buyerInfo.addressLine1')" *ngIf="gotError('buyerInfo.addressLine1')">{{formErrors['buyerInfo']['addressLine1']}}</div>
       </div>
-    </div>
-
-    <!-- ADDRESS LINE 2 & 3 -->
-    <div>
+      <!-- ADDRESS LINE 2 & 3 -->
       <div>
         <label>
           Address line 2
@@ -82,19 +78,12 @@
           <input type="text" formControlName="addressLine2">
         </label>
       </div>
-      <div>
-        <label>
-          Address line 3
-          <small>(optional)</small>
-          <input type="text" formControlName="addressLine3">
-        </label>
-      </div>
     </div>
 
     <h5><span>Company</span></h5>
 
-    <!-- COMPANY NAME -->
     <div>
+      <!-- COMPANY NAME -->
       <div>
         <label>
           Company name
@@ -102,10 +91,7 @@
           <input type="text" formControlName="companyName">
         </label>
       </div>
-    </div>
-
-    <!-- POSITION -->
-    <div>
+      <!-- POSITION -->
       <div>
         <label>
           Position in the company
@@ -115,8 +101,8 @@
       </div>
     </div>
 
-    <!-- WHAT COMPANY DOES -->
     <div>
+      <!-- WHAT COMPANY DOES -->
       <div>
         <label>
           <strong>What does your company do?</strong>
