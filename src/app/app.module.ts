@@ -3,10 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgModule, ErrorHandler} from '@angular/core';
-import {
-  RouterModule,
-  PreloadAllModules
-} from '@angular/router';
+import {RouterModule, PreloadAllModules} from '@angular/router';
 
 // Conditional modules
 if (IS_DEV) {
@@ -17,9 +14,13 @@ if (IS_DEV) {
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {RestangularModule} from 'ngx-restangular';
-import {WizardModule} from "ng2-archwizard/dist";
+import {WizardModule} from 'ng2-archwizard/dist';
+import {CloudinaryModule, CloudinaryConfiguration} from '@cloudinary/angular';
+import {Cloudinary} from 'cloudinary-core';
+import {FileUploadModule} from 'ng2-file-upload';
 
 // Platform and Environment providers/directives/pipes
+import {CONFIG} from './consts/config';
 import {ENV_PROVIDERS} from './environment';
 import {ROUTES} from './app.routes';
 import {AppComponent} from './app.component';
@@ -89,10 +90,12 @@ export function RestangularConfigFactory(RestangularProvider) {
     ReactiveFormsModule,
     HttpModule,
     WizardModule,
+    FileUploadModule,
     NgbModule.forRoot(),
     SlimLoadingBarModule.forRoot(),
     RestangularModule.forRoot(RestangularConfigFactory),
-    RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules})
+    RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules}),
+    CloudinaryModule.forRoot({Cloudinary}, {cloud_name: CONFIG.PROVIDERS.CLOUDINARY.CLOUD_NAME} as CloudinaryConfiguration),
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
