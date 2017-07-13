@@ -45,6 +45,8 @@ import {ProjectFormComponent} from './components/project-form/project-form.compo
 import {ProjectFormBuyerInfoComponent} from './components/project-form/project-form-buyer-info.component';
 import {ProjectFormProjectInfoComponent} from './components/project-form/project-form-project-info.component';
 import {ProjectFormDesignComponent} from './components/project-form/project-form-design.component';
+import {ProjectFormMilestonesComponent} from './components/project-form/project-form-milestones.component';
+import {ProjectFormFinalComponent} from './components/project-form/project-form-final.component';
 
 // Style
 import '../styles/styles.scss';
@@ -79,6 +81,8 @@ export function RestangularConfigFactory(RestangularProvider) {
     ProjectFormBuyerInfoComponent,
     ProjectFormProjectInfoComponent,
     ProjectFormDesignComponent,
+    ProjectFormMilestonesComponent,
+    ProjectFormFinalComponent
   ],
   /**
    * Import Angular's modules.

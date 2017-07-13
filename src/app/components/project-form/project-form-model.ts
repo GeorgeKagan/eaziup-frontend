@@ -1,5 +1,5 @@
 import {Validators, FormBuilder} from '@angular/forms';
-import {CONFIG} from "../../consts/config";
+import {CONFIG} from '../../consts/config';
 
 export class BuyerInfoModel {
   firstName = ['', Validators.required];
@@ -81,6 +81,26 @@ export class DesignModel {
   constructor() {
     if (IS_DEV) {
       this.designOutline[0] = 'I want it to be pretty';
+    }
+  }
+}
+
+
+export class MilestonesModel {
+
+  constructor() {
+    if (IS_DEV) {
+
+    }
+  }
+}
+
+
+export class FinalModel {
+
+  constructor() {
+    if (IS_DEV) {
+
     }
   }
 }

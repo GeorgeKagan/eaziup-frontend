@@ -1,4 +1,4 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate *ngIf="!isSubmitted">
 
   <wizard [navBarLayout]="'large-filled-symbols'">
     <wizard-step data-title="General" navigationSymbol="1">
@@ -28,27 +28,31 @@
     </wizard-step>
 
     <wizard-step data-title="Milestones" navigationSymbol="4">
-      <section>
-        Content of Step 4
-      </section>
-      <div class="ez-buttons d-flex justify-content-start">
-        <button class="btn btn-secondary" type="button" role="button" previousStep>
-          <i class="fa fa-angle-left mr-2 font-weight-bold"></i>Go back
-        </button>
-        <div class="ml-auto">
-          <small class="ml-3 mr-3">* Psst, <strong>bold</strong> fields are mandatory!</small>
-          <button class="btn btn-lg btn-success" type="submit" role="button" nextStep>Submit your project</button>
-        </div>
-      </div>
+      <project-form-milestones
+        [myForm]="myForm"
+        [formErrors]="formErrors"
+        [gotError]="gotError"
+      ></project-form-milestones>
     </wizard-step>
 
-    <wizard-completion-step data-title="Compensation" navigationSymbol="5">
-      <section>Thanks!</section>
-    </wizard-completion-step>
+    <wizard-step data-title="Compensation" navigationSymbol="5">
+      <project-form-final
+        [myForm]="myForm"
+        [formErrors]="formErrors"
+        [gotError]="gotError"
+      ></project-form-final>
+    </wizard-step>
   </wizard>
 
-
 </form>
+
+<div *ngIf="isSubmitted">
+  <div class="text-gray-dark text-center mt-5">
+    <span class="display-1 d-inline-block">All Done</span>
+    <i class="fa fa-check fa-5x text-success font-weight-bold ez-big-icon mt-5 ml-3 d-inline-block"></i>
+  </div>
+  <p class="lead text-center text-muted mt-3">Your project is now available for students to pick</p>
+</div>
 
 <!--<br><br>-->
 <!--<pre>Form value: {{ myForm.value | json }}</pre>-->

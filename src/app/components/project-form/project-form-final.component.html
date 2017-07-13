@@ -1,0 +1,21 @@
+<div [formGroup]="myForm">
+  <section formGroupName="final">
+
+    compensation and legal
+
+  </section>
+
+  <!-- Continue button -->
+  <div class="ez-buttons d-flex justify-content-start">
+    <button class="btn btn-secondary" type="button" role="button" previousStep>
+      <i class="fa fa-angle-left mr-2 font-weight-bold"></i>Go back
+    </button>
+    <div class="ml-auto">
+      <small class="ml-3 mr-3">* Psst, <strong>bold</strong> fields are mandatory!</small>
+      <button class="btn btn-lg btn-success" type="submit" role="button" [disabled]="myForm.controls.final.invalid">
+        Submit project<i class="fa fa-check ml-2 font-weight-bold"></i>
+      </button>
+    </div>
+  </div>
+
+</div>

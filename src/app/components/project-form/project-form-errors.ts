@@ -22,6 +22,12 @@ export const formErrors = {
     logoSlogan: '',
     designIdeas: '',
     designOutline: '',
+  },
+  milestones: {
+
+  },
+  final: {
+
   }
 };
 

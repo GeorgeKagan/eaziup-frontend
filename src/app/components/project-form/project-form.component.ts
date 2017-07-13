@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BuyerInfoModel, ProjectInfoModel, DesignModel} from './project-form-model';
+import {BuyerInfoModel, ProjectInfoModel, DesignModel, MilestonesModel, FinalModel} from './project-form-model';
 import {ProjectService} from '../../services/project.service';
 import {MyFormComponent} from '../my-form/my-form.component';
 import {formErrors, validationMessages} from './project-form-errors'
@@ -13,6 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 export class ProjectFormComponent extends MyFormComponent {
   countries: string[] = [];
   cats: string[] = [];
+  isSubmitted: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private projectService: ProjectService) {
@@ -37,7 +38,9 @@ export class ProjectFormComponent extends MyFormComponent {
     this.myForm = this.fb.group({
       buyerInfo: this.fb.group(new BuyerInfoModel()),
       projectInfo: this.fb.group(new ProjectInfoModel()),
-      design: this.fb.group(new DesignModel())
+      design: this.fb.group(new DesignModel()),
+      milestones: this.fb.group(new MilestonesModel()),
+      final: this.fb.group(new FinalModel())
     });
     super.buildForm();
   }
@@ -47,7 +50,9 @@ export class ProjectFormComponent extends MyFormComponent {
    */
   onSubmit() {
     if (this.isValid()) {
-      this.projectService.saveProject(this.getPayload());
+      this.projectService.saveProject(this.getPayload()).subscribe(() => {
+        this.isSubmitted = true;
+      });
     }
     super.onSubmit();
   }
