@@ -57,11 +57,15 @@ form {
 
           // Inputs
 
-          > input,
+          > input:not([type="file"]),
           > textarea,
           > select {
             @extend .mt-2;
             @extend .form-control;
+          }
+
+          > input[type="file"] {
+            @extend .mt-2;
           }
 
           > textarea {

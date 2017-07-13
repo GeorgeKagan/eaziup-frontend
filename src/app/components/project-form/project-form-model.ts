@@ -74,7 +74,8 @@ export class ProjectInfoModel {
 }
 
 export class DesignModel {
-  logoSlogan = ['', Validators.required];
+  logoSlogan = [''];
+  designIdeas = [''];
 
   constructor() {
     if (IS_DEV) {

@@ -6,9 +6,21 @@
       <div>
         <label>
           <strong>Logo & slogan</strong>
-          <input type="text" formControlName="logoSlogan">
+          <input type="file" name="logoSlogan" multiple class="form-control-file" formControlName="logoSlogan">
         </label>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur"
+           ngbTooltip="Attach the logo and slogan so the software developers can see you chosen company colours when they are developing and creating your system."></i>
         <div [@fadeInOut]="gotError('design.logoSlogan')" *ngIf="gotError('design.logoSlogan')">{{formErrors['design']['logoSlogan']}}</div>
+      </div>
+      <!-- Design ideas -->
+      <div>
+        <label>
+          <strong>Design ideas</strong>
+          <input type="file" name="designIdeas" multiple class="form-control-file" formControlName="designIdeas">
+        </label>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur"
+           ngbTooltip="Attach any screen shots you have or ideas you have from researching the design of other systems or web-sites. Consider the system structure and colours."></i>
+        <div [@fadeInOut]="gotError('design.designIdeas')" *ngIf="gotError('design.designIdeas')">{{formErrors['design']['designIdeas']}}</div>
       </div>
     </div>
 
