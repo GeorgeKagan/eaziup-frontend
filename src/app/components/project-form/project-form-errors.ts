@@ -20,7 +20,8 @@ export const formErrors = {
   },
   design: {
     logoSlogan: '',
-    designIdeas: ''
+    designIdeas: '',
+    designOutline: '',
   }
 };
 
@@ -65,6 +66,11 @@ export const validationMessages = {
     },
     developerReqs: {
       required: 'Software developer requirements are required',
+    }
+  },
+  design: {
+    designOutline: {
+      required: 'Design outline is required'
     }
   }
 };

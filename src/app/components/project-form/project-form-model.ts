@@ -76,10 +76,11 @@ export class ProjectInfoModel {
 export class DesignModel {
   logoSlogan = [''];
   designIdeas = [''];
+  designOutline = ['', Validators.required];
 
   constructor() {
     if (IS_DEV) {
-
+      this.designOutline[0] = 'I want it to be pretty';
     }
   }
 }

@@ -24,6 +24,21 @@
       </div>
     </div>
 
+    <div>
+      <!-- PROJECT DESIGN OUTLINE -->
+      <div>
+        <label>
+          <strong>Describe how you would like your software system to look like</strong>
+          <textarea formControlName="designOutline"></textarea>
+        </label>
+        <ng-template #designOutlineTooltip>
+          Describe how you would like the system colours and structure to look based on the uploaded screen shots and any ideas you may have.
+        </ng-template>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="designOutlineTooltip"></i>
+        <div [@fadeInOut]="gotError('design.designOutline')" *ngIf="gotError('design.designOutline')">{{formErrors['design']['designOutline']}}</div>
+      </div>
+    </div>
+
   </section>
 
   <!-- Continue button -->
