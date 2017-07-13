@@ -1,9 +1,4 @@
 export const CONFIG = {
-  PROVIDERS: {
-    CLOUDINARY: {
-      CLOUD_NAME: 'daayssulc'
-    }
-  },
   THEME: {
     COLOR1: '#f08525'
   },
