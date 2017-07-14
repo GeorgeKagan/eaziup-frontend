@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
 import {BuyerInfoModel, ProjectInfoModel, DesignModel, MilestonesModel, FinalModel} from './project-form-model';
 import {ProjectService} from '../../services/project.service';
+import {GlobalLoaderService} from '../../services/global-loader.service';
 import {MyFormComponent} from '../my-form/my-form.component';
 import {formErrors, validationMessages} from './project-form-errors'
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'project-form',
-  templateUrl: './project-form.component.html',
-  providers: [ProjectService]
+  templateUrl: './project-form.component.html'
 })
 export class ProjectFormComponent extends MyFormComponent {
   countries: string[] = [];
@@ -16,7 +16,8 @@ export class ProjectFormComponent extends MyFormComponent {
   isSubmitted: boolean = false;
 
   constructor(private route: ActivatedRoute,
-              private projectService: ProjectService) {
+              private projectService: ProjectService,
+              private globalLoader: GlobalLoaderService) {
     super();
   }
 
@@ -50,8 +51,10 @@ export class ProjectFormComponent extends MyFormComponent {
    */
   onSubmit() {
     if (this.isValid()) {
+      this.globalLoader.emitChange(true);
       this.projectService.saveProject(this.getPayload()).subscribe(() => {
         this.isSubmitted = true;
+        this.globalLoader.emitChange(false);
       });
     }
     super.onSubmit();

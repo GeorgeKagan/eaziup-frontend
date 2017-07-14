@@ -17,7 +17,7 @@ if (IS_DEV) {
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {RestangularModule} from 'ngx-restangular';
-import {WizardModule} from "ng2-archwizard/dist";
+import {WizardModule} from 'ng2-archwizard/dist';
 
 // Platform and Environment providers/directives/pipes
 import {ENV_PROVIDERS} from './environment';
@@ -37,8 +37,10 @@ import {NoContentComponent} from './states/no-content';
 import {MyFormError} from './directives/my-form-error';
 
 // Services
-import {AuthService} from './services/auth.service';
 import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
+import {AuthService} from './services/auth.service';
+import {GlobalLoaderService} from './services/global-loader.service';
+import {ProjectService} from './services/project.service';
 
 // Components
 import {ProjectFormComponent} from './components/project-form/project-form.component';
@@ -54,8 +56,10 @@ import '../styles/styles.scss';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
+  OnlyLoggedInUsersGuard,
   AuthService,
-  OnlyLoggedInUsersGuard
+  GlobalLoaderService,
+  ProjectService
 ];
 
 export function RestangularConfigFactory(RestangularProvider) {

@@ -46,13 +46,15 @@
 
 </form>
 
-<div *ngIf="isSubmitted">
+<!-- Success screen after project added -->
+<div class="pt-5" *ngIf="isSubmitted">
   <div class="text-gray-dark text-center mt-5">
     <span class="display-1 d-inline-block mt-5">All Done</span>
     <i class="fa fa-check fa-5x text-success font-weight-bold ez-big-icon mt-5 ml-3 d-inline-block"></i>
   </div>
   <p class="lead text-center text-muted mt-3">Your project is now available for students to pick</p>
 </div>
+<!-- end -->
 
 <!--<br><br>-->
 <!--<pre>Form value: {{ myForm.value | json }}</pre>-->

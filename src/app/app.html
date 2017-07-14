@@ -54,7 +54,7 @@
 </div>
 
 <main class="ez-main">
-  <div class="ez-state-loader" *ngIf="!isResolvesLoaded">
+  <div class="ez-global-loader {{!isResolvesLoaded || isGlobalLoading ? 'ez-is-loading' : ''}}">
     <i class="fa fa-circle-o-notch fa-spin fa-2x text-success"></i>
   </div>
   <router-outlet></router-outlet>

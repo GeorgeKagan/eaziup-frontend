@@ -15,16 +15,22 @@
       margin-top: -30px;
       margin-left: -30px;
     }
-    .ez-state-loader {
+    .ez-global-loader {
       background: rgba(255, 255, 255, 0.5);
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: 1;
+      z-index: -1;
+      opacity: 0;
+      transition: 1s opacity;
     }
-    .ez-state-loader .fa {
+    .ez-global-loader.ez-is-loading {
+      z-index: 1;
+      opacity: 1;
+    }
+    .ez-global-loader .fa {
       position: absolute;
       top: 50%;
       left: 50%;

@@ -2,6 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError} from '@angular/router';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {AuthService} from './services/auth.service';
+import {GlobalLoaderService} from './services/global-loader.service';
 
 /**
  * App Component
@@ -53,11 +54,14 @@ export class AppComponent implements OnInit {
       {label: 'Project database', link: '/stub'}
     ]}
   ];
+
   private sub: any;
+  private isGlobalLoading: boolean = false;
 
   constructor(public auth: AuthService,
               private slimLoader: SlimLoadingBarService,
-              private router: Router) {
+              private router: Router,
+              private globalLoader: GlobalLoaderService) {
 
     // Subsribe for router events to display the state loader
     this.sub = this.router.events.subscribe(event => {
@@ -73,6 +77,11 @@ export class AppComponent implements OnInit {
       }
     }, (error: any) => {
       this.slimLoader.complete();
+    });
+
+    // Listen for requests to show global loader
+    globalLoader.changeEmitted$.subscribe(isLoading => {
+      this.isGlobalLoading = isLoading;
     });
   }
 
