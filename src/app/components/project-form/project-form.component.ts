@@ -3,7 +3,7 @@ import {BuyerInfoModel, ProjectInfoModel, DesignModel, MilestonesModel, FinalMod
 import {ProjectService} from '../../services/project.service';
 import {MyFormComponent} from '../my-form/my-form.component';
 import {formErrors, validationMessages} from './project-form-errors'
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'project-form',

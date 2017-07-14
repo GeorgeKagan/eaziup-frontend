@@ -18,11 +18,13 @@ import {AuthService} from './services/auth.service';
 export class AppComponent implements OnInit {
   public isResolvesLoaded: boolean = false;
   public appLogo = 'assets/img/eaziup-logo.png';
+
   public topNav = [
     {label: 'Projects', link: './projects', isAllowed: true},
     {label: 'Add new project', link: './new-project', isAllowed: this.auth.isAuthenticated},
     {label: 'How it works', link: './how-it-works', isAllowed: true}
   ];
+
   public footerNav = [
     {label: 'Company', items: [
       {label: 'About', link: '/stub'},
@@ -56,11 +58,14 @@ export class AppComponent implements OnInit {
   constructor(public auth: AuthService,
               private slimLoader: SlimLoadingBarService,
               private router: Router) {
+
     // Subsribe for router events to display the state loader
     this.sub = this.router.events.subscribe(event => {
+
       if (event instanceof NavigationStart) {
         this.slimLoader.start();
-      } else if (event instanceof NavigationEnd ||
+      }
+      else if (event instanceof NavigationEnd ||
         event instanceof NavigationCancel ||
         event instanceof NavigationError) {
         this.slimLoader.complete();

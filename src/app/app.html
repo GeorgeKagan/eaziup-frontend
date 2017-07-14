@@ -54,7 +54,9 @@
 </div>
 
 <main class="ez-main">
-  <div class="ml-auto mr-auto pb-5 text-success ez-state-loader my-loader" *ngIf="!isResolvesLoaded"><i class="fa fa-circle-o-notch fa-spin fa-2x"></i></div>
+  <div class="ez-state-loader" *ngIf="!isResolvesLoaded">
+    <i class="fa fa-circle-o-notch fa-spin fa-2x text-success"></i>
+  </div>
   <router-outlet></router-outlet>
 </main>
 
