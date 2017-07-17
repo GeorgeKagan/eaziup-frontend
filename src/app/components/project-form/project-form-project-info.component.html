@@ -1,13 +1,14 @@
 <div [formGroup]="myForm">
   <section formGroupName="projectInfo">
 
-    <div>
+    <div class="ez-group">
       <!-- PROJECT NAME -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="pn">
           <strong>Project name</strong>
-          <input type="text" formControlName="projectName">
         </label>
+        <i class="fa fa-question-circle" triggers="click:blur" tabindex="0" container="body" [ngbTooltip]="projectNameTooltip"></i>
+        <input id="pn" type="text" formControlName="projectName">
         <ng-template #projectNameTooltip>
           <p>
             The name of your project is not displayed publicly on the system to suppliers and will not be
@@ -18,29 +19,29 @@
             the project has been allocated to them. Initially, a temporary name will be used such as <strong>PROJECT4435</strong>.
           </p>
         </ng-template>
-        <i class="fa fa-question-circle" triggers="click:blur" tabindex="0" container="body" [ngbTooltip]="projectNameTooltip"></i>
-        <div [@fadeInOut]="gotError('projectInfo.projectName')" *ngIf="gotError('projectInfo.projectName')">{{formErrors['projectInfo']['projectName']}}</div>
+        <div class="ez-error" [@fadeInOut]="gotError('projectInfo.projectName')" *ngIf="gotError('projectInfo.projectName')">{{formErrors['projectInfo']['projectName']}}</div>
       </div>
       <!-- CATEGORY -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="cat">
           <strong>Category</strong>
-          <select formControlName="cat">
-            <optgroup [label]="group.label" *ngFor="let group of cats">
-              <option *ngFor="let cat of group.cats" [value]="cat.id">{{cat.label}}</option>
-            </optgroup>
-          </select>
         </label>
+        <select id="cat" formControlName="cat">
+          <optgroup [label]="group.label" *ngFor="let group of cats">
+            <option *ngFor="let cat of group.cats" [value]="cat.id">{{cat.label}}</option>
+          </optgroup>
+        </select>
       </div>
     </div>
 
-    <div>
+    <div class="ez-group">
       <!-- BASIC DESCRIPTION -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="bdop">
           <strong>Basic description of project</strong>
-          <textarea formControlName="basicDesc"></textarea>
         </label>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="basicDescTooltip"></i>
+        <textarea id="bdop" formControlName="basicDesc"></textarea>
         <ng-template #basicDescTooltip>
           <strong>Do not provide any detailed information.</strong>
           <p>
@@ -57,48 +58,48 @@
           </ul>
           List all basic features in the box below so suppliers have a rough idea what you require.
         </ng-template>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="basicDescTooltip"></i>
-        <div [@fadeInOut]="gotError('projectInfo.basicDesc')" *ngIf="gotError('projectInfo.basicDesc')">{{formErrors['projectInfo']['basicDesc']}}</div>
+        <div class="ez-error" [@fadeInOut]="gotError('projectInfo.basicDesc')" *ngIf="gotError('projectInfo.basicDesc')">{{formErrors['projectInfo']['basicDesc']}}</div>
       </div>
       <!-- FULL DESCRIPTION -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="fdop">
           <strong>Full description of project / functionality required</strong>
-          <textarea formControlName="fullDesc"></textarea>
         </label>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="fullDescTooltip"></i>
+        <textarea id="fdop" formControlName="fullDesc"></textarea>
         <ng-template #fullDescTooltip>
           Provide detailed software features and functionality required. This information will only
           be made available once a <strong>Non-Disclosure and Confidentiality Agreement</strong> is signed by all
           software development suppliers and is only viewable by them via the system.
         </ng-template>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="fullDescTooltip"></i>
-        <div [@fadeInOut]="gotError('projectInfo.fullDesc')" *ngIf="gotError('projectInfo.fullDesc')">{{formErrors['projectInfo']['fullDesc']}}</div>
+        <div class="ez-error" [@fadeInOut]="gotError('projectInfo.fullDesc')" *ngIf="gotError('projectInfo.fullDesc')">{{formErrors['projectInfo']['fullDesc']}}</div>
       </div>
     </div>
 
     <h5><span>Requirements</span></h5>
 
-    <div>
+    <div class="ez-group">
       <!-- TECHNOLOGY REQUIREMENTS -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="tr">
           <strong>Technology requirements</strong>
-          <textarea formControlName="techReqs"></textarea>
         </label>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="techReqsTooltip"></i>
+        <textarea id="tr" formControlName="techReqs"></textarea>
         <ng-template #techReqsTooltip>
           Provide information about any technology requirements that are required, such as
           <em>HTML5, Apple IOS mobile application development, Android application development,
             CSS, MySQL, Oracle, Java</em> or any other software development technologies required.
         </ng-template>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="techReqsTooltip"></i>
-        <div [@fadeInOut]="gotError('projectInfo.techReqs')" *ngIf="gotError('projectInfo.techReqs')">{{formErrors['projectInfo']['techReqs']}}</div>
+        <div class="ez-error" [@fadeInOut]="gotError('projectInfo.techReqs')" *ngIf="gotError('projectInfo.techReqs')">{{formErrors['projectInfo']['techReqs']}}</div>
       </div>
       <!-- SOFTWARE DEVELOPER REQUIREMENTS -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="sdr">
           <strong>Software developer requirements</strong>
-          <textarea formControlName="developerReqs"></textarea>
         </label>
+        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="developerReqsTooltip"></i>
+        <textarea id="sdr" formControlName="developerReqs"></textarea>
         <ng-template #developerReqsTooltip>
           <p>Provide information about any specific skills that the software developers must be
             proficient in such as:</p>
@@ -109,14 +110,13 @@
             <li>Project experience of working in Java</li>
           </ul>
         </ng-template>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="developerReqsTooltip"></i>
-        <div [@fadeInOut]="gotError('projectInfo.developerReqs')" *ngIf="gotError('projectInfo.developerReqs')">{{formErrors['projectInfo']['developerReqs']}}</div>
+        <div class="ez-error" [@fadeInOut]="gotError('projectInfo.developerReqs')" *ngIf="gotError('projectInfo.developerReqs')">{{formErrors['projectInfo']['developerReqs']}}</div>
       </div>
     </div>
 
-    <div>
+    <div class="ez-group">
       <!-- KNOWLEDGE OF OPERATING SYSTEMS -->
-      <div formGroupName="osReqs">
+      <div class="ez-col" formGroupName="osReqs">
         <div class="dummy-label">
           Knowledge of operating systems
           <small>(optional)</small>
@@ -130,7 +130,7 @@
         </div>
       </div>
       <!-- DEVELOPER COUNT -->
-      <div>
+      <div class="ez-col">
         <div class="dummy-label">
           <strong>Number of software developers</strong>
           <div class="ez-inputs-group">
@@ -148,7 +148,7 @@
   </section>
 
   <div class="ez-buttons d-flex justify-content-start">
-    <button class="btn btn-secondary" type="button" role="button" previousStep>
+    <button class="btn btn-link text-muted" type="button" role="button" previousStep>
       <i class="fa fa-angle-left mr-2 font-weight-bold"></i>Go back
     </button>
     <div class="ml-auto">

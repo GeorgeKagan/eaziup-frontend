@@ -1,115 +1,115 @@
 <div [formGroup]="myForm">
   <section formGroupName="buyerInfo">
 
-    <div>
+    <div class="ez-group">
       <!-- FIRST NAME -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="fn">
           <strong>First name</strong>
-          <input type="text" formControlName="firstName">
         </label>
-        <div [@fadeInOut]="gotError('buyerInfo.firstName')" *ngIf="gotError('buyerInfo.firstName')">{{formErrors['buyerInfo']['firstName']}}</div>
+        <input id="fn" type="text" formControlName="firstName">
+        <div class="ez-error" [@fadeInOut]="gotError('buyerInfo.firstName')" *ngIf="gotError('buyerInfo.firstName')">{{formErrors['buyerInfo']['firstName']}}</div>
       </div>
       <!-- LAST NAME -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="ln">
           <strong>Last name</strong>
-          <input type="text" formControlName="lastName">
         </label>
-        <div [@fadeInOut]="gotError('buyerInfo.lastName')" *ngIf="gotError('buyerInfo.lastName')">{{formErrors['buyerInfo']['lastName']}}</div>
+        <input id="ln" type="text" formControlName="lastName">
+        <div class="ez-error" [@fadeInOut]="gotError('buyerInfo.lastName')" *ngIf="gotError('buyerInfo.lastName')">{{formErrors['buyerInfo']['lastName']}}</div>
       </div>
     </div>
 
-    <div>
+    <div class="ez-group">
       <!-- CONTACT E-MAIL -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="ce">
           <strong>Contact email</strong>
-          <input type="text" formControlName="contactEmail">
         </label>
-        <div [@fadeInOut]="gotError('buyerInfo.contactEmail')" *ngIf="gotError('buyerInfo.contactEmail')">{{formErrors['buyerInfo']['contactEmail']}}</div>
+        <input id="ce" type="text" formControlName="contactEmail">
+        <div class="ez-error" [@fadeInOut]="gotError('buyerInfo.contactEmail')" *ngIf="gotError('buyerInfo.contactEmail')">{{formErrors['buyerInfo']['contactEmail']}}</div>
       </div>
       <!-- PHONE -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="cp">
           <strong>Contact phone</strong>
-          <input type="text" formControlName="contactPhone">
         </label>
-        <div [@fadeInOut]="gotError('buyerInfo.contactPhone')" *ngIf="gotError('buyerInfo.contactPhone')">{{formErrors['buyerInfo']['contactPhone']}}</div>
+        <input id="cp" type="text" formControlName="contactPhone">
+        <div class="ez-error" [@fadeInOut]="gotError('buyerInfo.contactPhone')" *ngIf="gotError('buyerInfo.contactPhone')">{{formErrors['buyerInfo']['contactPhone']}}</div>
       </div>
     </div>
 
     <h5><span>Location</span></h5>
 
-    <div>
+    <div class="ez-group">
       <!-- COUNTRY -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="c">
           <strong>Country</strong>
-          <select formControlName="country">
-            <option *ngFor="let country of countries" [value]="country.id">{{country.label}}</option>
-          </select>
         </label>
+        <select id="c" formControlName="country">
+          <option *ngFor="let country of countries" [value]="country.id">{{country.label}}</option>
+        </select>
       </div>
       <!-- CITY -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="ci">
           <strong>City</strong>
-          <input type="text" formControlName="city">
         </label>
-        <div [@fadeInOut]="gotError('buyerInfo.city')" *ngIf="gotError('buyerInfo.city')">{{formErrors['buyerInfo']['city']}}</div>
+        <input id="ci" type="text" formControlName="city">
+        <div class="ez-error" [@fadeInOut]="gotError('buyerInfo.city')" *ngIf="gotError('buyerInfo.city')">{{formErrors['buyerInfo']['city']}}</div>
       </div>
     </div>
 
-    <div>
+    <div class="ez-group">
       <!-- ADDRESS LINE 1 -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="al1">
           <strong>Address line 1</strong>
-          <input type="text" formControlName="addressLine1">
         </label>
-        <div [@fadeInOut]="gotError('buyerInfo.addressLine1')" *ngIf="gotError('buyerInfo.addressLine1')">{{formErrors['buyerInfo']['addressLine1']}}</div>
+        <input id="al1" type="text" formControlName="addressLine1">
+        <div class="ez-error" [@fadeInOut]="gotError('buyerInfo.addressLine1')" *ngIf="gotError('buyerInfo.addressLine1')">{{formErrors['buyerInfo']['addressLine1']}}</div>
       </div>
       <!-- ADDRESS LINE 2 & 3 -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="al2">
           Address line 2
           <small>(optional)</small>
-          <input type="text" formControlName="addressLine2">
         </label>
+        <input id="al2" type="text" formControlName="addressLine2">
       </div>
     </div>
 
     <h5><span>Company</span></h5>
 
-    <div>
+    <div class="ez-group">
       <!-- COMPANY NAME -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="cn">
           Company name
           <small>(optional)</small>
-          <input type="text" formControlName="companyName">
         </label>
+        <input id="cn" type="text" formControlName="companyName">
       </div>
       <!-- POSITION -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="pitc">
           Position in the company
           <small>(optional)</small>
-          <input type="text" formControlName="companyPosition">
         </label>
+        <input id="pitc" type="text" formControlName="companyPosition">
       </div>
     </div>
 
-    <div>
+    <div class="ez-group">
       <!-- WHAT COMPANY DOES -->
-      <div>
-        <label>
+      <div class="ez-col">
+        <label for="wcd">
           <strong>What does your company do?</strong>
-          <textarea formControlName="whatCompanyDoes"></textarea>
         </label>
         <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" ngbTooltip="This information will not be disclosed to the supplier until the project is allocated to a supplier."></i>
-        <div [@fadeInOut]="gotError('buyerInfo.whatCompanyDoes')" *ngIf="gotError('buyerInfo.whatCompanyDoes')">{{formErrors['buyerInfo']['whatCompanyDoes']}}</div>
+        <textarea id="wcd" formControlName="whatCompanyDoes"></textarea>
+        <div class="ez-error" [@fadeInOut]="gotError('buyerInfo.whatCompanyDoes')" *ngIf="gotError('buyerInfo.whatCompanyDoes')">{{formErrors['buyerInfo']['whatCompanyDoes']}}</div>
       </div>
     </div>
 

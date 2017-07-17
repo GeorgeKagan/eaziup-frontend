@@ -14,89 +14,104 @@ form {
   section {
     padding: 40px 0 30px 0;
 
-    > div {
+    .ez-group {
       @extend .row;
       margin-left: 0;
       width: 100%;
 
-      // A form group (col)
-      > div {
+      .ez-row {
+        width: 100%;
+      }
+      .ez-box {
+        border-bottom: 1px solid #ccc;
+        margin: 0 0 30px 0;
+        &:last-child,
+        &:only-child {
+          border: 0;
+          margin: 0;
+        }
+      }
+
+      .ez-col,
+      .ez-col-break {
         @extend .form-group;
         @extend .col-md-6;
         margin-bottom: 2rem;
 
-        &:last-child {
-          padding-right: 0;
-          padding-left: 30px;
-
-          > i.fa {
-            right: 0;
-          }
-        }
-        &:first-child,
-        &:only-child {
-          padding-left: 0px;
-          padding-right: 30px;
-
-          > i.fa {
-            right: 30px;
-          }
-        }
-
         // Label
         > label,
-        > .dummy-label {
+        .dummy-label {
           @extend .form-control-label;
-          display: block;
+          display: inline-block;
           color: $ez_cream_darker2;
+          margin: 0;
 
-          > strong {
-            display: block;
+          strong {
+            display: inline-block;
             font-weight: 500;
           }
-
-          // Inputs
-
-          > input:not([type="file"]),
-          > textarea,
-          > select {
-            @extend .mt-2;
-            @extend .form-control;
-          }
-
-          > input[type="file"] {
-            @extend .mt-2;
-          }
-
-          > textarea {
-            min-height: 180px;
-            line-height: 22px;
-          }
-
-          > select {
-            @extend .custom-select;
-          }
-
-          // end Inputs
         }
         // end Label
 
+        // Inputs
+        input:not([type="file"]),
+        textarea,
+        select {
+          @extend .mt-2;
+          @extend .form-control;
+        }
+
+        input[type="file"] {
+          @extend .mt-2;
+        }
+
+        textarea {
+          min-height: 180px;
+          line-height: 22px;
+
+          &.ez-compact {
+            min-height: 100px;
+          }
+        }
+
+        select {
+          @extend .custom-select;
+        }
+        // end Inputs
+
         // Tooltip
-        > i.fa {
-          position: absolute;
-          top: 5px;
+        i.fa-question-circle {
           cursor: pointer;
           outline: none;
           color: $ez_green;
+          margin: 0 7px;
+          position: relative;
+          top: 1px;
         }
         // end Tooltip
 
         // Error message
-        > div:not(.dummy-label) {
+        .ez-error {
           @extend .alert;
           @extend .alert-danger;
           @extend .mt-2;
           max-height: 50px;
+        }
+      }
+
+      .ez-col-break {
+        padding-left: 0;
+      }
+
+      .ez-col {
+        &:last-child {
+          padding-right: 0;
+          padding-left: 30px;
+        }
+        &:first-child,
+        &:only-child {
+          padding-left: 0;
+          padding-right: 30px;
         }
       }
     }
