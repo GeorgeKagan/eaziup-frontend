@@ -24,7 +24,14 @@ export const formErrors = {
     designOutline: '',
   },
   milestones: {
-
+    arr: [
+      // Maximum allowed number of items must be declared
+      {name: '', desc: ''},
+      {name: '', desc: ''},
+      {name: '', desc: ''},
+      {name: '', desc: ''},
+      {name: '', desc: ''}
+    ]
   },
   final: {
 
@@ -77,6 +84,16 @@ export const validationMessages = {
   design: {
     designOutline: {
       required: 'Design outline is required'
+    }
+  },
+  milestones: {
+    arr: {
+      name: {
+        required: 'Milestone name is required'
+      },
+      desc: {
+        required: 'Milestone description is required'
+      }
     }
   }
 };

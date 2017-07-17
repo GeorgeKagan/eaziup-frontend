@@ -87,11 +87,29 @@ export class DesignModel {
 
 
 export class MilestonesModel {
+  arr;
 
   constructor() {
+    let fb = new FormBuilder();
+
+    this.buildMilestones(fb);
+
     if (IS_DEV) {
 
     }
+  }
+
+  /**
+   * Build milestones array that can be added by the user
+   * @param fb
+   */
+  private buildMilestones(fb) {
+    this.arr = fb.array([
+      fb.group({
+        name: ['', Validators.required],
+        desc: ['', Validators.required]
+      })
+    ]);
   }
 }
 

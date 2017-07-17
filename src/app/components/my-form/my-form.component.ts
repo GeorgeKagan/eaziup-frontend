@@ -58,28 +58,79 @@ export class MyFormComponent {
     }
     const form = this.myForm;
 
+    // Main group
     for (const group in this.formErrors) {
       if (!this.formErrors.hasOwnProperty(group)) { break; }
 
+      // Normal Field or Array
       for (const field in this.formErrors[group]) {
         if (!this.formErrors[group].hasOwnProperty(field)) { break; }
 
-        // Clear previous error message (if any)
-        this.formErrors[group][field] = '';
-        const control = form.get([group, field]);
+        // Array Flow
+        if (Array.isArray(this.formErrors[group][field])) {
+          this.buildErrorsForArray(form, group, field);
+        }
+        // Normal Field Flow
+        else {
+          this.buildErrorsForField(form, group, field);
+        }
+      }
+    }
+  }
+
+  /**
+   * Build the error(s) for an array input group
+   * @param form
+   * @param group
+   * @param arr
+   */
+  private buildErrorsForArray(form, group, arr) {
+    for (let i = 0; i < this.formErrors[group][arr].length; i++) {
+      for (const arrField in this.formErrors[group][arr][i]) {
+        if (!this.formErrors[group][arr][i].hasOwnProperty(arrField)) { break; }
+
+        // Clear previous error message(s) (if any)
+        this.formErrors[group][arr][i][arrField] = '';
+        const control = form.get([group, arr, i, arrField]);
 
         if (control && control.dirty && !control.valid) {
-          const messages = this.validationMessages[group][field];
+          const messages = this.validationMessages[group][arr][arrField];
 
           // If the control has errors, set for display as defined in validationMessages
           if (CONFIG.FORM.IS_SHOW_ONE_ERROR) {
-            this.formErrors[group][field] = messages[Object.keys(control.errors)[0]] + ' ';
+            this.formErrors[group][arr][i][arrField] = messages[Object.keys(control.errors)[0]] + ' ';
           } else {
             for (const key in control.errors) {
               if (!control.errors.hasOwnProperty(key)) { break; }
-              this.formErrors[group][field] += messages[key] + ' ';
+              this.formErrors[group][arr][i][arrField] += messages[key] + ' ';
             }
           }
+        }
+      }
+    }
+  }
+
+  /**
+   * Builds the error(s) for a single input field
+   * @param form
+   * @param group
+   * @param field
+   */
+  private buildErrorsForField(form, group, field) {
+    // Clear previous error message(s) (if any)
+    this.formErrors[group][field] = '';
+    const control = form.get([group, field]);
+
+    if (control && control.dirty && !control.valid) {
+      const messages = this.validationMessages[group][field];
+
+      // If the control has errors, set for display as defined in validationMessages
+      if (CONFIG.FORM.IS_SHOW_ONE_ERROR) {
+        this.formErrors[group][field] = messages[Object.keys(control.errors)[0]] + ' ';
+      } else {
+        for (const key in control.errors) {
+          if (!control.errors.hasOwnProperty(key)) { break; }
+          this.formErrors[group][field] += messages[key] + ' ';
         }
       }
     }
@@ -122,11 +173,17 @@ export class MyFormComponent {
   /**
    * Check if a certain input has errors
    * @param inputName
+   * @param index
    * @returns {any|boolean}
    */
-  public gotError(inputName): boolean {
-    let [group, name] = inputName.split('.');
-    return this.formErrors[group][name] && this.myForm.get([group, name]).touched;
+  public gotError(inputName: string, index: any = null): boolean {
+    if (index !== null) {
+      let [group, arr, name] = inputName.split('.');
+      return this.formErrors[group][arr][index][name] && this.myForm.get([group, arr, index, name]).touched;
+    } else {
+      let [group, name] = inputName.split('.');
+      return this.formErrors[group][name] && this.myForm.get([group, name]).touched;
+    }
   }
 
   /**

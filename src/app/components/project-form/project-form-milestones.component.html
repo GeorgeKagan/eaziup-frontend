@@ -1,7 +1,43 @@
 <div [formGroup]="myForm">
   <section formGroupName="milestones">
 
-aa
+    <p class="lead mb-5">
+      <i class="fa fa-exclamation-circle text-secondary mr-2"></i>
+      You can add up to 5 milestones
+    </p>
+
+    <div class="ez-group" formArrayName="arr">
+      <div class="ez-row ez-box" *ngFor="let control of myForm.get(['milestones', 'arr']).controls; let i = index" [formGroup]="control">
+        <!-- MILESTONE NAME -->
+        <div class="ez-col-break">
+          <label for="mn">
+            <strong>Milestone name</strong>
+          </label>
+          <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" ngbTooltip="Examples: building the front-end, building the back-end, shop module, responsive adaptations"></i>
+          <input id="mn" type="text" formControlName="name">
+          <div class="ez-error" [@fadeInOut]="gotError('milestones.arr.name', i)" *ngIf="gotError('milestones.arr.name', i)">{{formErrors['milestones']['arr'][i]['name']}}</div>
+        </div>
+        <!-- MILESTONE DESCRIPTION -->
+        <div class="ez-col-break">
+          <label for="md">
+            <strong>Milestone description</strong>
+          </label>
+          <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" ngbTooltip="Any additional information to help shape the milestone's purpose"></i>
+          <textarea id="md" class="ez-compact" formControlName="desc"></textarea>
+          <div class="ez-error" [@fadeInOut]="gotError('milestones.arr.desc', i)" *ngIf="gotError('milestones.arr.desc', i)">{{formErrors['milestones']['arr'][i]['desc']}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ez-group">
+      <div class="ez-row">
+        <div class="ez-col-break text-right">
+          <button class="btn btn-secondary" type="button" role="button">
+            Add Milestone<i class="fa fa-plus ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
 
   </section>
 
