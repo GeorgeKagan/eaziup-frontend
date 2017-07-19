@@ -5,6 +5,7 @@ import {GlobalLoaderService} from '../../services/global-loader.service';
 import {MyFormComponent} from '../my-form/my-form.component';
 import {formErrors, validationMessages} from './project-form-errors'
 import {ActivatedRoute} from '@angular/router';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'project-form',
@@ -14,6 +15,7 @@ export class ProjectFormComponent extends MyFormComponent {
   countries: string[] = [];
   cats: string[] = [];
   isSubmitted: boolean = false;
+  milestones: FormGroup;
 
   constructor(private route: ActivatedRoute,
               private projectService: ProjectService,
@@ -36,11 +38,12 @@ export class ProjectFormComponent extends MyFormComponent {
    * Build project form
    */
   buildForm() {
+    this.milestones = this.fb.group(new MilestonesModel());
     this.myForm = this.fb.group({
       buyerInfo: this.fb.group(new BuyerInfoModel()),
       projectInfo: this.fb.group(new ProjectInfoModel()),
       design: this.fb.group(new DesignModel()),
-      milestones: this.fb.group(new MilestonesModel()),
+      milestones: this.milestones,
       final: this.fb.group(new FinalModel())
     });
     super.buildForm();

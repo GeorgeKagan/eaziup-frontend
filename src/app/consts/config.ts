@@ -1,4 +1,5 @@
 export const CONFIG = {
+  MAX_MILESTONES: 5,
   THEME: {
     COLOR1: '#f08525'
   },

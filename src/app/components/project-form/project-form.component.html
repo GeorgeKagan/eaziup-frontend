@@ -29,7 +29,9 @@
 
     <wizard-step data-title="Milestones" navigationSymbol="4">
       <project-form-milestones
+        [fb]="fb"
         [myForm]="myForm"
+        [milestones]="milestones"
         [formErrors]="formErrors"
         [gotError]="gotError"
       ></project-form-milestones>

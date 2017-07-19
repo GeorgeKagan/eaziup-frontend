@@ -29,10 +29,10 @@
       </div>
     </div>
 
-    <div class="ez-group">
+    <div class="ez-group" *ngIf="milestones.get('arr').length < CONFIG.MAX_MILESTONES">
       <div class="ez-row">
         <div class="ez-col-break text-right">
-          <button class="btn btn-secondary" type="button" role="button">
+          <button class="btn btn-secondary" type="button" role="button" (click)="addMilestone()">
             Add Milestone<i class="fa fa-plus ml-2"></i>
           </button>
         </div>

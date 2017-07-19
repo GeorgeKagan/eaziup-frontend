@@ -59,6 +59,7 @@ form {
         select {
           @extend .mt-2;
           @extend .form-control;
+          background: $ez_cream_light;
         }
 
         input[type="file"] {

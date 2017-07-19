@@ -105,11 +105,19 @@ export class MilestonesModel {
    */
   private buildMilestones(fb) {
     this.arr = fb.array([
-      fb.group({
-        name: ['', Validators.required],
-        desc: ['', Validators.required]
-      })
+      fb.group(MilestonesModel.getMilestoneStub())
     ]);
+  }
+
+  /**
+   * Return a milestone stub, used when user adds new ones
+   * @returns {}
+   */
+  public static getMilestoneStub() {
+    return {
+      name: ['', Validators.required],
+      desc: ['', Validators.required]
+    };
   }
 }
 
