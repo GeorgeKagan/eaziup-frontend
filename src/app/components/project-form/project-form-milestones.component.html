@@ -26,6 +26,9 @@
           <textarea id="md" class="ez-compact" formControlName="desc"></textarea>
           <div class="ez-error" [@fadeInOut]="gotError('milestones.arr.desc', i)" *ngIf="gotError('milestones.arr.desc', i)">{{formErrors['milestones']['arr'][i]['desc']}}</div>
         </div>
+        <button type="button" class="close" (click)="removeMilestone(i)" *ngIf="i > 0">
+          <span>&times;</span>
+        </button>
       </div>
     </div>
 

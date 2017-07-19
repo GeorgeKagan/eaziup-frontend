@@ -30,4 +30,13 @@ export class ProjectFormMilestonesComponent {
         newMilestone = this.fb.group(MilestonesModel.getMilestoneStub());
     arr.push(newMilestone);
   }
+
+  /**
+   * Remove milestone from the model
+   * @param index
+   */
+  removeMilestone(index) {
+    let arr = <FormArray>this.milestones.get('arr');
+    arr.removeAt(index);
+  }
 }

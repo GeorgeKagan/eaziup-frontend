@@ -21,6 +21,13 @@ form {
 
       .ez-row {
         width: 100%;
+        position: relative;
+
+        .close {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+        }
       }
       .ez-box {
         border-bottom: 1px solid #ccc;
