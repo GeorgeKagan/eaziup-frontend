@@ -1,3 +1,4 @@
+// Colors
 $ez_cream: #efedef;
 $ez_cream_light: lighten($ez_cream, 5%);
 $ez_cream_darker: darken($ez_cream, 7%);
@@ -6,3 +7,6 @@ $ez_cream_darker3: darken($ez_cream, 50%);
 $ez_white: #fff;
 $ez_orange: #f08525;
 $ez_green: #5cb85c;
+
+// Config
+$ez_slide_speed: 350ms;

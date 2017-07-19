@@ -7,7 +7,11 @@
     </p>
 
     <div class="ez-group" formArrayName="arr">
-      <div class="ez-row ez-box" *ngFor="let control of myForm.get(['milestones', 'arr']).controls; let i = index" [formGroup]="control">
+      <div class="ez-row ez-box"
+           *ngFor="let control of myForm.get(['milestones', 'arr']).controls; let i = index"
+           [formGroup]="control"
+           [@fadeInOut]="i">
+
         <!-- MILESTONE NAME -->
         <div class="ez-col-break">
           <label for="mn">
