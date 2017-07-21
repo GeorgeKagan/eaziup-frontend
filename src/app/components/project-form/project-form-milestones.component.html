@@ -12,21 +12,43 @@
            [formGroup]="control"
            [@fadeInOut]="i">
 
-        <!-- MILESTONE NAME -->
+        <!-- MILESTONE NAME & TIMESPAN -->
         <div class="ez-col-break">
-          <label for="mn">
-            <strong>Milestone name</strong>
-          </label>
-          <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" ngbTooltip="Examples: building the front-end, building the back-end, shop module, responsive adaptations"></i>
-          <input id="mn" type="text" formControlName="name">
-          <div class="ez-error" [@fadeInOut]="gotError('milestones.arr.name', i)" *ngIf="gotError('milestones.arr.name', i)">{{formErrors['milestones']['arr'][i]['name']}}</div>
+          <div class="row">
+            <!-- NAME -->
+            <div class="col-md-8">
+              <label for="mn">
+                <strong>Milestone name</strong>
+              </label>
+              <i class="fa fa-question-circle" tabindex="0" *ngIf="i === 0"
+                 container="body" triggers="click:blur" ngbTooltip="Examples: building the front-end, building the back-end, shop module, responsive adaptations"></i>
+              <input id="mn" type="text" formControlName="name">
+            </div>
+            <!-- TIMESPAN -->
+            <div class="col-md-2 pr-0">
+              <label for="ts">
+                <strong>Time</strong>
+              </label>
+              <i class="fa fa-question-circle" tabindex="0" *ngIf="i === 0"
+                 container="body" triggers="click:blur" ngbTooltip="In how many weeks should the developers finish the milestone's tasks"></i>
+              <input id="ts" type="number" min="{{CONFIG.MIN_TIMESPAN}}" max="{{CONFIG.MAX_TIMESPAN}}" autocomplete="off" formControlName="timespan">
+            </div>
+            <div class="col-md-1 pt-5">
+              <em>Weeks</em>
+            </div>
+            <div class="col-md-12">
+              <div class="ez-error" [@fadeInOut]="gotError('milestones.arr.name', i)" *ngIf="gotError('milestones.arr.name', i)">{{formErrors['milestones']['arr'][i]['name']}}</div>
+              <div class="ez-error" [@fadeInOut]="gotError('milestones.arr.timespan', i)" *ngIf="gotError('milestones.arr.timespan', i)">{{formErrors['milestones']['arr'][i]['timespan']}}</div>
+            </div>
+          </div>
         </div>
         <!-- MILESTONE DESCRIPTION -->
         <div class="ez-col-break">
           <label for="md">
             <strong>Milestone description</strong>
           </label>
-          <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" ngbTooltip="Any additional information to help shape the milestone's purpose"></i>
+          <i class="fa fa-question-circle" tabindex="0" *ngIf="i === 0"
+             container="body" triggers="click:blur" ngbTooltip="Any additional information to help shape the milestone's purpose"></i>
           <textarea id="md" class="ez-compact" formControlName="desc"></textarea>
           <div class="ez-error" [@fadeInOut]="gotError('milestones.arr.desc', i)" *ngIf="gotError('milestones.arr.desc', i)">{{formErrors['milestones']['arr'][i]['desc']}}</div>
         </div>
@@ -40,7 +62,7 @@
       <div class="ez-row">
         <div class="ez-col-break text-right">
           <button class="btn btn-secondary" type="button" role="button" (click)="addMilestone()">
-            Add Milestone<i class="fa fa-plus ml-2"></i>
+            Add Milestone<i class="fa fa-plus ml-2 text-muted"></i>
           </button>
         </div>
       </div>

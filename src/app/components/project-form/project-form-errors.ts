@@ -26,11 +26,11 @@ export const formErrors = {
   milestones: {
     arr: [
       // Maximum allowed number of items must be declared
-      {name: '', desc: ''},
-      {name: '', desc: ''},
-      {name: '', desc: ''},
-      {name: '', desc: ''},
-      {name: '', desc: ''}
+      {name: '', timespan: '', desc: ''},
+      {name: '', timespan: '', desc: ''},
+      {name: '', timespan: '', desc: ''},
+      {name: '', timespan: '', desc: ''},
+      {name: '', timespan: '', desc: ''}
     ]
   },
   final: {
@@ -90,6 +90,11 @@ export const validationMessages = {
     arr: {
       name: {
         required: 'Milestone name is required'
+      },
+      timespan: {
+        required: 'Time is required',
+        min: 'Time must be at least 1 week',
+        max: 'Time cannot be longer than 5 weeks'
       },
       desc: {
         required: 'Milestone description is required'

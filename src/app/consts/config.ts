@@ -1,5 +1,7 @@
 export const CONFIG = {
   MAX_MILESTONES: 5,
+  MIN_TIMESPAN: 1,
+  MAX_TIMESPAN: 5,
   THEME: {
     COLOR1: '#f08525'
   },

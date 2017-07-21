@@ -27,7 +27,8 @@ form {
         .close {
           position: absolute;
           top: 5px;
-          right: 5px;
+          right: 45%;
+          outline: none;
         }
       }
       .ez-box {
@@ -104,8 +105,9 @@ form {
         .ez-error {
           @extend .alert;
           @extend .alert-danger;
-          @extend .mt-2;
+          @extend .mt-3;
           max-height: 50px;
+          margin-bottom: 0;
         }
       }
 
