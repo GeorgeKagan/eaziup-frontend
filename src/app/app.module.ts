@@ -34,7 +34,7 @@ import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
 
 // Directives
-import {MyFormError} from './directives/my-form-error';
+import {MyCustomFileDirective} from './directives/my-custom-file.directive';
 
 // Services
 import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
@@ -74,13 +74,13 @@ export function RestangularConfigFactory(RestangularProvider) {
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
+    MyCustomFileDirective,
     AppComponent,
     HomeComponent,
     ProjectsComponent,
     NewProjectComponent,
     HowItWorksComponent,
     NoContentComponent,
-    MyFormError,
     ProjectFormComponent,
     ProjectFormBuyerInfoComponent,
     ProjectFormProjectInfoComponent,

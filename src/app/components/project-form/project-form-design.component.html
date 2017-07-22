@@ -5,22 +5,28 @@
       <!-- LOGO AND SLOGAN -->
       <div class="ez-col">
         <label for="ls">
-          <strong>Logo & slogan</strong>
+          Logo & slogan
+          <small>(optional)</small>
         </label>
         <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur"
            ngbTooltip="Attach the logo and slogan so the software developers can see you chosen company colours when they are developing and creating your system."></i>
-        <input id="ls" type="file" name="logoSlogan" multiple class="form-control-file" formControlName="logoSlogan">
-        <div class="ez-error" [@fadeInOut]="gotError('design.logoSlogan')" *ngIf="gotError('design.logoSlogan')">{{formErrors['design']['logoSlogan']}}</div>
+        <div class="custom-file">
+          <input id="ls" type="file" class="custom-file-input" multiple my-custom-file formControlName="logoSlogan">
+          <span class="custom-file-control"></span>
+        </div>
       </div>
-      <!-- Design ideas -->
+      <!-- DESIGN IDEAS -->
       <div class="ez-col">
         <label for="di">
-          <strong>Design ideas</strong>
+          Design ideas
+          <small>(optional)</small>
         </label>
         <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur"
            ngbTooltip="Attach any screen shots you have or ideas you have from researching the design of other systems or web-sites. Consider the system structure and colours."></i>
-        <input id="di" type="file" name="designIdeas" multiple class="form-control-file" formControlName="designIdeas">
-        <div class="ez-error" [@fadeInOut]="gotError('design.designIdeas')" *ngIf="gotError('design.designIdeas')">{{formErrors['design']['designIdeas']}}</div>
+        <div class="custom-file">
+          <input id="di" type="file" class="custom-file-input" multiple my-custom-file formControlName="designIdeas">
+          <span class="custom-file-control"></span>
+        </div>
       </div>
     </div>
 

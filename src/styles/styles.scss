@@ -72,8 +72,18 @@ form {
           background: $ez_cream_light;
         }
 
-        input[type="file"] {
+        .custom-file {
           @extend .mt-2;
+          background: $ez_cream_light;
+          display: block;
+          .custom-file-input {
+            width: 100%;
+          }
+          .custom-file-control.ez-file-chosen {
+            &::after {
+              content: '';
+            }
+          }
         }
 
         textarea {
