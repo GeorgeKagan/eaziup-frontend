@@ -20,8 +20,8 @@
               <label for="mn">
                 <strong>Milestone name</strong>
               </label>
-              <i class="fa fa-question-circle" tabindex="0" *ngIf="i === 0"
-                 container="body" triggers="click:blur" ngbTooltip="Examples: building the front-end, building the back-end, shop module, responsive adaptations"></i>
+              <i class="fa fa-question-circle" *ngIf="i === 0"
+                 container="body" ngbTooltip="Examples: building the front-end, building the back-end, shop module, responsive adaptations"></i>
               <input id="mn" type="text" formControlName="name">
             </div>
             <!-- TIMESPAN -->
@@ -29,8 +29,8 @@
               <label for="ts">
                 <strong>Time</strong>
               </label>
-              <i class="fa fa-question-circle" tabindex="0" *ngIf="i === 0"
-                 container="body" triggers="click:blur" ngbTooltip="In how many weeks should the developers finish the milestone's tasks"></i>
+              <i class="fa fa-question-circle" *ngIf="i === 0"
+                 container="body" ngbTooltip="In how many weeks should the developers finish the milestone's tasks"></i>
               <input id="ts" type="number" min="{{CONFIG.MIN_TIMESPAN}}" max="{{CONFIG.MAX_TIMESPAN}}" autocomplete="off" formControlName="timespan">
             </div>
             <div class="col-md-1 pt-5">
@@ -47,8 +47,8 @@
           <label for="md">
             <strong>Milestone description</strong>
           </label>
-          <i class="fa fa-question-circle" tabindex="0" *ngIf="i === 0"
-             container="body" triggers="click:blur" ngbTooltip="Any additional information to help shape the milestone's purpose"></i>
+          <i class="fa fa-question-circle" *ngIf="i === 0"
+             container="body" ngbTooltip="Any additional information to help shape the milestone's purpose"></i>
           <textarea id="md" class="ez-compact" formControlName="desc"></textarea>
           <div class="ez-error" [@fadeInOut]="gotError('milestones.arr.desc', i)" *ngIf="gotError('milestones.arr.desc', i)">{{formErrors['milestones']['arr'][i]['desc']}}</div>
         </div>

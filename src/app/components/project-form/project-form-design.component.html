@@ -8,7 +8,7 @@
           Logo & slogan
           <small>(optional)</small>
         </label>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur"
+        <i class="fa fa-question-circle" container="body"
            ngbTooltip="Attach the logo and slogan so the software developers can see you chosen company colours when they are developing and creating your system."></i>
         <div class="custom-file">
           <input id="ls" type="file" class="custom-file-input" multiple my-custom-file formControlName="logoSlogan">
@@ -21,7 +21,7 @@
           Design ideas
           <small>(optional)</small>
         </label>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur"
+        <i class="fa fa-question-circle" container="body"
            ngbTooltip="Attach any screen shots you have or ideas you have from researching the design of other systems or web-sites. Consider the system structure and colours."></i>
         <div class="custom-file">
           <input id="di" type="file" class="custom-file-input" multiple my-custom-file formControlName="designIdeas">
@@ -36,7 +36,7 @@
         <label for="do">
           <strong>Design outline</strong>
         </label>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="designOutlineTooltip"></i>
+        <i class="fa fa-question-circle" container="body" [ngbTooltip]="designOutlineTooltip"></i>
         <textarea id="do" formControlName="designOutline"></textarea>
         <ng-template #designOutlineTooltip>
           Describe how you would like the system colours and structure to look based on the uploaded screen shots and any ideas you may have.

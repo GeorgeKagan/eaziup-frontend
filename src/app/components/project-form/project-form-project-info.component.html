@@ -7,7 +7,7 @@
         <label for="pn">
           <strong>Project name</strong>
         </label>
-        <i class="fa fa-question-circle" triggers="click:blur" tabindex="0" container="body" [ngbTooltip]="projectNameTooltip"></i>
+        <i class="fa fa-question-circle" container="body" [ngbTooltip]="projectNameTooltip"></i>
         <input id="pn" type="text" formControlName="projectName">
         <ng-template #projectNameTooltip>
           <p>
@@ -40,7 +40,7 @@
         <label for="bdop">
           <strong>Basic description of project</strong>
         </label>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="basicDescTooltip"></i>
+        <i class="fa fa-question-circle" container="body" [ngbTooltip]="basicDescTooltip"></i>
         <textarea id="bdop" formControlName="basicDesc"></textarea>
         <ng-template #basicDescTooltip>
           <strong>Do not provide any detailed information.</strong>
@@ -65,7 +65,7 @@
         <label for="fdop">
           <strong>Full description of project / functionality required</strong>
         </label>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="fullDescTooltip"></i>
+        <i class="fa fa-question-circle" container="body" [ngbTooltip]="fullDescTooltip"></i>
         <textarea id="fdop" formControlName="fullDesc"></textarea>
         <ng-template #fullDescTooltip>
           Provide detailed software features and functionality required. This information will only
@@ -84,7 +84,7 @@
         <label for="tr">
           <strong>Technology requirements</strong>
         </label>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="techReqsTooltip"></i>
+        <i class="fa fa-question-circle" container="body" [ngbTooltip]="techReqsTooltip"></i>
         <textarea id="tr" formControlName="techReqs"></textarea>
         <ng-template #techReqsTooltip>
           Provide information about any technology requirements that are required, such as
@@ -98,7 +98,7 @@
         <label for="sdr">
           <strong>Software developer requirements</strong>
         </label>
-        <i class="fa fa-question-circle" tabindex="0" container="body" triggers="click:blur" [ngbTooltip]="developerReqsTooltip"></i>
+        <i class="fa fa-question-circle" container="body" [ngbTooltip]="developerReqsTooltip"></i>
         <textarea id="sdr" formControlName="developerReqs"></textarea>
         <ng-template #developerReqsTooltip>
           <p>Provide information about any specific skills that the software developers must be

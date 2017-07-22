@@ -102,7 +102,6 @@ form {
 
         // Tooltip
         i.fa-question-circle {
-          cursor: pointer;
           outline: none;
           color: $ez_green;
           margin: 0 7px;
@@ -140,6 +139,10 @@ form {
   }
 
   // Various
+
+  .btn.btn-link:hover {
+    text-decoration: none;
+  }
 
   .ez-buttons {
     @extend .mt-5;
