@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder, FormArray} from '@angular/forms';
 import {slideDown} from '../../consts/animations';
 import {CONFIG} from '../../consts/config';
 import {MilestonesModel} from './project-form-model';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'project-form-milestones',
@@ -17,9 +18,22 @@ export class ProjectFormMilestonesComponent {
   @Input() gotError: Function;
 
   private CONFIG;
+  /**
+   * Min date is today
+   * @type NgbDateStruct
+   */
+  private minStartDate: NgbDateStruct = {day: null, month: null, year: null};
+  /**
+   * Max date is today + 1 year
+   * @type NgbDateStruct
+   */
+  private maxStartDate: NgbDateStruct = {day: null, month: null, year: null};
 
   ngOnInit() {
+    let today = new Date();
     this.CONFIG = CONFIG;
+    this.minStartDate = {day: today.getDate(), month: today.getMonth() + 1, year: today.getFullYear()};
+    this.maxStartDate = {day: today.getDate(), month: today.getMonth() + 1, year: today.getFullYear() + 1};
   }
 
   /**

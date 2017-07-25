@@ -26,7 +26,7 @@
         <label for="cat">
           <strong>Category</strong>
         </label>
-        <select id="cat" formControlName="cat">
+        <select id="cat" class="ez-select" formControlName="cat">
           <optgroup [label]="group.label" *ngFor="let group of cats">
             <option *ngFor="let cat of group.cats" [value]="cat.id">{{cat.label}}</option>
           </optgroup>

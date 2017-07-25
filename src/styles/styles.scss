@@ -66,10 +66,19 @@ form {
         // Inputs
         input:not([type="file"]),
         textarea,
-        select {
+        select.ez-select {
           @extend .mt-2;
           @extend .form-control;
-          background: $ez_cream_light;
+        }
+
+        .input-group {
+          @extend .mt-2;
+
+          input:not([type="file"]),
+          textarea,
+          select.ez-select {
+            @extend .mt-0;
+          }
         }
 
         .custom-file {
@@ -95,7 +104,7 @@ form {
           }
         }
 
-        select {
+        select.ez-select {
           @extend .custom-select;
         }
         // end Inputs
@@ -158,6 +167,7 @@ button, input, optgroup, select, textarea {
 }
 
 input, optgroup, select, textarea {
+  background-color: $ez_cream_light;
   color: $ez_cream_darker3 !important;
   border: 1px solid $ez_cream_darker !important;
   &:focus {

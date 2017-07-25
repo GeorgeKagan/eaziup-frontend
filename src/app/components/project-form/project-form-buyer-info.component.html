@@ -47,7 +47,7 @@
         <label for="c">
           <strong>Country</strong>
         </label>
-        <select id="c" formControlName="country">
+        <select id="c" class="ez-select" formControlName="country">
           <option *ngFor="let country of countries" [value]="country.id">{{country.label}}</option>
         </select>
       </div>

@@ -68,6 +68,24 @@
       </div>
     </div>
 
+    <h5><span>Project start date</span></h5>
+
+    <div class="ez-group">
+      <!-- PROJECT START DATE -->
+      <div class="ez-col-break">
+        <label for="psd">
+          <strong>Pick a date</strong>
+        </label>
+        <div class="input-group">
+          <input id="psd" placeholder="yyyy-mm-dd" placement="bottom-right" [minDate]="minStartDate" [maxDate]="maxStartDate" ngbDatepicker #d="ngbDatepicker" formControlName="startDate">
+          <div class="input-group-addon" (click)="d.toggle()" >
+            <i class="fa fa-calendar"></i>
+          </div>
+        </div>
+        <div class="ez-error" [@fadeInOut]="gotError('milestones.startDate')" *ngIf="gotError('milestones.startDate')">{{formErrors['milestones']['startDate']}}</div>
+      </div>
+    </div>
+
   </section>
 
   <!-- Continue button -->

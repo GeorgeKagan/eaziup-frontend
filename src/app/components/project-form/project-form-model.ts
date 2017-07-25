@@ -88,6 +88,7 @@ export class DesignModel {
 
 export class MilestonesModel {
   arr;
+  startDate = ['', Validators.required];
 
   constructor() {
     let fb = new FormBuilder();

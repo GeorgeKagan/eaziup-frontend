@@ -31,7 +31,8 @@ export const formErrors = {
       {name: '', timespan: '', desc: ''},
       {name: '', timespan: '', desc: ''},
       {name: '', timespan: '', desc: ''}
-    ]
+    ],
+    startDate: ''
   },
   final: {
 
@@ -99,6 +100,10 @@ export const validationMessages = {
       desc: {
         required: 'Milestone description is required'
       }
+    },
+    startDate: {
+      ngbDate: 'Project start date is required',
+      required: 'Project start date is required'
     }
   }
 };
