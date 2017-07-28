@@ -50,7 +50,7 @@ form {
 
         // Label
         > label,
-        .dummy-label {
+        .ez-label {
           @extend .form-control-label;
           display: inline-block;
           color: $ez_cream_darker2;
@@ -131,6 +131,7 @@ form {
 
       .ez-col-break {
         padding-left: 0;
+        padding-right: 30px;
       }
 
       .ez-col {
@@ -159,6 +160,9 @@ form {
 
   .ez-inputs-group {
     margin-top: 0.5rem;
+    &.ez-1-line {
+      margin-top: 1rem;
+    }
   }
 }
 
@@ -224,3 +228,19 @@ h5 {
 }
 
 /* end MISC CLASSES */
+
+
+
+/* VARIOUS */
+
+*::-webkit-input-placeholder {
+  color: $ez_cream_darker2 !important;
+}
+*::-moz-placeholder {
+  color: $ez_cream_darker2 !important;
+}
+*:-ms-input-placeholder {
+  color: $ez_cream_darker2 !important;
+}
+
+/* end VARIOUS */

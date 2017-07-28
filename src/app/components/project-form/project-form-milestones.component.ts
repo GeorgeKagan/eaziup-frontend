@@ -17,6 +17,8 @@ export class ProjectFormMilestonesComponent {
   @Input() formErrors: object = {};
   @Input() gotError: Function;
 
+  public developerCounts = CONFIG.DEV_COUNT;
+
   private CONFIG;
   /**
    * Min date is today

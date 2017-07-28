@@ -1,6 +1,38 @@
 <div [formGroup]="myForm">
   <section formGroupName="milestones">
 
+    <div class="ez-group">
+      <!-- PROJECT START DATE -->
+      <div class="ez-col-break">
+        <label for="psd">
+          <strong>Project start date</strong>
+        </label>
+        <div class="input-group">
+          <input id="psd" placeholder="yyyy-mm-dd" placement="bottom-right" [minDate]="minStartDate" [maxDate]="maxStartDate" ngbDatepicker #d="ngbDatepicker" formControlName="startDate">
+          <div class="input-group-addon" (click)="d.toggle()" >
+            <i class="fa fa-calendar"></i>
+          </div>
+        </div>
+        <div class="ez-error" [@fadeInOut]="gotError('milestones.startDate')" *ngIf="gotError('milestones.startDate')">{{formErrors['milestones']['startDate']}}</div>
+      </div>
+      <!-- DEVELOPER COUNT -->
+      <div class="ez-col">
+        <div class="ez-label">
+          <strong>Number of software developers</strong>
+          <div class="ez-inputs-group ez-1-line">
+            <label class="custom-control custom-radio" *ngFor="let i of developerCounts">
+              <input type="radio" class="custom-control-input" name="developerCount" formControlName="developerCount" [value]="i.key"
+                     [checked]="i.key===myForm.get(['milestones', 'developerCount']).value">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">{{i.label}}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><span>Milestones</span></h5>
+
     <p class="lead mb-5">
       <i class="fa fa-exclamation-circle text-secondary mr-2"></i>
       You can add up to 5 milestones
@@ -13,27 +45,31 @@
            [@fadeInOut]="i">
 
         <!-- MILESTONE NAME & TIMESPAN -->
-        <div class="ez-col-break">
+        <div class="ez-col-break" [ngClass]="{'mb-4': i > 0}">
           <div class="row">
             <!-- NAME -->
             <div class="col-md-8">
-              <label for="mn">
-                <strong>Milestone name</strong>
-              </label>
-              <i class="fa fa-question-circle" *ngIf="i === 0"
-                 container="body" ngbTooltip="Examples: building the front-end, building the back-end, shop module, responsive adaptations"></i>
-              <input id="mn" type="text" formControlName="name">
+              <div *ngIf="i === 0">
+                <label class="ez-label" for="mn">
+                  <strong>Milestone name</strong>
+                </label>
+                <i class="fa fa-question-circle" *ngIf="i === 0"
+                   container="body" ngbTooltip="Examples: building the front-end, building the back-end, shop module, responsive adaptations"></i>
+              </div>
+              <input id="mn" type="text" [placeholder]="i === 0 ? '' : 'Milestone name'" formControlName="name">
             </div>
             <!-- TIMESPAN -->
             <div class="col-md-2 pr-0">
-              <label for="ts">
-                <strong>Time</strong>
-              </label>
-              <i class="fa fa-question-circle" *ngIf="i === 0"
-                 container="body" ngbTooltip="In how many weeks should the developers finish the milestone's tasks"></i>
+              <div *ngIf="i === 0">
+                <label class="ez-label" for="ts">
+                  <strong>Time</strong>
+                </label>
+                <i class="fa fa-question-circle" *ngIf="i === 0"
+                   container="body" ngbTooltip="In how many weeks should the developers finish the milestone's tasks"></i>
+              </div>
               <input id="ts" type="number" min="{{CONFIG.MIN_TIMESPAN}}" max="{{CONFIG.MAX_TIMESPAN}}" autocomplete="off" formControlName="timespan">
             </div>
-            <div class="col-md-1 pt-5">
+            <div class="col-md-1 pt-3" [ngClass]="{'mt-4': i === 0}">
               <em>Weeks</em>
             </div>
             <div class="col-md-12">
@@ -44,12 +80,14 @@
         </div>
         <!-- MILESTONE DESCRIPTION -->
         <div class="ez-col-break">
-          <label for="md">
-            <strong>Milestone description</strong>
-          </label>
-          <i class="fa fa-question-circle" *ngIf="i === 0"
-             container="body" ngbTooltip="Any additional information to help shape the milestone's purpose"></i>
-          <textarea id="md" class="ez-compact" formControlName="desc"></textarea>
+          <div *ngIf="i === 0">
+            <label for="md">
+              <strong>Milestone description</strong>
+            </label>
+            <i class="fa fa-question-circle" *ngIf="i === 0"
+               container="body" ngbTooltip="Any additional information to help shape the milestone's purpose"></i>
+          </div>
+          <textarea id="md" class="ez-compact" [placeholder]="i === 0 ? '' : 'Milestone description'" formControlName="desc"></textarea>
           <div class="ez-error" [@fadeInOut]="gotError('milestones.arr.desc', i)" *ngIf="gotError('milestones.arr.desc', i)">{{formErrors['milestones']['arr'][i]['desc']}}</div>
         </div>
         <button type="button" class="close" (click)="removeMilestone(i)" *ngIf="i > 0">
@@ -65,24 +103,6 @@
             Add Milestone<i class="fa fa-plus ml-2 text-muted"></i>
           </button>
         </div>
-      </div>
-    </div>
-
-    <h5><span>Project start date</span></h5>
-
-    <div class="ez-group">
-      <!-- PROJECT START DATE -->
-      <div class="ez-col-break">
-        <label for="psd">
-          <strong>Pick a date</strong>
-        </label>
-        <div class="input-group">
-          <input id="psd" placeholder="yyyy-mm-dd" placement="bottom-right" [minDate]="minStartDate" [maxDate]="maxStartDate" ngbDatepicker #d="ngbDatepicker" formControlName="startDate">
-          <div class="input-group-addon" (click)="d.toggle()" >
-            <i class="fa fa-calendar"></i>
-          </div>
-        </div>
-        <div class="ez-error" [@fadeInOut]="gotError('milestones.startDate')" *ngIf="gotError('milestones.startDate')">{{formErrors['milestones']['startDate']}}</div>
       </div>
     </div>
 

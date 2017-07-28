@@ -1,5 +1,6 @@
 export const CONFIG = {
   MAX_MILESTONES: 5,
+  DEFAULT_TIMESPAN: 1,
   MIN_TIMESPAN: 1,
   MAX_TIMESPAN: 5,
   THEME: {

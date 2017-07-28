@@ -15,5 +15,4 @@ export class ProjectFormProjectInfoComponent {
   @Input() cats: string[] = [];
 
   operatingSystems = CONFIG.OS;
-  developerCounts = CONFIG.DEV_COUNT;
 }

@@ -40,7 +40,6 @@ export class ProjectInfoModel {
   techReqs = ['', Validators.required];
   developerReqs = ['', Validators.required];
   osReqs;
-  developerCount = [CONFIG.DEFAULTS.DEV_COUNT];
 
   constructor() {
     let fb = new FormBuilder();
@@ -89,6 +88,7 @@ export class DesignModel {
 export class MilestonesModel {
   arr;
   startDate = ['', Validators.required];
+  developerCount = [CONFIG.DEFAULTS.DEV_COUNT];
 
   constructor() {
     let fb = new FormBuilder();
@@ -96,7 +96,9 @@ export class MilestonesModel {
     this.buildMilestones(fb);
 
     if (IS_DEV) {
-
+      this.arr.get([0, 'name']).setValue('Example milestone');
+      this.arr.get([0, 'timespan']).setValue(2);
+      this.arr.get([0, 'desc']).setValue('Full description of milestone');
     }
   }
 
@@ -117,7 +119,7 @@ export class MilestonesModel {
   public static getMilestoneStub() {
     return {
       name: ['', Validators.required],
-      timespan: ['', [Validators.required, Validators.min(CONFIG.MIN_TIMESPAN), Validators.max(CONFIG.MAX_TIMESPAN)]],
+      timespan: [CONFIG.DEFAULT_TIMESPAN, [Validators.required, Validators.min(CONFIG.MIN_TIMESPAN), Validators.max(CONFIG.MAX_TIMESPAN)]],
       desc: ['', Validators.required]
     };
   }
