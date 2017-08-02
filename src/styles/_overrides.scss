@@ -89,7 +89,7 @@ wizard-navigation-bar {
 /** Override ngb tooltip **/
 
 ngb-tooltip-window.tooltip.show {
-  margin-top: 0px;
+  margin-top: 0;
   opacity: 1;
   div.tooltip-inner {
     max-width: 500px;
@@ -110,6 +110,23 @@ ngb-tooltip-window.tooltip.show {
       border-top-color: #fff;
     }
   }
+}
+
+/** end **/
+
+
+
+/** Override ngb checkbox & radio **/
+
+.custom-control-input:checked ~ .custom-control-indicator {
+  background-color: $ez_orange !important;
+}
+.custom-control-input:active ~ .custom-control-indicator {
+  background-color: lighten($ez_orange, 20%) !important;
+}
+.custom-control-input:focus ~ .custom-control-indicator {
+  -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px $ez_orange !important;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px $ez_orange !important;
 }
 
 /** end **/
