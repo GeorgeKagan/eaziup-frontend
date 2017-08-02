@@ -1,7 +1,7 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate *ngIf="!isSubmitted">
 
   <wizard [navBarLayout]="'large-filled-symbols'">
-    <wizard-step data-title="General" navigationSymbol="1">
+    <wizard-step data-title="General" navigationSymbol="1" (stepEnter)="initStep($event, CONFIG.WIZARD.STEPS.GENERAL)">
       <project-form-buyer-info
         [myForm]="myForm"
         [formErrors]="formErrors"
@@ -10,7 +10,7 @@
       ></project-form-buyer-info>
     </wizard-step>
 
-    <wizard-step data-title="Project info" navigationSymbol="2">
+    <wizard-step data-title="Project info" navigationSymbol="2" (stepEnter)="initStep($event, CONFIG.WIZARD.STEPS.INFO)">
       <project-form-project-info
         [myForm]="myForm"
         [formErrors]="formErrors"
@@ -19,7 +19,7 @@
       ></project-form-project-info>
     </wizard-step>
 
-    <wizard-step data-title="Design" navigationSymbol="3">
+    <wizard-step data-title="Design" navigationSymbol="3" (stepEnter)="initStep($event, CONFIG.WIZARD.STEPS.DESIGN)">
       <project-form-design
         [myForm]="myForm"
         [formErrors]="formErrors"
@@ -27,7 +27,7 @@
       ></project-form-design>
     </wizard-step>
 
-    <wizard-step data-title="Team & Milestones" navigationSymbol="4">
+    <wizard-step data-title="Team & Milestones" navigationSymbol="4" (stepEnter)="initStep($event, CONFIG.WIZARD.STEPS.MILESTONES)">
       <project-form-milestones
         [fb]="fb"
         [myForm]="myForm"
@@ -37,7 +37,7 @@
       ></project-form-milestones>
     </wizard-step>
 
-    <wizard-step data-title="Compensation" navigationSymbol="5">
+    <wizard-step data-title="Compensation" navigationSymbol="5" (stepEnter)="initStep($event, CONFIG.WIZARD.STEPS.FINAL)">
       <project-form-final
         [myForm]="myForm"
         [formErrors]="formErrors"

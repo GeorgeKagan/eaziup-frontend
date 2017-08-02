@@ -40,6 +40,7 @@ import {MyCustomFileDirective} from './directives/my-custom-file.directive';
 import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
 import {AuthService} from './services/auth.service';
 import {GlobalLoaderService} from './services/global-loader.service';
+import {WizardStepsService} from './services/wizard-steps.service';
 import {ProjectService} from './services/project.service';
 
 // Components
@@ -59,6 +60,7 @@ const APP_PROVIDERS = [
   OnlyLoggedInUsersGuard,
   AuthService,
   GlobalLoaderService,
+  WizardStepsService,
   ProjectService
 ];
 

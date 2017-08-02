@@ -2,10 +2,13 @@ import {Component} from '@angular/core';
 import {BuyerInfoModel, ProjectInfoModel, DesignModel, MilestonesModel, FinalModel} from './project-form-model';
 import {ProjectService} from '../../services/project.service';
 import {GlobalLoaderService} from '../../services/global-loader.service';
+import {WizardStepsService} from '../../services/wizard-steps.service';
 import {MyFormComponent} from '../my-form/my-form.component';
 import {formErrors, validationMessages} from './project-form-errors'
 import {ActivatedRoute} from '@angular/router';
 import {FormGroup} from '@angular/forms';
+import {MovingDirection} from 'ng2-archwizard/dist';
+import {CONFIG} from '../../consts/config';
 
 @Component({
   selector: 'project-form',
@@ -17,10 +20,14 @@ export class ProjectFormComponent extends MyFormComponent {
   isSubmitted: boolean = false;
   milestones: FormGroup;
 
+  private CONFIG;
+
   constructor(private route: ActivatedRoute,
               private projectService: ProjectService,
-              private globalLoader: GlobalLoaderService) {
+              private globalLoader: GlobalLoaderService,
+              private wizardSteps: WizardStepsService) {
     super();
+    this.CONFIG = CONFIG;
   }
 
   ngOnInit() {
@@ -47,6 +54,17 @@ export class ProjectFormComponent extends MyFormComponent {
       final: this.fb.group(new FinalModel())
     });
     super.buildForm();
+  }
+
+  /**
+   * Logic to run before moving on to the next step
+   * @param direction
+   * @param index
+   */
+  initStep(direction, index) {
+    if (direction === MovingDirection.Forwards) {
+      this.wizardSteps.emitChange(index);
+    }
   }
 
   /**

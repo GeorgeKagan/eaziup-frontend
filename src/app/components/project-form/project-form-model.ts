@@ -119,7 +119,7 @@ export class MilestonesModel {
   public static getMilestoneStub() {
     return {
       name: ['', Validators.required],
-      timespan: [CONFIG.DEFAULT_TIMESPAN, [Validators.required, Validators.min(CONFIG.MIN_TIMESPAN), Validators.max(CONFIG.MAX_TIMESPAN)]],
+      timespan: [CONFIG.WIZARD.DEFAULT_TIMESPAN, [Validators.required, Validators.min(CONFIG.WIZARD.MIN_TIMESPAN), Validators.max(CONFIG.WIZARD.MAX_TIMESPAN)]],
       desc: ['', Validators.required]
     };
   }

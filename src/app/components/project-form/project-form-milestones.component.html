@@ -96,7 +96,7 @@
       </div>
     </div>
 
-    <div class="ez-group" *ngIf="milestones.get('arr').length < CONFIG.MAX_MILESTONES">
+    <div class="ez-group" *ngIf="milestones.get('arr').length < CONFIG.WIZARD.MAX_MILESTONES">
       <div class="ez-row">
         <div class="ez-col-break text-right">
           <button class="btn btn-secondary" type="button" role="button" (click)="addMilestone()">

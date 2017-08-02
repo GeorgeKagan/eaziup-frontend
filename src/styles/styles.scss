@@ -215,6 +215,18 @@ h5 {
   }
 }
 
+table {
+  td, th {
+    text-align: center;
+  }
+  .ez-bg-row {
+    background: #e0dee0;
+  }
+  .ez-bg-col {
+    background: lighten($ez_cream_darker, 4%);
+  }
+}
+
 /* end BASIC UI */
 
 
@@ -225,6 +237,31 @@ h5 {
   width: 80px;
   height: 80px;
   display: block;
+}
+
+.ez-link {
+  color: $blue;
+  cursor: pointer;
+}
+
+.ez-orange {
+  color: $ez_orange;
+}
+.ez-green {
+  color: $ez_green;
+}
+
+.ez-radius-top {
+  border-radius: 10px 10px 0 0;
+}
+.ez-radius-right {
+  border-radius: 0 10px 10px 0;
+}
+.ez-radius-bottom {
+  border-radius: 0 0 10px 10px;
+}
+.ez-radius-left {
+  border-radius: 10px 0 0 10px;
 }
 
 /* end MISC CLASSES */

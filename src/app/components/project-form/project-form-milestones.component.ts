@@ -4,6 +4,7 @@ import {slideDown} from '../../consts/animations';
 import {CONFIG} from '../../consts/config';
 import {MilestonesModel} from './project-form-model';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import {WizardStepsService} from '../../services/wizard-steps.service';
 
 @Component({
   selector: 'project-form-milestones',
@@ -31,11 +32,17 @@ export class ProjectFormMilestonesComponent {
    */
   private maxStartDate: NgbDateStruct = {day: null, month: null, year: null};
 
+  constructor(private wizardSteps: WizardStepsService) {}
+
   ngOnInit() {
     let today = new Date();
     this.CONFIG = CONFIG;
     this.minStartDate = {day: today.getDate(), month: today.getMonth() + 1, year: today.getFullYear()};
     this.maxStartDate = {day: today.getDate(), month: today.getMonth() + 1, year: today.getFullYear() + 1};
+
+    this.wizardSteps.changeEmitted$.filter(index => index === CONFIG.WIZARD.STEPS.MILESTONES).subscribe(index => {
+
+    });
   }
 
   /**

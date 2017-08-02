@@ -1,7 +1,55 @@
 <div [formGroup]="myForm">
   <section formGroupName="final">
 
-    compensation and legal
+    <p class="lead">
+      Below is the estimated cost of the project,<br>
+      Meet your budget by <span class="ez-link" previousStep>adjusting</span> the number of developers and milestones
+    </p>
+
+    <p class="lead pb-4">
+      No payment is required at this time,<br>
+      Payment is due when work on the project commences.
+    </p>
+
+    <table class="table mt-5 pt-5">
+      <thead>
+      <tr>
+        <th>Developers & milestones</th>
+        <th class="ez-bg-col ez-green border-0 ez-radius-top pt-3">EaziUp price</th>
+        <th>Freelancer market rate</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let price of pricing; let last = last">
+
+        <!-- Number of devs/milestones - 1-3 milestones -->
+        <td [ngClass]="{'align-middle': true, 'h5 ez-bg-row ez-radius-left': price.isSelected}" *ngIf="price.maxStones === CONFIG.WIZARD.MILESTONE_BREAKPOINT">
+          {{price.devs}} developer{{price.devs > 1 ? 's' : ''}} (1–3 stages)
+        </td>
+
+        <!-- Number of devs/milestones - 4+ milestones -->
+        <td [ngClass]="{'align-middle': true, 'h5 ez-bg-row ez-radius-left': price.isSelected}" *ngIf="price.maxStones === CONFIG.WIZARD.MAX_MILESTONES">
+          {{price.devs}} developer{{price.devs > 1 ? 's' : ''}} (4+ stages)
+        </td>
+
+        <!-- Our price -->
+        <td [ngClass]="{'align-middle border-0': true, 'h3 ez-bg-row ez-orange': price.isSelected, 'ez-bg-col': !price.isSelected}">
+          <strong>{{price.ourPrice | number}} ILS</strong>
+        </td>
+
+        <!-- Markte price -->
+        <td [ngClass]="{'align-middle': true, 'h5 ez-bg-row ez-radius-right': price.isSelected}">
+          {{price.marketPrice | number}} ILS
+        </td>
+
+      </tr>
+      <tr>
+        <th></th>
+        <th class="align-top ez-radius-bottom pb-4 ez-bg-col border-0"></th>
+        <th></th>
+      </tr>
+      </tbody>
+    </table>
 
   </section>
 
@@ -11,9 +59,8 @@
       <i class="fa fa-angle-left mr-2 font-weight-bold"></i>Go back
     </button>
     <div class="ml-auto">
-      <small class="ml-3 mr-3">* Psst, <strong>bold</strong> fields are mandatory!</small>
       <button class="btn btn-lg btn-success" type="submit" role="button" [disabled]="myForm.controls.final.invalid">
-        Submit project<i class="fa fa-check ml-2 font-weight-bold"></i>
+        <i class="fa fa-check mr-2 font-weight-bold"></i>Submit project
       </button>
     </div>
   </div>
