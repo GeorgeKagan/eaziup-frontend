@@ -3,6 +3,7 @@ import {FormGroup} from '@angular/forms';
 import {slideDown} from '../../consts/animations';
 import {WizardStepsService} from '../../services/wizard-steps.service';
 import {CONFIG} from '../../consts/config';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'project-form-buyer-info',

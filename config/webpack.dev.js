@@ -134,7 +134,7 @@ module.exports = function (options) {
        */
       new DefinePlugin({
         'SITE_URL': JSON.stringify('http://localhost:3000'),
-        'API_URL': JSON.stringify('http://localhost:3000/api'),
+        'API_URL': JSON.stringify('http://127.0.0.1:8080'),
         'IS_DEV': JSON.stringify(true),
         'IS_TEST': JSON.stringify(false),
         'IS_PROD': JSON.stringify(false),

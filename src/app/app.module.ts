@@ -8,11 +8,6 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
-// Conditional modules
-if (IS_DEV) {
-  require('mimic');
-}
-
 // Third party modules
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
@@ -67,7 +62,7 @@ const APP_PROVIDERS = [
 export function RestangularConfigFactory(RestangularProvider) {
   RestangularProvider.setBaseUrl(API_URL);
   //todo: use jwt here
-  RestangularProvider.setDefaultHeaders({'Authorization': 'Bearer UDXPx-Xko0w4BRKajozCVy20X11MRZs1'});
+  // RestangularProvider.setDefaultHeaders({'Authorization': 'Bearer UDXPx-Xko0w4BRKajozCVy20X11MRZs1'});
 }
 
 /**

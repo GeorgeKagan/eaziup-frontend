@@ -132,7 +132,6 @@
     "karma-remap-coverage": "^0.1.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.4",
-    "mimic": "^2.0.2",
     "ng-router-loader": "^2.1.0",
     "ngc-webpack": "~2.0.0",
     "node-sass": "^4.5.2",
