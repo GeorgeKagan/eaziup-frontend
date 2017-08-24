@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Restangular} from "ngx-restangular";
 
 @Injectable()
 export class ProjectService {
 
-  constructor(public http: Http) {
+  constructor(private rest: Restangular) {
   }
 
   public getData() {
@@ -12,8 +12,6 @@ export class ProjectService {
   }
 
   public saveProject(data) {
-    console.log(data);
-
-    return this.http.post('/api/project', data);
+    return this.rest.all('project').post(data);
   }
 }

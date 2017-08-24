@@ -1,5 +1,5 @@
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Injectable } from '@angular/core';
+import {Resolve, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import {Injectable} from '@angular/core';
 import {Restangular} from 'ngx-restangular';
 
 @Injectable()
