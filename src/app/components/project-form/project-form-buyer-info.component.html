@@ -105,11 +105,11 @@
       <!-- WHAT COMPANY DOES -->
       <div class="ez-col">
         <label for="wcd">
-          <strong>What does your company do?</strong>
+          What does your company do?
+          <small>(optional)</small>
         </label>
         <i class="fa fa-question-circle" container="body" ngbTooltip="This information will not be disclosed to the supplier until the project is allocated to a supplier."></i>
         <textarea id="wcd" formControlName="whatCompanyDoes"></textarea>
-        <div class="ez-error" [@fadeInOut]="gotError('buyerInfo.whatCompanyDoes')" *ngIf="gotError('buyerInfo.whatCompanyDoes')">{{formErrors['buyerInfo']['whatCompanyDoes']}}</div>
       </div>
     </div>
 

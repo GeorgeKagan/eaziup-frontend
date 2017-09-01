@@ -12,7 +12,7 @@ export class BuyerInfoModel {
   addressLine2 = [''];
   companyName = [''];
   companyPosition = [''];
-  whatCompanyDoes = ['', Validators.required];
+  whatCompanyDoes = [''];
 
   constructor() {
     if (IS_DEV) {
