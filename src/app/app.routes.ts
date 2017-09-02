@@ -4,12 +4,19 @@ import {ProjectsComponent} from './states/projects';
 import {NewProjectComponent} from './states/new-project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
-import {CountriesResolver, CatsResolver} from './app.resolver';
+import {CountriesResolver, CatsResolver, ProjectsResolver} from './app.resolver';
 import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
 
 export const ROUTES: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'projects', component: ProjectsComponent},
+  {
+    path: 'projects',
+    component: ProjectsComponent,
+    resolve: {
+      projects: ProjectsResolver
+    },
+    canActivate: [OnlyLoggedInUsersGuard]
+  },
   {
     path: 'new-project',
     component: NewProjectComponent,

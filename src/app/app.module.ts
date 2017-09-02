@@ -38,6 +38,9 @@ import {GlobalLoaderService} from './services/global-loader.service';
 import {WizardStepsService} from './services/wizard-steps.service';
 import {ProjectService} from './services/project.service';
 
+// Pipes
+import {Nl2brPipe} from './pipes/general.pipe';
+
 // Components
 import {ProjectFormComponent} from './components/project-form/project-form.component';
 import {ProjectFormBuyerInfoComponent} from './components/project-form/project-form-buyer-info.component';
@@ -72,6 +75,7 @@ export function RestangularConfigFactory(RestangularProvider) {
   bootstrap: [AppComponent],
   declarations: [
     MyCustomFileDirective,
+    Nl2brPipe,
     AppComponent,
     HomeComponent,
     ProjectsComponent,

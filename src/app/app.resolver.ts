@@ -18,10 +18,19 @@ export class CatsResolver implements Resolve<any> {
   }
 }
 
+@Injectable()
+export class ProjectsResolver implements Resolve<any> {
+  constructor(private rest: Restangular) {}
+  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.rest.all('project').customGET().toPromise();
+  }
+}
+
 /**
  * An array of services to resolve routes with data.
  */
 export const APP_RESOLVER_PROVIDERS = [
   CountriesResolver,
-  CatsResolver
+  CatsResolver,
+  ProjectsResolver
 ];
