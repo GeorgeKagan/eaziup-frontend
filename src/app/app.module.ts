@@ -64,8 +64,7 @@ const APP_PROVIDERS = [
 
 export function RestangularConfigFactory(RestangularProvider) {
   RestangularProvider.setBaseUrl(API_URL);
-  //todo: use jwt here
-  // RestangularProvider.setDefaultHeaders({'Authorization': 'Bearer UDXPx-Xko0w4BRKajozCVy20X11MRZs1'});
+  RestangularProvider.setDefaultHeaders({'Authorization': 'Bearer ' + localStorage.getItem('idToken')});
 }
 
 /**
