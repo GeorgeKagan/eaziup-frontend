@@ -14,6 +14,8 @@ export class AuthService {
    * When user authenticates, fetch his profile and set it, alongside tokens in the local storage.
    */
   constructor() {
+    let expiresAt = JSON.parse(localStorage.getItem('expiresAt'));
+
     // Initiating our Auth0Lock
     this.lock = new Auth0Lock(
       CONFIG.AUTH.CLIENT_ID,
@@ -48,12 +50,13 @@ export class AuthService {
         localStorage.setItem('accessToken', authResult.accessToken);
         localStorage.setItem('idToken', authResult.idToken);
         localStorage.setItem('profile', JSON.stringify(profile));
+        localStorage.setItem('expiresAt', (authResult.expiresIn * 1000 + new Date().getTime()) + '');
         window.location.reload();
       });
     });
 
     // On page load, set the isAuthenticated variable
-    this._isAuthenticated = !!localStorage.getItem('accessToken');
+    this._isAuthenticated = !!localStorage.getItem('accessToken') && expiresAt && new Date().getTime() < expiresAt;
     // Set the profile from local storage
     this._profile = JSON.parse(localStorage.getItem('profile'));
   }
