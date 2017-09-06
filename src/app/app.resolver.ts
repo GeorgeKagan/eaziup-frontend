@@ -1,6 +1,7 @@
 import {Resolve, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {Injectable} from '@angular/core';
 import {Restangular} from 'ngx-restangular';
+import {ProjectService} from './services/project.service';
 
 @Injectable()
 export class CountriesResolver implements Resolve<any> {
@@ -20,9 +21,9 @@ export class CatsResolver implements Resolve<any> {
 
 @Injectable()
 export class ProjectsResolver implements Resolve<any> {
-  constructor(private rest: Restangular) {}
+  constructor(private projectService: ProjectService) {}
   public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.rest.all('project').customGET().toPromise();
+    return this.projectService.getMyProjects();
   }
 }
 

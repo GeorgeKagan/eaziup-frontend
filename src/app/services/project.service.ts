@@ -7,11 +7,11 @@ export class ProjectService {
   constructor(private rest: Restangular) {
   }
 
-  public getData() {
-
+  public getMyProjects() {
+    return this.rest.all('project').customGET().toPromise();
   }
 
-  public saveProject(data) {
+  public saveProject(data: object) {
     return this.rest.all('project').post(data);
   }
 }
