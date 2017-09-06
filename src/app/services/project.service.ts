@@ -14,4 +14,8 @@ export class ProjectService {
   public saveProject(data: object) {
     return this.rest.all('project').post(data);
   }
+
+  public removeProject(projectId: number) {
+    return this.rest.one('project', projectId).remove();
+  }
 }
