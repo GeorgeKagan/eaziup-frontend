@@ -24,7 +24,7 @@ import {MyErrorHandler} from './my-error-handler';
 // States
 import {HomeComponent} from './states/home';
 import {ProjectsComponent} from './states/projects';
-import {NewProjectComponent} from './states/new-project';
+import {ProjectComponent} from './states/project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
 
@@ -78,7 +78,7 @@ export function RestangularConfigFactory(RestangularProvider) {
     AppComponent,
     HomeComponent,
     ProjectsComponent,
-    NewProjectComponent,
+    ProjectComponent,
     HowItWorksComponent,
     NoContentComponent,
     ProjectFormComponent,

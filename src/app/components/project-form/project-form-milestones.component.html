@@ -8,7 +8,8 @@
           <strong>Project start date</strong>
         </label>
         <div class="input-group">
-          <input id="psd" placeholder="yyyy-mm-dd" placement="bottom-right" [minDate]="minStartDate" [maxDate]="maxStartDate" ngbDatepicker #d="ngbDatepicker" formControlName="startDate">
+          <input id="psd" placeholder="yyyy-mm-dd" placement="bottom-right" [minDate]="minStartDate" [maxDate]="maxStartDate" ngbDatepicker #d="ngbDatepicker" formControlName="startDate"
+                 [(ngModel)]="initialStartDate">
           <div class="input-group-addon" (click)="d.toggle()" >
             <i class="fa fa-calendar"></i>
           </div>

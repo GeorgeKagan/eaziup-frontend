@@ -11,6 +11,10 @@ export class ProjectService {
     return this.rest.all('project').customGET().toPromise();
   }
 
+  public getProject(projectId: number) {
+    return this.rest.one('project', projectId).get();
+  }
+
   public saveProject(data: object) {
     return this.rest.all('project').post(data);
   }

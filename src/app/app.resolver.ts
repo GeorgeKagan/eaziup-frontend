@@ -6,7 +6,7 @@ import {ProjectService} from './services/project.service';
 @Injectable()
 export class CountriesResolver implements Resolve<any> {
   constructor(private rest: Restangular) {}
-  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  public resolve() {
     return this.rest.all('countries').customGET().toPromise();
   }
 }
@@ -14,7 +14,7 @@ export class CountriesResolver implements Resolve<any> {
 @Injectable()
 export class CatsResolver implements Resolve<any> {
   constructor(private rest: Restangular) {}
-  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  public resolve() {
     return this.rest.all('cats').customGET().toPromise();
   }
 }
@@ -22,8 +22,16 @@ export class CatsResolver implements Resolve<any> {
 @Injectable()
 export class ProjectsResolver implements Resolve<any> {
   constructor(private projectService: ProjectService) {}
-  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  public resolve() {
     return this.projectService.getMyProjects();
+  }
+}
+
+@Injectable()
+export class ProjectResolver implements Resolve<any> {
+  constructor(private projectService: ProjectService) {}
+  public resolve(route: ActivatedRouteSnapshot) {
+    return this.projectService.getProject(route.params.id);
   }
 }
 
@@ -33,5 +41,6 @@ export class ProjectsResolver implements Resolve<any> {
 export const APP_RESOLVER_PROVIDERS = [
   CountriesResolver,
   CatsResolver,
-  ProjectsResolver
+  ProjectsResolver,
+  ProjectResolver
 ];

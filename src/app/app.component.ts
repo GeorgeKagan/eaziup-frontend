@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   public topNav = [
     {label: 'My Projects', link: './projects', isAllowed: this.auth.isAuthenticated},
-    {label: 'Add new project', link: './new-project', isAllowed: this.auth.isAuthenticated},
+    {label: 'Add new project', link: './project', isAllowed: this.auth.isAuthenticated},
     {label: 'How it works', link: './how-it-works', isAllowed: true}
   ];
 

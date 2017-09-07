@@ -31,6 +31,11 @@ export class ProjectFormMilestonesComponent {
    * @type NgbDateStruct
    */
   private maxStartDate: NgbDateStruct = {day: null, month: null, year: null};
+  /**
+   * Has value in edit mode
+   * @type NgbDateStruct
+   */
+  private initialStartDate: NgbDateStruct = {day: null, month: null, year: null};
 
   constructor(private wizardSteps: WizardStepsService) {}
 
@@ -39,6 +44,12 @@ export class ProjectFormMilestonesComponent {
     this.CONFIG = CONFIG;
     this.minStartDate = {day: today.getDate(), month: today.getMonth() + 1, year: today.getFullYear()};
     this.maxStartDate = {day: today.getDate(), month: today.getMonth() + 1, year: today.getFullYear() + 1};
+
+    // Edit mode - workaround for pre-filling the date input
+    if (this.milestones.controls['startDate'].value) {
+      let parts = this.milestones.controls['startDate'].value.split('-');
+      this.initialStartDate = {year: parseInt(parts[0]), month: parseInt(parts[1]), day: parseInt(parts[2])};
+    }
 
     this.wizardSteps.changeEmitted$.filter(index => index === CONFIG.WIZARD.STEPS.MILESTONES).subscribe(index => {
 

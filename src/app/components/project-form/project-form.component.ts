@@ -31,25 +31,26 @@ export class ProjectFormComponent extends MyFormComponent {
   }
 
   ngOnInit() {
-    this.init();
-    this.setFormErrors(formErrors);
-    this.setValidationMessages(validationMessages);
     // All form data is to be fetched via resolves
     this.route.data.subscribe(data => {
       this.countries = data.countries;
       this.cats = data.cats;
+      this.init(data.project || null);
+      this.setFormErrors(formErrors);
+      this.setValidationMessages(validationMessages);
     });
   }
 
   /**
    * Build project form
+   * @param {Object} project
    */
-  buildForm() {
-    this.milestones = this.fb.group(new MilestonesModel());
+  buildForm(project: object = null) {
+    this.milestones = this.fb.group(new MilestonesModel(project));
     this.myForm = this.fb.group({
-      buyerInfo: this.fb.group(new BuyerInfoModel()),
-      projectInfo: this.fb.group(new ProjectInfoModel()),
-      design: this.fb.group(new DesignModel()),
+      buyerInfo: this.fb.group(new BuyerInfoModel(project)),
+      projectInfo: this.fb.group(new ProjectInfoModel(project)),
+      design: this.fb.group(new DesignModel(project)),
       milestones: this.milestones,
       final: this.fb.group(new FinalModel())
     });

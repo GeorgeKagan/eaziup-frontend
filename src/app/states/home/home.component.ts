@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   public addNewProject() {
     if (this.auth.isAuthenticated) {
-      this.router.navigate(['./new-project']).then();
+      this.router.navigate(['./project']).then();
     } else {
       this.auth.doLogIn();
     }
