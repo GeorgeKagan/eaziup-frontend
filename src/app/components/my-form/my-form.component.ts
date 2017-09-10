@@ -17,17 +17,15 @@ export class MyFormComponent {
 
   /**
    * Init the form
-   * @param {Object} project
    */
-  public init(project: object = null): void {
-    this.buildForm(project);
+  public init(): void {
+    this.buildForm();
   }
 
   /**
    * Build form and listen for input changes
-   * @param {Object} project
    */
-  protected buildForm(project: object = null): void {
+  protected buildForm(): void {
     this.myForm.valueChanges
       .subscribe(data => this.onValueChanged());
 

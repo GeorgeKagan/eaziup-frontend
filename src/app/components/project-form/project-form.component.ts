@@ -17,8 +17,10 @@ import {CONFIG} from '../../consts/config';
 export class ProjectFormComponent extends MyFormComponent {
   countries: string[] = [];
   cats: string[] = [];
+  isEditMode: boolean = false;
   isSubmitted: boolean = false;
   milestones: FormGroup;
+  project: object = null;
 
   private CONFIG;
 
@@ -33,24 +35,27 @@ export class ProjectFormComponent extends MyFormComponent {
   ngOnInit() {
     // All form data is to be fetched via resolves
     this.route.data.subscribe(data => {
+      this.project = data.project || null;
       this.countries = data.countries;
       this.cats = data.cats;
-      this.init(data.project || null);
+      this.init();
       this.setFormErrors(formErrors);
       this.setValidationMessages(validationMessages);
+    });
+    this.route.params.subscribe(params => {
+      this.isEditMode = !!params.id;
     });
   }
 
   /**
    * Build project form
-   * @param {Object} project
    */
-  buildForm(project: object = null) {
-    this.milestones = this.fb.group(new MilestonesModel(project));
+  buildForm() {
+    this.milestones = this.fb.group(new MilestonesModel(this.project));
     this.myForm = this.fb.group({
-      buyerInfo: this.fb.group(new BuyerInfoModel(project)),
-      projectInfo: this.fb.group(new ProjectInfoModel(project)),
-      design: this.fb.group(new DesignModel(project)),
+      buyerInfo: this.fb.group(new BuyerInfoModel(this.project)),
+      projectInfo: this.fb.group(new ProjectInfoModel(this.project)),
+      design: this.fb.group(new DesignModel(this.project)),
       milestones: this.milestones,
       final: this.fb.group(new FinalModel())
     });
@@ -73,8 +78,12 @@ export class ProjectFormComponent extends MyFormComponent {
    */
   onSubmit() {
     if (this.isValid()) {
+      let payload = this.getPayload();
+      if (this.isEditMode) {
+        payload.id = this.project['id'];
+      }
       this.globalLoader.emitChange(true);
-      this.projectService.saveProject(this.getPayload()).subscribe(() => {
+      this.projectService.saveProject(payload).subscribe(() => {
         this.isSubmitted = true;
         this.globalLoader.emitChange(false);
       });

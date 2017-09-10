@@ -11,7 +11,7 @@
               {{p.name}}
             </h4>
             <h6 class="card-subtitle mb-2 text-muted">
-              {{p.cat.name}} by {{p.company}}
+              {{p.cat.name + (p.company ? ' by ' + p.company : '')}}
             </h6>
             <hr>
             <p class="card-text mb-4" [innerHTML]="p.desc | nl2br"></p>

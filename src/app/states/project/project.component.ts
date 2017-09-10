@@ -13,7 +13,6 @@ import {ActivatedRoute} from '@angular/router';
   `
 })
 export class ProjectComponent implements OnInit {
-  private sub: any;
   private isEditMode: boolean = false;
   private project: object = null;
 
@@ -21,7 +20,7 @@ export class ProjectComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.isEditMode = !!params.id;
     });
     this.route.data.subscribe(data => {

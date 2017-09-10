@@ -60,7 +60,7 @@
     </button>
     <div class="ml-auto">
       <button class="btn btn-lg btn-success" type="submit" role="button" [disabled]="myForm.controls.final.invalid">
-        <i class="fa fa-check mr-2 font-weight-bold"></i>Submit project
+        <i class="fa fa-check mr-2 font-weight-bold"></i>{{isEditMode ? 'Update' : 'Submit'}} project
       </button>
     </div>
   </div>

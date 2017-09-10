@@ -13,6 +13,7 @@ export class ProjectFormFinalComponent {
   @Input() myForm: FormGroup;
   @Input() formErrors: object = {};
   @Input() gotError: Function;
+  @Input() isEditMode: boolean = false;
 
   public pricing: any;
 

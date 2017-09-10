@@ -42,6 +42,7 @@
         [myForm]="myForm"
         [formErrors]="formErrors"
         [gotError]="gotError"
+        [isEditMode]="isEditMode"
       ></project-form-final>
     </wizard-step>
   </wizard>
@@ -55,7 +56,7 @@
     <i class="fa fa-check fa-5x text-success font-weight-bold ez-big-icon mt-5 ml-3 d-inline-block"></i>
   </div>
   <p class="lead text-center text-muted mt-3">
-    Your project is now available for students to pick
+    {{isEditMode ? 'Your project has been successfully updated' : 'Your project is now available for students to pick'}}
   </p>
   <p class="lead text-center mt-3">
     <a class="card-link" routerLink="/projects">
