@@ -1,4 +1,6 @@
 export const CONFIG = {
+  STUDENT: 'stu',
+  ENTREPRENEUR: 'ent',
   WIZARD: {
     STEPS: {
       GENERAL: 1,

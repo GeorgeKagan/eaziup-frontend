@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import Auth0Lock from 'auth0-lock';
-import {CONFIG} from "../consts/config";
+import {CONFIG} from '../consts/config';
 
 @Injectable()
 export class AuthService {
@@ -36,7 +36,16 @@ export class AuthService {
           params: {
             scope: 'openid email'
           }
-        }
+        },
+        additionalSignUpFields: [{
+          type: 'select',
+          name: 'accountType',
+          placeholder: 'Choose account type',
+          options: [
+            {value: CONFIG.STUDENT, label: 'Student'},
+            {value: CONFIG.ENTREPRENEUR, label: 'Entrepreneur'}
+          ]
+        }]
       }
     );
 
