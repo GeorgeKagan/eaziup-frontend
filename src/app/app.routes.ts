@@ -9,16 +9,18 @@ import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
 
 export const ROUTES: Routes = [
   {path: '', component: HomeComponent},
+  // Ent - my projects
   {
-    path: 'projects',
+    path: 'my-projects',
     component: ProjectsComponent,
     resolve: {
       projects: ProjectsResolver
     },
     canActivate: [OnlyLoggedInUsersGuard]
   },
+  // Ent - add new project
   {
-    path: 'project',
+    path: 'project/add',
     component: ProjectComponent,
     resolve: {
       countries: CountriesResolver,
@@ -26,8 +28,9 @@ export const ROUTES: Routes = [
     },
     canActivate: [OnlyLoggedInUsersGuard]
   },
+  // Ent - view project
   {
-    path: 'project/:id',
+    path: 'project/edit/:id',
     component: ProjectComponent,
     resolve: {
       project: ProjectResolver,
