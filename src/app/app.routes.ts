@@ -1,24 +1,38 @@
 import {Routes} from '@angular/router';
 import {HomeComponent} from './states/home';
-import {ProjectsComponent} from './states/projects';
+import {MyProjectsComponent} from './states/my-projects';
+import {AllProjectsComponent} from "./states/all-projects";
 import {ProjectComponent} from './states/project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
-import {CountriesResolver, CatsResolver, ProjectsResolver, ProjectResolver} from './app.resolver';
-import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
+import {CountriesResolver, CatsResolver, MyProjectsResolver, ProjectResolver, AllProjectsResolver} from './app.resolver';
+import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard, OnlyStudentGuard} from './states/state-guards';
 
 export const ROUTES: Routes = [
-  {path: '', component: HomeComponent},
-  // Ent - my projects
+  // STUDENT
+
+  // All projects
+  {
+    path: 'projects',
+    component: AllProjectsComponent,
+    resolve: {
+      projects: AllProjectsResolver
+    },
+    canActivate: [OnlyLoggedInUsersGuard, OnlyStudentGuard]
+  },
+
+  // ENTREPRENEUR
+
+  // My projects
   {
     path: 'my-projects',
-    component: ProjectsComponent,
+    component: MyProjectsComponent,
     resolve: {
-      projects: ProjectsResolver
+      projects: MyProjectsResolver
     },
     canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
   },
-  // Ent - add new project
+  // Add new project
   {
     path: 'project/add',
     component: ProjectComponent,
@@ -28,7 +42,7 @@ export const ROUTES: Routes = [
     },
     canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
   },
-  // Ent - edit project
+  // Edit project
   {
     path: 'project/edit/:id',
     component: ProjectComponent,
@@ -39,7 +53,10 @@ export const ROUTES: Routes = [
     },
     canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
   },
-  // Common
+
+  // COMMON
+
+  {path: '', component: HomeComponent},
   {path: 'how-it-works', component: HowItWorksComponent},
   {path: '**', component: NoContentComponent},
 ];

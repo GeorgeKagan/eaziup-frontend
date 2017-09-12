@@ -21,8 +21,12 @@ export class AppComponent implements OnInit {
   public appLogo = 'assets/img/eaziup-logo.png';
 
   public topNav = [
+    // Student
+    {label: 'Projects', link: './projects', isVisible: this.auth.isAccTypeStudent},
+    // Entrepreneur
     {label: 'My Projects', link: './my-projects', isVisible: this.auth.isAccTypeEntrepreneur},
     {label: 'Add new project', link: './project/add', isVisible: this.auth.isAccTypeEntrepreneur},
+    // Common
     {label: 'How it works', link: './how-it-works', isVisible: true}
   ];
 

@@ -23,7 +23,8 @@ import {MyErrorHandler} from './my-error-handler';
 
 // States
 import {HomeComponent} from './states/home';
-import {ProjectsComponent} from './states/projects';
+import {MyProjectsComponent} from './states/my-projects';
+import {AllProjectsComponent} from './states/all-projects';
 import {ProjectComponent} from './states/project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
@@ -32,7 +33,7 @@ import {NoContentComponent} from './states/no-content';
 import {MyCustomFileDirective} from './directives/my-custom-file.directive';
 
 // Services
-import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
+import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard, OnlyStudentGuard} from './states/state-guards';
 import {AuthService} from './services/auth.service';
 import {GlobalLoaderService} from './services/global-loader.service';
 import {WizardStepsService} from './services/wizard-steps.service';
@@ -57,6 +58,7 @@ const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   OnlyLoggedInUsersGuard,
   OnlyEntrepreneurGuard,
+  OnlyStudentGuard,
   AuthService,
   GlobalLoaderService,
   WizardStepsService,
@@ -78,7 +80,8 @@ export function RestangularConfigFactory(RestangularProvider) {
     Nl2brPipe,
     AppComponent,
     HomeComponent,
-    ProjectsComponent,
+    MyProjectsComponent,
+    AllProjectsComponent,
     ProjectComponent,
     HowItWorksComponent,
     NoContentComponent,

@@ -33,3 +33,19 @@ export class OnlyEntrepreneurGuard implements CanActivate {
     }
   }
 }
+
+@Injectable()
+export class OnlyStudentGuard implements CanActivate {
+  constructor(private auth: AuthService,
+              private router: Router
+  ) {};
+
+  canActivate() {
+    if (this.auth.isAccTypeStudent) {
+      return true;
+    } else {
+      this.router.navigate(['/']).then();
+      return false;
+    }
+  }
+}

@@ -7,6 +7,10 @@ export class ProjectService {
   constructor(private rest: Restangular) {
   }
 
+  public getAllProjects() {
+    return this.rest.all('project').customGET('', {all: true}).toPromise();
+  }
+
   public getMyProjects() {
     return this.rest.all('project').customGET().toPromise();
   }

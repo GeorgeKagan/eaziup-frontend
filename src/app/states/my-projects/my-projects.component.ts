@@ -5,11 +5,11 @@ import {fadeIn, fadeOut, slideDown} from '../../consts/animations';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'projects',
-  templateUrl: 'projects.component.html',
+  selector: 'my-projects',
+  templateUrl: 'my-projects.component.html',
   animations: [fadeIn, fadeOut, slideDown]
 })
-export class ProjectsComponent implements OnInit {
+export class MyProjectsComponent implements OnInit {
   projects: any[] = [];
 
   constructor(private route: ActivatedRoute,

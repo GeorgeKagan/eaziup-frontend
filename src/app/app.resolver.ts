@@ -20,10 +20,18 @@ export class CatsResolver implements Resolve<any> {
 }
 
 @Injectable()
-export class ProjectsResolver implements Resolve<any> {
+export class MyProjectsResolver implements Resolve<any> {
   constructor(private projectService: ProjectService) {}
   public resolve() {
     return this.projectService.getMyProjects();
+  }
+}
+
+@Injectable()
+export class AllProjectsResolver implements Resolve<any> {
+  constructor(private projectService: ProjectService) {}
+  public resolve() {
+    return this.projectService.getAllProjects();
   }
 }
 
@@ -41,6 +49,7 @@ export class ProjectResolver implements Resolve<any> {
 export const APP_RESOLVER_PROVIDERS = [
   CountriesResolver,
   CatsResolver,
-  ProjectsResolver,
+  MyProjectsResolver,
+  AllProjectsResolver,
   ProjectResolver
 ];
