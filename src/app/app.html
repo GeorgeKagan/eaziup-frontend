@@ -38,9 +38,10 @@
               {{auth.profile['nickname']}}
             </div>
             <div class="dropdown-menu mt-2">
-              <button class="dropdown-item text-muted disabled" role="button">Settings</button>
+              <button class="dropdown-item disabled" role="button">Settings</button>
               <div class="dropdown-divider"></div>
-              <button class="dropdown-item text-muted" role="button" (click)="auth.doLogOut()">Logout</button>
+              <small class="dropdown-item text-muted ez-dd-info">{{auth.isAccTypeStudent ? 'Student' : 'Entrepreneur'}}</small>
+              <button class="dropdown-item" role="button" (click)="auth.doLogOut()">Logout</button>
             </div>
           </div>
         </div>

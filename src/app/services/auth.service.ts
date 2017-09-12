@@ -7,7 +7,8 @@ export class AuthService {
 
   private lock;
   private _isAuthenticated: boolean = false;
-  private _profile: object = {};
+  private _accType: string = CONFIG.UNKNOWN;
+  private _profile: any = {};
 
   /**
    * Init Auth0 Lock widget and listen for authentication event.
@@ -68,8 +69,9 @@ export class AuthService {
     // On page load, set the isAuthenticated variable
     let isNotExpired = expiresAt !== null && new Date().getTime() < expiresAt;
     this._isAuthenticated = !!localStorage.getItem('accessToken') && (isNotExpired || expiresAt === 0);
-    // Set the profile from local storage
     this._profile = JSON.parse(localStorage.getItem('profile'));
+    this._accType = (this._profile && this._profile.user_metadata.account_type) || this._accType;
+    console.info(`%cAccount type: ${this._accType}`, 'color: green; font-weight: bold;');
   }
 
   /**
@@ -98,6 +100,14 @@ export class AuthService {
 
   public get isAuthenticated() {
     return this._isAuthenticated;
+  }
+
+  public get isAccTypeStudent() {
+    return this._accType === CONFIG.STUDENT;
+  }
+
+  public get isAccTypeEntrepreneur() {
+    return this._accType === CONFIG.ENTREPRENEUR;
   }
 
   public get profile() {
