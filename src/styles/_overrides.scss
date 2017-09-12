@@ -14,6 +14,7 @@ button.btn-lg,
 /** Override auth0 lock widget **/
 
 .auth0-lock .auth0-lock-widget {
+  padding: 0 !important;
   img.auth0-lock-header-logo {
     width: 200px;
     height: 150px;

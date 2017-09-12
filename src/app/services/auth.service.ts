@@ -20,6 +20,7 @@ export class AuthService {
     this.lock = new Auth0Lock(
       CONFIG.AUTH.CLIENT_ID,
       CONFIG.AUTH.DOMAIN, {
+        avatar: null,
         autoclose: true,
         closable: true,
         rememberLastLogin: false,
@@ -50,13 +51,14 @@ export class AuthService {
         localStorage.setItem('accessToken', authResult.accessToken);
         localStorage.setItem('idToken', authResult.idToken);
         localStorage.setItem('profile', JSON.stringify(profile));
-        localStorage.setItem('expiresAt', (authResult.expiresIn * 1000 + new Date().getTime()) + '');
+        localStorage.setItem('expiresAt', authResult.expiresIn ? (authResult.expiresIn * 1000 + new Date().getTime()) + '' : '0');
         window.location.reload();
       });
     });
 
     // On page load, set the isAuthenticated variable
-    this._isAuthenticated = !!localStorage.getItem('accessToken') && expiresAt && new Date().getTime() < expiresAt;
+    let isNotExpired = expiresAt !== null && new Date().getTime() < expiresAt;
+    this._isAuthenticated = !!localStorage.getItem('accessToken') && (isNotExpired || expiresAt === 0);
     // Set the profile from local storage
     this._profile = JSON.parse(localStorage.getItem('profile'));
   }
