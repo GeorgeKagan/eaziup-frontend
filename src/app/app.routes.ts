@@ -5,7 +5,7 @@ import {ProjectComponent} from './states/project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
 import {CountriesResolver, CatsResolver, ProjectsResolver, ProjectResolver} from './app.resolver';
-import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
+import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
 
 export const ROUTES: Routes = [
   {path: '', component: HomeComponent},
@@ -16,7 +16,7 @@ export const ROUTES: Routes = [
     resolve: {
       projects: ProjectsResolver
     },
-    canActivate: [OnlyLoggedInUsersGuard]
+    canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
   },
   // Ent - add new project
   {
@@ -26,9 +26,9 @@ export const ROUTES: Routes = [
       countries: CountriesResolver,
       cats: CatsResolver
     },
-    canActivate: [OnlyLoggedInUsersGuard]
+    canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
   },
-  // Ent - view project
+  // Ent - edit project
   {
     path: 'project/edit/:id',
     component: ProjectComponent,
@@ -37,8 +37,9 @@ export const ROUTES: Routes = [
       countries: CountriesResolver,
       cats: CatsResolver
     },
-    canActivate: [OnlyLoggedInUsersGuard]
+    canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
   },
+  // Common
   {path: 'how-it-works', component: HowItWorksComponent},
   {path: '**', component: NoContentComponent},
 ];

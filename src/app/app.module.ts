@@ -32,7 +32,7 @@ import {NoContentComponent} from './states/no-content';
 import {MyCustomFileDirective} from './directives/my-custom-file.directive';
 
 // Services
-import {OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
+import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard} from './states/only-logged-in-users-guard';
 import {AuthService} from './services/auth.service';
 import {GlobalLoaderService} from './services/global-loader.service';
 import {WizardStepsService} from './services/wizard-steps.service';
@@ -56,6 +56,7 @@ import '../styles/styles.scss';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   OnlyLoggedInUsersGuard,
+  OnlyEntrepreneurGuard,
   AuthService,
   GlobalLoaderService,
   WizardStepsService,

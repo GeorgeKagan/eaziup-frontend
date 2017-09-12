@@ -17,3 +17,19 @@ export class OnlyLoggedInUsersGuard implements CanActivate {
     }
   }
 }
+
+@Injectable()
+export class OnlyEntrepreneurGuard implements CanActivate {
+  constructor(private auth: AuthService,
+              private router: Router
+  ) {};
+
+  canActivate() {
+    if (this.auth.isAccTypeEntrepreneur) {
+      return true;
+    } else {
+      this.router.navigate(['/']).then();
+      return false;
+    }
+  }
+}

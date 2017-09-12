@@ -103,11 +103,11 @@ export class AuthService {
   }
 
   public get isAccTypeStudent() {
-    return this._accType === CONFIG.STUDENT;
+    return this._isAuthenticated && this._accType === CONFIG.STUDENT;
   }
 
   public get isAccTypeEntrepreneur() {
-    return this._accType === CONFIG.ENTREPRENEUR;
+    return this._isAuthenticated && this._accType === CONFIG.ENTREPRENEUR;
   }
 
   public get profile() {

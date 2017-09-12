@@ -11,7 +11,7 @@
       <nav class="nav nav-pills col-sm-7">
         <span class="nav-item" *ngFor="let item of topNav">
           <a class="nav-link text-muted" [routerLink]="[item.link]" routerLinkActive="active"
-             [routerLinkActiveOptions]="{exact: true}" *ngIf="item.isAllowed">
+             [routerLinkActiveOptions]="{exact: true}" *ngIf="item.isVisible">
             {{item.label}}
           </a>
         </span>
