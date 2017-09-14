@@ -9,7 +9,7 @@ import {
 } from '@angular/router';
 
 // Third party modules
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {RestangularModule} from 'ngx-restangular';
 import {WizardModule} from 'ng2-archwizard/dist';
@@ -20,6 +20,7 @@ import {ROUTES} from './app.routes';
 import {AppComponent} from './app.component';
 import {APP_RESOLVER_PROVIDERS} from './app.resolver';
 import {MyErrorHandler} from './my-error-handler';
+import {TokenNotVerifiedModalComponent, RestangularConfigFactory} from './restangular';
 
 // States
 import {HomeComponent} from './states/home';
@@ -65,11 +66,6 @@ const APP_PROVIDERS = [
   ProjectService
 ];
 
-export function RestangularConfigFactory(RestangularProvider) {
-  RestangularProvider.setBaseUrl(API_URL);
-  RestangularProvider.setDefaultHeaders({'Authorization': 'Bearer ' + localStorage.getItem('idToken')});
-}
-
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -90,7 +86,11 @@ export function RestangularConfigFactory(RestangularProvider) {
     ProjectFormProjectInfoComponent,
     ProjectFormDesignComponent,
     ProjectFormMilestonesComponent,
-    ProjectFormFinalComponent
+    ProjectFormFinalComponent,
+    TokenNotVerifiedModalComponent
+  ],
+  entryComponents: [
+    TokenNotVerifiedModalComponent
   ],
   /**
    * Import Angular's modules.
@@ -103,7 +103,7 @@ export function RestangularConfigFactory(RestangularProvider) {
     WizardModule,
     NgbModule.forRoot(),
     SlimLoadingBarModule.forRoot(),
-    RestangularModule.forRoot(RestangularConfigFactory),
+    RestangularModule.forRoot([NgbModal, AuthService], RestangularConfigFactory),
     RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules})
   ],
   /**

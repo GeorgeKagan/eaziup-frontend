@@ -11,9 +11,7 @@ import {GlobalLoaderService} from './services/global-loader.service';
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.scss'
-  ],
+  styleUrls: ['./app.component.scss'],
   templateUrl: './app.html'
 })
 export class AppComponent implements OnInit {

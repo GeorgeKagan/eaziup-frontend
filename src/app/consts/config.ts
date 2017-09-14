@@ -58,5 +58,8 @@ export const CONFIG = {
     {key: '3', label: '3'},
     {key: '4', label: '4'},
     {key: '5', label: '5'}
-  ]
+  ],
+  ERRORS: {
+    TOKEN_NOT_VERIFIED: 20
+  }
 };
