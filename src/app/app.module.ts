@@ -90,6 +90,9 @@ const APP_PROVIDERS = [
     TokenNotVerifiedModalComponent
   ],
   entryComponents: [
+    HomeComponent,
+    MyProjectsComponent,
+    AllProjectsComponent,
     TokenNotVerifiedModalComponent
   ],
   /**

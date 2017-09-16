@@ -1,7 +1,7 @@
 import {Routes} from '@angular/router';
 import {HomeComponent} from './states/home';
 import {MyProjectsComponent} from './states/my-projects';
-import {AllProjectsComponent} from "./states/all-projects";
+import {AllProjectsComponent} from './states/all-projects';
 import {ProjectComponent} from './states/project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
@@ -9,29 +9,8 @@ import {CountriesResolver, CatsResolver, MyProjectsResolver, ProjectResolver, Al
 import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard, OnlyStudentGuard} from './states/state-guards';
 
 export const ROUTES: Routes = [
-  // STUDENT
-
-  // All projects
-  {
-    path: 'projects',
-    component: AllProjectsComponent,
-    resolve: {
-      projects: AllProjectsResolver
-    },
-    canActivate: [OnlyLoggedInUsersGuard, OnlyStudentGuard]
-  },
-
   // ENTREPRENEUR
 
-  // My projects
-  {
-    path: 'my-projects',
-    component: MyProjectsComponent,
-    resolve: {
-      projects: MyProjectsResolver
-    },
-    canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
-  },
   // Add new project
   {
     path: 'project/add',
@@ -56,7 +35,29 @@ export const ROUTES: Routes = [
 
   // COMMON
 
-  {path: '', component: HomeComponent},
   {path: 'how-it-works', component: HowItWorksComponent},
   {path: '**', component: NoContentComponent},
 ];
+
+export const ROUTE_HOME_GUEST = {
+  path: '',
+  component: HomeComponent
+};
+
+export const ROUTE_HOME_STUDENT = {
+  path: '',
+  component: AllProjectsComponent,
+  resolve: {
+    projects: AllProjectsResolver
+  },
+  canActivate: [OnlyLoggedInUsersGuard, OnlyStudentGuard]
+};
+
+export const ROUTE_HOME_ENTREPRENEUR = {
+  path: '',
+  component: MyProjectsComponent,
+  resolve: {
+    projects: MyProjectsResolver
+  },
+  canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
+};

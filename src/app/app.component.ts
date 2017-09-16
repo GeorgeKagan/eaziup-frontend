@@ -3,6 +3,7 @@ import {Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationErro
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {AuthService} from './services/auth.service';
 import {GlobalLoaderService} from './services/global-loader.service';
+import {ROUTE_HOME_ENTREPRENEUR, ROUTE_HOME_GUEST, ROUTE_HOME_STUDENT} from './app.routes';
 
 /**
  * App Component
@@ -19,10 +20,7 @@ export class AppComponent implements OnInit {
   public appLogo = 'assets/img/eaziup-logo.png';
 
   public topNav = [
-    // Student
-    {label: 'Projects', link: './projects', isVisible: this.auth.isAccTypeStudent},
     // Entrepreneur
-    {label: 'My Projects', link: './my-projects', isVisible: this.auth.isAccTypeEntrepreneur},
     {label: 'Add new project', link: './project/add', isVisible: this.auth.isAccTypeEntrepreneur},
     // Common
     {label: 'How it works', link: './how-it-works', isVisible: true}
@@ -88,10 +86,18 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit() {
-
+    this.setHomeRoute();
   }
 
   ngOnDestroy(): any {
     this.sub.unsubscribe();
+  }
+
+  /**
+   * Set the homepage component depending on auth and account type
+   */
+  private setHomeRoute() {
+    let homeRoute = this.auth.isAuthenticated ? (this.auth.isAccTypeStudent ? ROUTE_HOME_STUDENT : ROUTE_HOME_ENTREPRENEUR) : ROUTE_HOME_GUEST;
+    this.router.resetConfig([homeRoute, ...this.router.config]);
   }
 }
