@@ -17,12 +17,4 @@ export class HomeComponent implements OnInit {
 
   public ngOnInit() {
   }
-
-  public addNewProject() {
-    if (this.auth.isAuthenticated) {
-      this.router.navigate(['./project/add']).then();
-    } else {
-      this.auth.doLogIn();
-    }
-  }
 }

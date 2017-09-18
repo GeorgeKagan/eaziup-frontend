@@ -2,34 +2,117 @@
   <h1 class="display-4 mb-4">Turning Ideas Into Results</h1>
   <p class="lead">
     EaZiUp is the affordable marketplace where your projects cost up to 80% less <br>and
-    are completed by a team of highly educated specialists who know how each other work.<br>
+    are completed by a team of educated specialists who know how each other work.<br>
     This enables you to transform your idea into reality for a small investment.
   </p>
-  <div class="mx-auto mt-5 pb-5" style="width: 320px">
-    <button type="button" class="btn btn-success btn-lg" role="button" (click)="addNewProject()">
-      Add a New Project Now <i class="fa fa-angle-right ml-2 font-weight-bold"></i>
-    </button>
+</div>
+
+<div class="container mb-5 ez-do-for-you">
+  <h3 class="mt-5 mb-5 text-center">What can EaZiUp do for you?</h3>
+  <div class="row">
+
+    <!-- Entrepreneur block -->
+    <div class="col col-5 offset-1">
+      <div class="font-weight-normal mb-3 lead">If you're an entrepreneur:</div>
+      <div class="row mb-2">
+        <div class="col-md-1">
+          <i class="fa fa-check ez-green"></i>
+        </div>
+        <div class="col-md-10">
+          <span class="align-middle">Have an educated team work on your project</span>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-1">
+          <i class="fa fa-check ez-green"></i>
+        </div>
+        <div class="col-md-10">
+          <span class="align-middle">Overseen by a tutor</span>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-1">
+          <i class="fa fa-check ez-green"></i>
+        </div>
+        <div class="col-md-10">
+          <span class="align-middle">Fraction of the market price</span>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-1">
+          <div class="mx-auto mt-4" style="width: 320px">
+            <button type="button" class="btn btn-outline-success btn-lg" role="button" (click)="auth.doLogIn()">
+              Add a New Project <i class="fa fa-angle-right ml-2 font-weight-bold"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end -->
+
+    <!-- Student block -->
+    <div class="col col-5 offset-1">
+      <div class="font-weight-normal mb-3 lead">If you're a student:</div>
+      <div class="row mb-2">
+        <div class="col-md-1">
+          <i class="fa fa-check ez-green"></i>
+        </div>
+        <div class="col-md-10">
+          <span class="align-middle">Choose from quality projects</span>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-1">
+          <i class="fa fa-check ez-green"></i>
+        </div>
+        <div class="col-md-10">
+          <span class="align-middle">Get the chance to do something meaningful</span>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-1">
+          <i class="fa fa-check ez-green"></i>
+        </div>
+        <div class="col-md-10">
+          <span class="align-middle">Get paid for the project</span>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-1">
+          <div class="mx-auto mt-4" style="width: 320px">
+            <button type="button" class="btn btn-outline-success btn-lg" role="button" (click)="auth.doLogIn()">
+              Browse Projects <i class="fa fa-angle-right ml-2 font-weight-bold"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end -->
+
   </div>
 </div>
 
 <div class="ez-highlights-wrapper">
+  <h3 class="mt-5 text-center">How does it work?</h3>
   <div class="container">
-    <div class="row ez-highlights pt-5 pb-5">
-      <div class="col-md-3 text-center">
-        <h2>9,621</h2>
-        <p>Specialist suppliers registered and available today</p>
+    <div class="row ez-highlights pt-5 pb-5 mb-3">
+      <div class="col-md-4 text-center">
+        <h2><i class="fa fa-keyboard-o"></i></h2>
+        <p class="col-7 mx-auto"><strong>Sign up and fill the new project form</strong></p>
       </div>
-      <div class="col-md-3 text-center">
-        <h2>51</h2>
-        <p>Specialist supplier teams available in all categories today</p>
+      <div class="col-md-4 text-center">
+        <h2><i class="fa fa-graduation-cap"></i></h2>
+        <p class="col-7 mx-auto"><strong>Have student teams apply to your project</strong></p>
       </div>
-      <div class="col-md-3 text-center">
-        <h2>98</h2>
-        <p>Projects uploaded so far</p>
-      </div>
-      <div class="col-md-3 text-center">
-        <h2>53</h2>
-        <p>Successfully completed projects<br> so far</p>
+      <div class="col-md-4 text-center">
+        <h2><i class="fa fa-flag-checkered"></i></h2>
+        <p class="col-7 mx-auto"><strong>Choose the best fit and it's a go!</strong></p>
       </div>
     </div>
   </div>
