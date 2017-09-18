@@ -92,9 +92,7 @@ export class AuthService {
    * Clear local storage of any auth data and redirect user to homepage
    */
   public doLogOut(): void {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('idToken');
-    localStorage.removeItem('profile');
+    localStorage.clear();
     this.lock.logout({returnTo: window.location.origin});
   }
 
