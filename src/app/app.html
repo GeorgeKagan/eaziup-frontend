@@ -22,7 +22,7 @@
       <div class="ez-top-aside col-sm-3">
 
         <!-- Sign up / Log in -->
-        <button class="btn btn-success font-weight-bold mt-1 pull-right" role="button" *ngIf="!auth.isAuthenticated" (click)="auth.doSignUp()">
+        <button class="btn btn-success font-weight-bold pull-right" role="button" *ngIf="!auth.isAuthenticated" (click)="auth.doSignUp()">
           Sign up
         </button>
         <span class="text-muted mt-2 mr-4 pull-right" role="button" *ngIf="!auth.isAuthenticated" (click)="auth.doLogIn()">
@@ -61,7 +61,7 @@
   <router-outlet></router-outlet>
 </main>
 
-<footer class="pt-5">
+<footer class="pt-5 pb-4">
   <div class="container">
     <div class="row">
       <div class="col-md-3" *ngFor="let nav of footerNav">
@@ -72,6 +72,13 @@
             {{link.label}}
           </a>
         </nav>
+      </div>
+    </div>
+    <hr>
+    <div class="row mt-3 small text-muted">
+      <div class="col-12">
+        <span class="float-left">© 2017 EaZiUp</span>
+        <a class="text-muted float-right" href="https://icons8.com">Icon pack by Icons8</a>
       </div>
     </div>
   </div>

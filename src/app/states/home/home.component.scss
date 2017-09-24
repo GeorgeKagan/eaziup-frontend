@@ -1,26 +1,28 @@
 @import '../../../styles/variables';
 
 .ez-jumbotron {
-  padding: 100px 0;
+  padding: 270px 0;
   color: white;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
   margin: -49px 0 0 0;
   position: relative;
   z-index: 0;
   overflow: hidden;
 
   h1 {
-    font-size: 60px;
-    font-weight: 400;
+    font-size: 62px;
+    font-weight: 500;
   }
 
   .lead {
-    font-size: 23px;
-    font-weight: 300;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 34px;
   }
 
   &:before {
-    background: url(https://images.unsplash.com/photo-1473181488821-2d23949a045a?dpr=1&auto=format&fit=crop&w=2560&q=80&cs=tinysrgb&crop=) -400px 69% repeat-x;
+    background: url(/assets/img/jumbotron.jpg) center center no-repeat;
+    background-size: 100%;
     position: absolute;
     top: -10px;
     left: -10px;
@@ -29,23 +31,12 @@
     content: "";
     z-index: -1;
     display: block;
-    -webkit-filter: blur(4px);
-    -moz-filter: blur(4px);
-    -o-filter: blur(4px);
-    -ms-filter: blur(4px);
-    filter: blur(4px);
   }
 }
 
 .ez-do-for-you {
   margin-top: 60px !important;
   padding: 0 0 30px 0;
-
-  h3 {
-    color: $ez_grey;
-    font-weight: 400;
-    text-transform: none;
-  }
 
   div.lead {
     color: $ez_grey;
@@ -56,12 +47,6 @@
   background: lighten($ez_cream, 1%);
   border-top: 1px solid $ez_cream_darker;
   padding: 30px 0;
-
-  h3 {
-    color: $ez_grey;
-    font-weight: 400;
-    text-transform: none;
-  }
 
   .ez-highlights {
     h2 {
@@ -77,5 +62,14 @@
         border: 0;
       }
     }
+  }
+}
+
+.ez-do-for-you,
+.ez-highlights-wrapper {
+  h3 {
+    color: $ez_grey;
+    font-weight: 500;
+    text-transform: none;
   }
 }

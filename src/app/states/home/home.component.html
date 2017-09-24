@@ -16,7 +16,7 @@
       <div class="font-weight-normal mb-3 lead">If you're an entrepreneur:</div>
       <div class="row mb-2">
         <div class="col-md-1">
-          <i class="fa fa-check ez-green"></i>
+          <i class="fa fa-check ez-green align-middle"></i>
         </div>
         <div class="col-md-10">
           <span class="align-middle">Have an educated team work on your project</span>
@@ -25,7 +25,7 @@
 
       <div class="row mb-2">
         <div class="col-md-1">
-          <i class="fa fa-check ez-green"></i>
+          <i class="fa fa-check ez-green align-middle"></i>
         </div>
         <div class="col-md-10">
           <span class="align-middle">Overseen by a tutor</span>
@@ -34,7 +34,7 @@
 
       <div class="row mb-2">
         <div class="col-md-1">
-          <i class="fa fa-check ez-green"></i>
+          <i class="fa fa-check ez-green align-middle"></i>
         </div>
         <div class="col-md-10">
           <span class="align-middle">Fraction of the market price</span>
@@ -58,7 +58,7 @@
       <div class="font-weight-normal mb-3 lead">If you're a student:</div>
       <div class="row mb-2">
         <div class="col-md-1">
-          <i class="fa fa-check ez-green"></i>
+          <i class="fa fa-check ez-green align-middle"></i>
         </div>
         <div class="col-md-10">
           <span class="align-middle">Choose from quality projects</span>
@@ -67,7 +67,7 @@
 
       <div class="row mb-2">
         <div class="col-md-1">
-          <i class="fa fa-check ez-green"></i>
+          <i class="fa fa-check ez-green align-middle"></i>
         </div>
         <div class="col-md-10">
           <span class="align-middle">Get the chance to do something meaningful</span>
@@ -76,7 +76,7 @@
 
       <div class="row mb-2">
         <div class="col-md-1">
-          <i class="fa fa-check ez-green"></i>
+          <i class="fa fa-check ez-green align-middle"></i>
         </div>
         <div class="col-md-10">
           <span class="align-middle">Get paid for the project</span>
@@ -87,7 +87,7 @@
         <div class="col-md-1">
           <div class="mx-auto mt-4" style="width: 320px">
             <button type="button" class="btn btn-outline-success btn-lg" role="button" (click)="auth.doLogIn()">
-              Browse Projects <i class="fa fa-angle-right ml-2 font-weight-bold"></i>
+              Browse Projects <i class="fa fa-search ml-2 font-weight-bold"></i>
             </button>
           </div>
         </div>
@@ -103,16 +103,22 @@
   <div class="container">
     <div class="row ez-highlights pt-5 pb-5 mb-3">
       <div class="col-md-4 text-center">
-        <h2><i class="fa fa-keyboard-o"></i></h2>
-        <p class="col-7 mx-auto"><strong>Sign up and fill the new project form</strong></p>
+        <h2>
+          <!-- Form icon by Icons8 -->
+          <img class="icon icons8-Form" width="64" height="64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADSklEQVR4Xu1bTWgTQRR+k1pb0ZpCg7a1oMGDxWMVK3gQq1f/PTQgtmmPSSlt6lFM0ZMmVmhyEGlTRWgv/iF40oqi+IMIXrQeJA3WVkoKqUVsKmZktmyanyW7E3d2NpvZU5i8mXnvm+97eTPZQVDmDyrz+EEAIBhQ5ggICSgRIOiJDNkqbGdSqVSTFQiCEPqGMR7xhdyDufHkMSDgjVxHAL1WCFwhhkFfyO3PbM8DIOiNJADAfravDbY02i2Bw/zsItwZmgTAMO0Lu51qAGBi0H/1pCWCl4O4dv6+9NEXcmctuhIDJAD6rhwDhCosAwI1AD2XDlomeBLI8IXndAwQAAgG6COBmWgCnt77Aj8Ty0wktbm2Gg6f2gVNztqC43OTwFjgDSwtJpkELw9KQOjwtRoDwHj4PcR//FKczFG/CVyePVnfycgvd7iYgFB9a1waVy1n6caAwgBsBJdnr7UBoF3GG5dfwkryL203KvsaexV0Duw3RgJUngEASYJP7k4xywMk+COnm82bBGkBY2WvWw5g5SDrcQUAohTmtBcQlaCoBFep9/1c4Vq92CS47TY5wCqBStAyANCulPzzIwCwigQEAygRKHsJiN2g2A1SaoaRudgMic0Qp80QI0ZTD8tNAi8ef4Xo57jkcHPLVmg9tCPtfKEDVpoIlU6jc/tzAYAE//H1TJYvBIB9bdulNv0AyD+NNgUAcg1wdMMfyZ9HvytBy58YNKuv1ZYLA5QA0HKErTUoGjsuALybjMHbZ9O6S0CL5k0hAeIEAeHThznJn90tDWn9/08OcNSra940ANDQlKUtFwmwDIh2bAGAKIVFKSypRvNrcmovHNBqkLd90TmAlKsAKOvNj1JsKxoAuWMmI0q5TbMEvP4DkFxagJvBKYm9Xd7VDQx5RkOxkmjr7t0JtnWVUFVTByH/K7oc0N3jBIxT8GBiVup4or0xDUCptSFkg5HhKB0AmSvOO4HpMb/MWlUJBDyjCYSQ/Xh7A9Q51usxN/cxFuIr8HBiDjDGsYFw19qJjJTec56gN0IuFFzk7jUbB9QvTJB5CQgY406E0FrmY+OQIaOSlUcIjeXeFiGTi0tThiyBiScRDDDx4hjimmCAITCbeJJ/ferCX/0lTqoAAAAASUVORK5CYII="></h2>
+        <p class="col-7 mx-auto lead"><strong>Sign up and fill the new project form</strong></p>
       </div>
       <div class="col-md-4 text-center">
-        <h2><i class="fa fa-graduation-cap"></i></h2>
-        <p class="col-7 mx-auto"><strong>Have student teams apply to your project</strong></p>
+        <h2>
+          <!-- Students icon by Icons8 -->
+          <img class="icon icons8-Students" width="64" height="64" src="data:image/png;base64,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"></h2>
+        <p class="col-8 mx-auto lead"><strong>Have student teams apply to your project</strong></p>
       </div>
       <div class="col-md-4 text-center">
-        <h2><i class="fa fa-flag-checkered"></i></h2>
-        <p class="col-7 mx-auto"><strong>Choose the best fit and it's a go!</strong></p>
+        <h2>
+          <!-- Rocket icon by Icons8 -->
+          <img class="icon icons8-Rocket" width="64" height="64" src="data:image/png;base64,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"></h2>
+        <p class="col-7 mx-auto lead"><strong>Choose the best fit and it's a go!</strong></p>
       </div>
     </div>
   </div>

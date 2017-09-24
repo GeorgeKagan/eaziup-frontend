@@ -215,9 +215,10 @@ h5 {
   }
 }
 
-table {
+table.table {
   td, th {
     text-align: center;
+    border: 0;
   }
   .ez-bg-row {
     background: #e0dee0;
