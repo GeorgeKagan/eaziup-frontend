@@ -15,19 +15,30 @@
             </h6>
             <hr>
             <p class="card-text mb-4" [innerHTML]="p.desc | nl2br"></p>
-            <!-- Modify project -->
-            <span class="card-link ez-link" routerLink="/project/edit/{{p.id}}">
-              <i class="fa fa-sliders mr-1"></i>
-              Modify
-            </span>
-            <!-- Remove project -->
-            <span class="card-link ez-link" (click)="confirmRemove(content, p, i)">
-              <i class="fa fa-trash-o mr-1"></i>
-              Remove
-            </span>
+            <div *ngIf="p.status!==CONFIG.PROJECT.DONE">
+              <!-- Modify project -->
+              <span class="card-link ez-link" routerLink="/project/edit/{{p.id}}">
+                <i class="fa fa-sliders mr-1"></i>
+                Modify
+              </span>
+              <!-- Remove project -->
+              <span class="card-link ez-link" *ngIf="p.status!==CONFIG.PROJECT.IN_WORK" (click)="confirmRemove(content, p, i)">
+                <i class="fa fa-trash-o mr-1"></i>
+                Remove
+              </span>
+            </div>
           </div>
-          <div class="card-footer text-muted text-center">
-            <i class="fa fa-calendar-o mr-1"></i> Starts <strong>{{p.start_date | date}}</strong>
+          <div class="card-footer text-muted">
+            <div class="float-left" [ngClass]="{'ez-green': p.status!==CONFIG.PROJECT.PENDING}">
+              <i class="fa fa-hourglass-o mr-1" *ngIf="p.status===CONFIG.PROJECT.PENDING"></i>
+              <i class="fa fa-thumbs-o-up mr-1" *ngIf="p.status===CONFIG.PROJECT.APPROVED"></i>
+              <i class="fa fa-cogs mr-1" *ngIf="p.status===CONFIG.PROJECT.IN_WORK"></i>
+              <i class="fa fa-check mr-1" *ngIf="p.status===CONFIG.PROJECT.DONE"></i>
+              <strong>{{CONFIG.PROJECT[p.status.toUpperCase() + '_TEXT']}}</strong>
+            </div>
+            <div class="float-right" *ngIf="p.status===CONFIG.PROJECT.APPROVED">
+              <i class="fa fa-calendar-o mr-1"></i> Starts <strong>{{p.start_date | date}}</strong>
+            </div>
           </div>
         </div>
       </ng-container>

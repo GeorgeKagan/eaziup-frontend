@@ -28,6 +28,16 @@ export const CONFIG = {
     MIN_TIMESPAN: 1,
     MAX_TIMESPAN: 5
   },
+  PROJECT: {
+    PENDING: 'pending',
+    APPROVED: 'approved',
+    IN_WORK: 'in_work',
+    DONE: 'done',
+    PENDING_TEXT: 'Pending approval',
+    APPROVED_TEXT: 'Approved',
+    IN_WORK_TEXT: 'In work',
+    DONE_TEXT: 'All Done!'
+  },
   THEME: {
     COLOR1: '#f08525'
   },

@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ProjectService} from '../../services/project.service';
 import {fadeIn, fadeOut, slideDown} from '../../consts/animations';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CONFIG} from '../../consts/config';
 
 @Component({
   selector: 'my-projects',
@@ -15,6 +16,7 @@ export class MyProjectsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private modalService: NgbModal,
               private projectService: ProjectService) {
+    this.CONFIG = CONFIG;
   }
 
   ngOnInit() {
