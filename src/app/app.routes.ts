@@ -5,6 +5,7 @@ import {AllProjectsComponent} from './states/all-projects';
 import {ProjectComponent} from './states/project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
+import {ChooseAccTypeComponent} from './states/choose-acc-type';
 import {CountriesResolver, CatsResolver, MyProjectsResolver, ProjectResolver, AllProjectsResolver} from './app.resolver';
 import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard, OnlyStudentGuard} from './states/state-guards';
 
@@ -42,6 +43,12 @@ export const ROUTES: Routes = [
 export const ROUTE_HOME_GUEST = {
   path: '',
   component: HomeComponent
+};
+
+export const ROUTE_HOME_CHOOSE = {
+  path: '',
+  component: ChooseAccTypeComponent,
+  canActivate: [OnlyLoggedInUsersGuard]
 };
 
 export const ROUTE_HOME_STUDENT = {

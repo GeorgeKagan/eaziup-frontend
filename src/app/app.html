@@ -35,12 +35,16 @@
           <div ngbDropdown>
             <div role="button" ngbDropdownToggle>
               <img class="rounded-circle mr-2" width="25" height="25" [src]="auth.profile['picture']">
-              {{auth.profile['nickname']}}
+              {{auth.profile['name']}}
             </div>
             <div class="dropdown-menu mt-2">
-              <button class="dropdown-item disabled" role="button">Settings</button>
-              <div class="dropdown-divider"></div>
-              <small class="dropdown-item text-muted ez-dd-info">{{auth.isAccTypeStudent ? 'Student' : 'Entrepreneur'}}</small>
+              <div *ngIf="!auth.isAccTypeUnknown">
+                <button class="dropdown-item disabled" role="button">Settings</button>
+                <div class="dropdown-divider"></div>
+                <small class="dropdown-item text-muted ez-dd-info">
+                  {{auth.isAccTypeStudent ? 'Student' : 'Entrepreneur'}}
+                </small>
+              </div>
               <button class="dropdown-item" role="button" (click)="auth.doLogOut()">Logout</button>
             </div>
           </div>

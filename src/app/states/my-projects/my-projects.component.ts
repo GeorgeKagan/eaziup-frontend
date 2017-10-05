@@ -11,6 +11,7 @@ import {CONFIG} from '../../consts/config';
   animations: [fadeIn, fadeOut, slideDown]
 })
 export class MyProjectsComponent implements OnInit {
+  CONFIG: any;
   projects: any[] = [];
 
   constructor(private route: ActivatedRoute,

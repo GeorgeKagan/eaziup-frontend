@@ -24,6 +24,7 @@ import {TokenNotVerifiedModalComponent, RestangularConfigFactory} from './restan
 
 // States
 import {HomeComponent} from './states/home';
+import {ChooseAccTypeComponent} from './states/choose-acc-type';
 import {MyProjectsComponent} from './states/my-projects';
 import {AllProjectsComponent} from './states/all-projects';
 import {ProjectComponent} from './states/project';
@@ -76,6 +77,7 @@ const APP_PROVIDERS = [
     Nl2brPipe,
     AppComponent,
     HomeComponent,
+    ChooseAccTypeComponent,
     MyProjectsComponent,
     AllProjectsComponent,
     ProjectComponent,
@@ -91,6 +93,7 @@ const APP_PROVIDERS = [
   ],
   entryComponents: [
     HomeComponent,
+    ChooseAccTypeComponent,
     MyProjectsComponent,
     AllProjectsComponent,
     TokenNotVerifiedModalComponent

@@ -70,7 +70,7 @@ export class AuthService {
     let isNotExpired = expiresAt !== null && new Date().getTime() < expiresAt;
     this._isAuthenticated = !!localStorage.getItem('accessToken') && (isNotExpired || expiresAt === 0);
     this._profile = JSON.parse(localStorage.getItem('profile'));
-    this._accType = (this._profile && this._profile.user_metadata.account_type) || this._accType;
+    this._accType = (this._profile && this._profile.user_metadata && this._profile.user_metadata.account_type) || this._accType;
     console.info(`%cAccount type: ${this._accType}`, 'color: green; font-weight: bold;');
   }
 
@@ -78,14 +78,18 @@ export class AuthService {
    * Show the Lock widget with the Login tab selected
    */
   public doLogIn(): void {
-    this.lock.show({initialScreen: 'login'});
+    this.lock.show({initialScreen: 'login', allowSignUp: false, languageDictionary: {
+      loginWithLabel: 'Log in with %s'
+    }});
   }
 
   /**
    * Show the Lock widget with the Signup tab selected
    */
   public doSignUp(): void {
-    this.lock.show({initialScreen: 'signUp'});
+    this.lock.show({initialScreen: 'signUp', allowSignUp: false, languageDictionary: {
+      loginWithLabel: 'Sign up with %s'
+    }});
   }
 
   /**
@@ -98,6 +102,10 @@ export class AuthService {
 
   public get isAuthenticated() {
     return this._isAuthenticated;
+  }
+
+  public get isAccTypeUnknown() {
+    return this._isAuthenticated && this._accType === CONFIG.UNKNOWN;
   }
 
   public get isAccTypeStudent() {
