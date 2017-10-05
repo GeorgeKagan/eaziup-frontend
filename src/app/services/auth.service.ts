@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import Auth0Lock from 'auth0-lock';
+import * as auth0 from 'auth0-js';
 import {CONFIG} from '../consts/config';
 
 @Injectable()
@@ -98,6 +99,28 @@ export class AuthService {
   public doLogOut(): void {
     localStorage.clear();
     this.lock.logout({returnTo: window.location.origin});
+  }
+
+  /**
+   * Update user custom data
+   * @param userMetadata
+   * @returns {Promise<any>}
+   */
+  public updateUserMetadata(userMetadata: any): Promise<any> {
+    let auth0Manage = new auth0.Management({
+      domain: CONFIG.AUTH.DOMAIN,
+      token: localStorage.getItem('idToken')
+    });
+    return new Promise((resolve, reject) => {
+      auth0Manage.getUser(this._profile.user_id, (nothing, data) => {
+        // Merge existing data with new
+        userMetadata = Object.assign(data.user_metadata || {}, userMetadata);
+        auth0Manage.patchUserMetadata(this._profile.user_id, userMetadata, (nothing, data) => {
+          localStorage.setItem('profile', JSON.stringify(data));
+          resolve();
+        });
+      });
+    });
   }
 
   public get isAuthenticated() {
