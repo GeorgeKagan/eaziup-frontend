@@ -22,7 +22,7 @@
                 Modify
               </span>
               <!-- Remove project -->
-              <span class="card-link ez-link" *ngIf="p.status!==CONFIG.PROJECT.IN_WORK" (click)="confirmRemove(content, p, i)">
+              <span class="card-link ez-link" *ngIf="p.status!==CONFIG.PROJECT.IN_WORK" (click)="confirmRemove(p, i)">
                 <i class="fa fa-trash-o mr-1"></i>
                 Remove
               </span>
@@ -49,21 +49,3 @@
     </div>
   </div>
 </div>
-
-<!-- Confirm removal modal content -->
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Heads up!</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>Are you sure you want to remove the project?</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" role="button" class="btn btn-danger mr-auto" (click)="c()">Yes, remove</button>
-    <button type="button" role="button" class="btn btn-secondary" (click)="d()">Cancel</button>
-  </div>
-</ng-template>
-<!-- /end Confirm removal -->

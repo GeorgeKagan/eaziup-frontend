@@ -1,6 +1,5 @@
 import {CONFIG} from './consts/config';
-import {Component, Input} from "@angular/core";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {TokenNotVerifiedModalComponent} from './modals/token-not-verified-modal.component';
 
 export function RestangularConfigFactory(RestangularProvider, modalService, authService) {
   RestangularProvider.setBaseUrl(API_URL);
@@ -21,26 +20,4 @@ export function RestangularConfigFactory(RestangularProvider, modalService, auth
     }
     return [];
   });
-}
-
-@Component({
-  template: `
-    <div class="modal-header">
-      <h4 class="modal-title">Oops!</h4>
-    </div>
-    <div class="modal-body">
-      <p>{{body}}</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" role="button" class="btn btn-outline-dark" (click)="activeModal.close()">
-        Close
-      </button>
-    </div>
-  `
-})
-export class TokenNotVerifiedModalComponent {
-  @Input() body;
-
-  constructor(public activeModal: NgbActiveModal) {
-  }
 }

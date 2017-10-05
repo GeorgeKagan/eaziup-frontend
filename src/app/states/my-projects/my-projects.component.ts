@@ -4,6 +4,7 @@ import {ProjectService} from '../../services/project.service';
 import {fadeIn, fadeOut, slideDown} from '../../consts/animations';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CONFIG} from '../../consts/config';
+import {ProjectRemoveConfirmModalComponent} from '../../modals/project-remove-confirm-modal.component';
 
 @Component({
   selector: 'my-projects',
@@ -28,13 +29,12 @@ export class MyProjectsComponent implements OnInit {
 
   /**
    * Confirm removal of projects.
-   * If yes - ask API to delete and splice it out of the array.
-   * @param {string} content
+   * If yes - ask API to delete and then splice it out of the array.
    * @param project
    * @param {number} i
    */
-  confirmRemove(content: string, project: any, i: number) {
-    this.modalService.open(content).result.then(() => {
+  confirmRemove(project: any, i: number) {
+    this.modalService.open(ProjectRemoveConfirmModalComponent).result.then(() => {
       this.projectService.removeProject(project.id);
       this.projects.splice(i, 1);
     }, () => {});

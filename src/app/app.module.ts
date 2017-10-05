@@ -20,7 +20,7 @@ import {ROUTES} from './app.routes';
 import {AppComponent} from './app.component';
 import {APP_RESOLVER_PROVIDERS} from './app.resolver';
 import {MyErrorHandler} from './my-error-handler';
-import {TokenNotVerifiedModalComponent, RestangularConfigFactory} from './restangular';
+import {RestangularConfigFactory} from './restangular';
 
 // States
 import {HomeComponent} from './states/home';
@@ -51,6 +51,11 @@ import {ProjectFormProjectInfoComponent} from './components/project-form/project
 import {ProjectFormDesignComponent} from './components/project-form/project-form-design.component';
 import {ProjectFormMilestonesComponent} from './components/project-form/project-form-milestones.component';
 import {ProjectFormFinalComponent} from './components/project-form/project-form-final.component';
+
+// Modals
+import {TokenNotVerifiedModalComponent} from './modals/token-not-verified-modal.component';
+import {AccTypeConfirmModalComponent} from './modals/acc-type-confirm-modal.component';
+import {ProjectRemoveConfirmModalComponent} from './modals/project-remove-confirm-modal.component';
 
 // Style
 import '../styles/styles.scss';
@@ -89,14 +94,18 @@ const APP_PROVIDERS = [
     ProjectFormDesignComponent,
     ProjectFormMilestonesComponent,
     ProjectFormFinalComponent,
-    TokenNotVerifiedModalComponent
+    TokenNotVerifiedModalComponent,
+    AccTypeConfirmModalComponent,
+    ProjectRemoveConfirmModalComponent
   ],
   entryComponents: [
     HomeComponent,
     ChooseAccTypeComponent,
     MyProjectsComponent,
     AllProjectsComponent,
-    TokenNotVerifiedModalComponent
+    TokenNotVerifiedModalComponent,
+    AccTypeConfirmModalComponent,
+    ProjectRemoveConfirmModalComponent
   ],
   /**
    * Import Angular's modules.
