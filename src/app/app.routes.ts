@@ -8,6 +8,7 @@ import {NoContentComponent} from './states/no-content';
 import {ChooseAccTypeComponent} from './states/choose-acc-type';
 import {CountriesResolver, CatsResolver, MyProjectsResolver, ProjectResolver, AllProjectsResolver} from './app.resolver';
 import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard, OnlyStudentGuard} from './states/state-guards';
+import {ViewProjectComponent} from './states/view-project/view-project.component';
 
 export const ROUTES: Routes = [
   // ENTREPRENEUR
@@ -36,6 +37,15 @@ export const ROUTES: Routes = [
 
   // COMMON
 
+  // View project
+  {
+    path: 'project/:id',
+    component: ViewProjectComponent,
+    resolve: {
+      project: ProjectResolver
+    },
+    canActivate: [OnlyLoggedInUsersGuard]
+  },
   {path: 'how-it-works', component: HowItWorksComponent},
   {path: '**', component: NoContentComponent},
 ];

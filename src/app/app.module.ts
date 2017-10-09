@@ -27,6 +27,7 @@ import {HomeComponent} from './states/home';
 import {ChooseAccTypeComponent} from './states/choose-acc-type';
 import {MyProjectsComponent} from './states/my-projects';
 import {AllProjectsComponent} from './states/all-projects';
+import {ViewProjectComponent} from './states/view-project/view-project.component';
 import {ProjectComponent} from './states/project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
@@ -85,6 +86,7 @@ const APP_PROVIDERS = [
     ChooseAccTypeComponent,
     MyProjectsComponent,
     AllProjectsComponent,
+    ViewProjectComponent,
     ProjectComponent,
     HowItWorksComponent,
     NoContentComponent,
