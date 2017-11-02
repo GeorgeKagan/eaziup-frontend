@@ -43,7 +43,8 @@ import {WizardStepsService} from './services/wizard-steps.service';
 import {ProjectService} from './services/project.service';
 
 // Pipes
-import {Nl2brPipe} from './pipes/general.pipe';
+import {DecimalPipe, DatePipe} from '@angular/common';
+import {Nl2listPipe, Nl2sepPipe} from './pipes/general.pipe';
 
 // Components
 import {ProjectFormComponent} from './components/project-form/project-form.component';
@@ -80,7 +81,8 @@ const APP_PROVIDERS = [
   bootstrap: [AppComponent],
   declarations: [
     MyCustomFileDirective,
-    Nl2brPipe,
+    Nl2listPipe,
+    Nl2sepPipe,
     AppComponent,
     HomeComponent,
     ChooseAccTypeComponent,
@@ -129,6 +131,8 @@ const APP_PROVIDERS = [
   providers: [
     ENV_PROVIDERS,
     APP_PROVIDERS,
+    DatePipe,
+    DecimalPipe,
     {provide: ErrorHandler, useClass: MyErrorHandler}
   ]
 })

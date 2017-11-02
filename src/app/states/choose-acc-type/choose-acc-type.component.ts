@@ -4,6 +4,7 @@ import {AccTypeConfirmModalComponent} from '../../modals/acc-type-confirm-modal.
 import {AuthService} from '../../services/auth.service';
 import {CONFIG} from '../../consts/config';
 import {GlobalLoaderService} from '../../services/global-loader.service';
+import {ICONS} from '../../consts/icons';
 
 const DONE_SCREEN_TIMEOUT = 2000;
 
@@ -13,6 +14,7 @@ const DONE_SCREEN_TIMEOUT = 2000;
 })
 export class ChooseAccTypeComponent implements OnInit {
   isSubmitted: boolean = false;
+  ICONS: object;
 
   constructor(private modalService: NgbModal,
               private authService: AuthService,
@@ -20,6 +22,7 @@ export class ChooseAccTypeComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.ICONS = ICONS;
   }
 
   /**

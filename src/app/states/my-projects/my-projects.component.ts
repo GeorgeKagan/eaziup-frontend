@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ProjectService} from '../../services/project.service';
 import {fadeIn, fadeOut, slideDown} from '../../consts/animations';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ICONS} from '../../consts/icons';
 import {CONFIG} from '../../consts/config';
 import {ProjectRemoveConfirmModalComponent} from '../../modals/project-remove-confirm-modal.component';
 
@@ -13,12 +14,14 @@ import {ProjectRemoveConfirmModalComponent} from '../../modals/project-remove-co
 })
 export class MyProjectsComponent implements OnInit {
   CONFIG: any;
+  ICONS: object;
   projects: any[] = [];
 
   constructor(private route: ActivatedRoute,
               private modalService: NgbModal,
               private projectService: ProjectService) {
     this.CONFIG = CONFIG;
+    this.ICONS = ICONS;
   }
 
   ngOnInit() {

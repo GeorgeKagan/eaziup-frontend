@@ -3,6 +3,7 @@ import {
   OnInit
 } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
+import {ICONS} from '../../consts/icons';
 
 @Component({
   selector: 'home',
@@ -10,9 +11,12 @@ import {AuthService} from '../../services/auth.service';
   templateUrl: 'home.component.html'
 })
 export class HomeComponent implements OnInit {
+  ICONS: object;
+
   constructor(public auth: AuthService) {
   }
 
   public ngOnInit() {
+    this.ICONS = ICONS;
   }
 }

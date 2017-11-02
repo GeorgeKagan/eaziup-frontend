@@ -21,7 +21,7 @@
                         {{p.cat.name + (p.company ? ' by ' + p.company : '')}}
                       </h6>
                       <hr>
-                      <p class="card-text mb-4" [innerHTML]="p.desc | nl2br"></p>
+                      <p class="card-text mb-4" [innerHTML]="p.desc | nl2list"></p>
                     </div>
                     <div class="card-footer text-muted text-center">
                       <i class="fa fa-calendar-o mr-1"></i> Starts <strong>{{p.start_date | date}}</strong>

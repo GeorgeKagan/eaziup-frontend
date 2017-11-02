@@ -3,6 +3,7 @@
     <h3 class="mb-4">My Projects</h3>
     <p class="lead mb-4">View and manage your projects here</p>
     <div class="row ml-0 mr-0">
+
       <!-- Single project -->
       <ng-container *ngFor="let p of projects; let i = index">
         <div class="card col-md-5 pr-0 pl-0 mr-4 mb-4" [@fadeOut]="p">
@@ -14,7 +15,7 @@
               {{p.cat.name + (p.company ? ' by ' + p.company : '')}}
             </h6>
             <hr>
-            <p class="card-text mb-4" [innerHTML]="p.desc | nl2br"></p>
+            <p class="card-text mb-4" [innerHTML]="p.desc | nl2list"></p>
             <div *ngIf="p.status!==CONFIG.PROJECT.DONE">
               <!-- Modify project -->
               <span class="card-link ez-link" routerLink="/project/edit/{{p.id}}">
@@ -43,9 +44,20 @@
         </div>
       </ng-container>
       <!-- /end Single project -->
+
+      <!-- No projects view -->
       <div *ngIf="!projects.length" [@fadeIn]="!projects.length">
-        No projects yet
+        <div class="alert alert-info mt-4 mb-5 font-italic">
+          <!-- Question icon by Icons8 -->
+          <img class="icon icons8-Question mr-3" width="64" height="64" [src]="ICONS.OOPS">
+          Hmmm, looks like you haven't submitted any projects...
+        </div>
+        <button type="button" class="btn btn-outline-success btn-lg" role="button" routerLink="project/add">
+          Add a Project Now <i class="fa fa-angle-right ml-2 font-weight-bold"></i>
+        </button>
       </div>
+      <!-- /end -->
+
     </div>
   </div>
 </div>

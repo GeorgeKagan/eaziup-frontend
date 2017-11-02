@@ -189,6 +189,9 @@ h3 {
   color: $ez_cream_darker2;
   font-weight: 400;
   text-transform: capitalize;
+  small {
+    color: $ez_cream_darker1;
+  }
 }
 
 h5 {
@@ -268,6 +271,15 @@ table.table {
 .ez-dd-info {
   cursor: default !important;
   background: inherit !important;
+}
+
+.ez-sep {
+  background: $ez_cream_darker;
+  border-radius: 7px;
+  width: 7px;
+  height: 7px;
+  margin: 0 15px 2px;
+  display: inline-block;
 }
 
 /* end MISC CLASSES */
