@@ -30,6 +30,15 @@ export class ProjectService {
   }
 
   /**
+   * Student applies for a project
+   * @param projectId
+   * @returns {any}
+   */
+  public studentApply(projectId) {
+    return this.rest.one('project', projectId).customPOST({}, 'apply');
+  }
+
+  /**
    * Calculate delivery date of a project by adding milestones' duration to the start date.
    * @param {string} startDate
    * @param {string} milestones

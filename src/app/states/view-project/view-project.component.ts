@@ -4,19 +4,23 @@ import {AuthService} from '../../services/auth.service';
 import {DatePipe, DecimalPipe} from '@angular/common';
 import {ICONS} from '../../consts/icons';
 import {ProjectService} from '../../services/project.service';
+import {GlobalLoaderService} from '../../services/global-loader.service';
 
 @Component({
   selector: 'view-project',
   templateUrl: 'view-project.component.html'
 })
 export class ViewProjectComponent implements OnInit {
-  public blocks: object[] = [];
-  public sidebarItems: object[] = [];
-  private project: any = null;
+  blocks: object[] = [];
+  sidebarItems: object[] = [];
+  project: any = null;
+  isApplied: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private datePipe: DatePipe,
               private decimalPipe: DecimalPipe,
+              private projectService: ProjectService,
+              private globalLoader: GlobalLoaderService,
               public auth: AuthService) {
   }
 
@@ -47,7 +51,15 @@ export class ViewProjectComponent implements OnInit {
     });
   }
 
-  public applyToProject() {
-
+  /**
+   * Student applies for a project
+   * @param projectId
+   */
+  public applyToProject(projectId) {
+      this.globalLoader.emitChange(true);
+      this.projectService.studentApply(projectId).subscribe(() => {
+        this.isApplied = true;
+        this.globalLoader.emitChange(false);
+      });
   }
 }
