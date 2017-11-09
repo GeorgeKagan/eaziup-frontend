@@ -41,6 +41,7 @@ import {AuthService} from './services/auth.service';
 import {GlobalLoaderService} from './services/global-loader.service';
 import {WizardStepsService} from './services/wizard-steps.service';
 import {ProjectService} from './services/project.service';
+import {ApplicationService} from './services/application.service';
 
 // Pipes
 import {DecimalPipe, DatePipe} from '@angular/common';
@@ -71,7 +72,8 @@ const APP_PROVIDERS = [
   AuthService,
   GlobalLoaderService,
   WizardStepsService,
-  ProjectService
+  ProjectService,
+  ApplicationService
 ];
 
 /**

@@ -5,6 +5,7 @@ import {DatePipe, DecimalPipe} from '@angular/common';
 import {ICONS} from '../../consts/icons';
 import {ProjectService} from '../../services/project.service';
 import {GlobalLoaderService} from '../../services/global-loader.service';
+import {ApplicationService} from '../../services/application.service';
 
 @Component({
   selector: 'view-project',
@@ -19,7 +20,7 @@ export class ViewProjectComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private datePipe: DatePipe,
               private decimalPipe: DecimalPipe,
-              private projectService: ProjectService,
+              private applyService: ApplicationService,
               private globalLoader: GlobalLoaderService,
               public auth: AuthService) {
   }
@@ -57,7 +58,7 @@ export class ViewProjectComponent implements OnInit {
    */
   public applyToProject(projectId) {
       this.globalLoader.emitChange(true);
-      this.projectService.studentApply(projectId).subscribe(() => {
+      this.applyService.studentApply(projectId).subscribe(() => {
         this.isApplied = true;
         this.globalLoader.emitChange(false);
       });
