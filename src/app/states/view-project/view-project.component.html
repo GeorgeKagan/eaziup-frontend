@@ -1,6 +1,12 @@
 <div class="container pb-5">
   <div class="col-12">
-    <h3 class="mb-5">{{project.name}} <small>{{project.cat.name}}</small></h3>
+    <h3 class="mb-5">
+      {{project.name}} <small>{{project.cat.name}}</small>
+
+      <button class="btn btn-link text-muted mr-5 float-left" type="button" role="button" routerLink="/">
+        <i class="fa fa-angle-left mr-2 font-weight-bold"></i>All projects
+      </button>
+    </h3>
     <div class="row">
 
       <!-- Main content -->
