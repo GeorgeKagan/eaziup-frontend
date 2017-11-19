@@ -6,7 +6,10 @@
       <ngb-tabset class="col-12" justify="center" type="pills">
         <!-- Not applied to / not working on -->
         <ngb-tab>
-          <ng-template ngbTabTitle>New projects</ng-template>
+          <ng-template ngbTabTitle>
+            New Projects
+            <span class="badge badge-pill" *ngIf="newProjects.length">{{newProjects.length}}</span>
+          </ng-template>
           <ng-template ngbTabContent>
             <div class="row pt-5">
               <ng-container *ngFor="let p of newProjects">
@@ -21,7 +24,10 @@
 
         <!-- Applied-to projects -->
         <ngb-tab>
-          <ng-template ngbTabTitle>Applied to</ng-template>
+          <ng-template ngbTabTitle>
+            Applied To
+            <span class="badge badge-pill" *ngIf="appliedToProjects.length">{{appliedToProjects.length}}</span>
+          </ng-template>
           <ng-template ngbTabContent>
             <div class="row pt-5">
               <ng-container *ngFor="let p of appliedToProjects">
@@ -36,7 +42,10 @@
 
         <!-- Working-on projects -->
         <ngb-tab>
-          <ng-template ngbTabTitle>In work</ng-template>
+          <ng-template ngbTabTitle>
+            In Work
+            <span class="badge badge-pill" *ngIf="inWorkProjects.length">{{inWorkProjects.length}}</span>
+          </ng-template>
           <ng-template ngbTabContent>
             <div class="row pt-5">
               <ng-container *ngFor="let p of inWorkProjects">

@@ -42,12 +42,22 @@
 
   .nav-pills .nav-link {
     color: $ez_cream_darker2;
+    border: 1px solid transparent;
+
+    .badge {
+      background-color: $ez_cream_darker1;
+      margin-left: 7px;
+      line-height: 13px;
+    }
 
     &.active {
       color: $ez_orange !important;
       background-color: transparent;
-      border: 1px solid $ez_orange;
-      margin: 0 10px;
+      border-color: $ez_orange;
+
+      .badge {
+        background-color: $ez_orange;
+      }
     }
   }
 }
