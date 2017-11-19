@@ -39,4 +39,15 @@
   padding: 50px 0 0 0;
   color: $ez_cream_darker2;
   min-height: 663px;
+
+  .nav-pills .nav-link {
+    color: $ez_cream_darker2;
+
+    &.active {
+      color: $ez_orange !important;
+      background-color: transparent;
+      border: 1px solid $ez_orange;
+      margin: 0 10px;
+    }
+  }
 }

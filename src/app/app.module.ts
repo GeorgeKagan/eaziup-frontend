@@ -54,6 +54,7 @@ import {ProjectFormProjectInfoComponent} from './components/project-form/project
 import {ProjectFormDesignComponent} from './components/project-form/project-form-design.component';
 import {ProjectFormMilestonesComponent} from './components/project-form/project-form-milestones.component';
 import {ProjectFormFinalComponent} from './components/project-form/project-form-final.component';
+import {ProjectBoxComponent} from './components/project-box.component';
 
 // Modals
 import {TokenNotVerifiedModalComponent} from './modals/token-not-verified-modal.component';
@@ -100,6 +101,7 @@ const APP_PROVIDERS = [
     ProjectFormDesignComponent,
     ProjectFormMilestonesComponent,
     ProjectFormFinalComponent,
+    ProjectBoxComponent,
     TokenNotVerifiedModalComponent,
     AccTypeConfirmModalComponent,
     ProjectRemoveConfirmModalComponent
