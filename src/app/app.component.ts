@@ -22,37 +22,31 @@ export class AppComponent implements OnInit {
   public topNav = [
     // Entrepreneur
     {label: 'Add new project', link: './project/add', isVisible: this.auth.isAccTypeEntrepreneur},
+    {label: 'My projects', link: './', isVisible: this.auth.isAccTypeEntrepreneur},
+    // Student
+    {label: 'Browse projects', link: './', isVisible: this.auth.isAccTypeStudent},
     // Common
-    {label: 'How it works', link: './how-it-works', isVisible: true}
+    {label: 'How it works', link: './how-it-works'}
   ];
 
   public footerNav = [
     {label: 'Company', items: [
-      {label: 'About', link: '/stub'},
-      {label: 'How it works?', link: '/stub'},
-      {label: 'Careers', link: '/stub'},
-      {label: 'Our team', link: '/stub'},
-      {label: 'Press', link: '/stub'},
-      {label: 'Confidentiality', link: '/stub'},
-      {label: 'Terms & conditions', link: '/stub'},
+      {label: 'About', link: './how-it-works'},
+      {label: 'How it works?', link: './how-it-works'}
     ]},
     {label: 'Contact', items: [
-      {label: 'Contact us', link: '/stub'},
-      {label: 'Support', link: '/stub'},
-      {label: 'Supplier team', link: '/stub'},
-      {label: 'Project / Sellers team', link: '/stub'}
+      {label: 'Contact us', link: './contact'},
+      {label: 'Support', link: './contact'}
     ]},
-    {label: 'Suppliers', items: [
-      {label: 'Sign up', link: '/stub'},
-      {label: 'How it works', link: '/stub'},
-      {label: 'Supplier database', link: '/stub'},
-      {label: 'Team database', link: '/stub'}
+    {label: 'Projects', items: [
+      {label: 'Add a project now', link: './project/add', isVisible: this.auth.isAccTypeEntrepreneur},
+      {label: 'My projects', link: './', isVisible: this.auth.isAccTypeEntrepreneur},
+      {label: 'Browse projects', link: './', isVisible: this.auth.isAccTypeStudent}
     ]},
-    {label: 'Projects / Sellers', items: [
-      {label: 'Add a project now', link: '/stub'},
-      {label: 'How it works', link: '/stub'},
-      {label: 'Project database', link: '/stub'}
-    ]}
+    {label: 'Legal', items: [
+      {label: 'Confidentiality', link: './confidentiality'},
+      {label: 'Terms & conditions', link: './terms-and-conditions'},
+    ]},
   ];
 
   private sub: any;

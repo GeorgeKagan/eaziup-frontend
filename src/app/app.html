@@ -11,7 +11,7 @@
       <nav class="nav nav-pills col-sm-7">
         <span class="nav-item" *ngFor="let item of topNav">
           <a class="nav-link text-muted" [routerLink]="[item.link]" routerLinkActive="active"
-             [routerLinkActiveOptions]="{exact: true}" *ngIf="item.isVisible">
+             [routerLinkActiveOptions]="{exact: true}" *ngIf="item.isVisible!==false">
             {{item.label}}
           </a>
         </span>
@@ -71,10 +71,11 @@
       <div class="col-md-3" *ngFor="let nav of footerNav">
         <h6 class="ml-3 text-success">{{nav.label}}</h6>
         <nav class="nav flex-column">
-          <a class="nav-link text-muted" [routerLink]="[link.link]" routerLinkActive="active"
-             *ngFor="let link of nav.items">
-            {{link.label}}
-          </a>
+          <ng-container *ngFor="let link of nav.items">
+            <a class="nav-link text-muted" [routerLink]="[link.link]" routerLinkActive="active" *ngIf="link.isVisible!==false">
+              {{link.label}}
+            </a>
+          </ng-container>
         </nav>
       </div>
     </div>
