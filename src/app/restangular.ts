@@ -3,7 +3,10 @@ import {TokenNotVerifiedModalComponent} from './modals/token-not-verified-modal.
 
 export function RestangularConfigFactory(RestangularProvider, modalService, authService) {
   RestangularProvider.setBaseUrl(API_URL);
-  RestangularProvider.setDefaultHeaders({'Authorization': 'Bearer ' + localStorage.getItem('idToken')});
+  RestangularProvider.setDefaultHeaders({
+    'Authorization': 'Bearer ' + localStorage.getItem('idToken'),
+    'IsStudent': authService.isAccTypeStudent
+  });
 
   // Interceptor for all REST API calls
   RestangularProvider.addResponseInterceptor(data => {
