@@ -43,16 +43,14 @@
           </ul>
           <button type="button" class="btn btn-outline-success btn-lg btn-block mt-4" role="button"
                   (click)="applyToProject(project.id)"
-                  *ngIf="!project.application.isApplied && !isApplied">
+                  *ngIf="!project.application.isApplied">
             Apply to Project <i class="fa fa-angle-right ml-2 font-weight-bold"></i>
           </button>
-          <div class="mt-4 text-center lead" *ngIf="project.application.isApplied">
-            Already applied
-          </div>
-          <div class="mt-4 text-center lead" *ngIf="isApplied">
-            <i class="fa fa-check text-success font-weight-bold mt-2 mr-2 d-inline-block"></i>
-            <strong>Thanks!</strong>
-          </div>
+          <button type="button" class="btn btn-outline-danger btn-lg btn-block mt-4" role="button"
+                  (click)="cancelApplication(project.id)"
+                  *ngIf="project.application.isApplied">
+            Cancel application <i class="fa fa-remove ml-2 font-weight-bold"></i>
+          </button>
         </div>
 
         <!-- Entrepreneur view -->

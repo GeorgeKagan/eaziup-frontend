@@ -59,8 +59,20 @@ export class ViewProjectComponent implements OnInit {
   public applyToProject(projectId) {
       this.globalLoader.emitChange(true);
       this.applyService.studentApply(projectId).subscribe(() => {
-        this.isApplied = true;
+        this.project.application.isApplied = true;
         this.globalLoader.emitChange(false);
       });
+  }
+
+  /**
+   * Student cancels application
+   * @param projectId
+   */
+  public cancelApplication(projectId) {
+    this.globalLoader.emitChange(true);
+    this.applyService.studentApplyCancel(projectId).subscribe(() => {
+      this.project.application.isApplied = false;
+      this.globalLoader.emitChange(false);
+    });
   }
 }

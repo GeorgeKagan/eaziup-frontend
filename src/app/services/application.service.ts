@@ -14,4 +14,8 @@ export class ApplicationService {
   public studentApply(projectId) {
     return this.rest.one('project/apply', projectId).post();
   }
+
+  public studentApplyCancel(projectId) {
+    return this.rest.one('project/apply/cancel', projectId).remove();
+  }
 }
