@@ -51,7 +51,7 @@ form {
         // Label
         > label,
         .ez-label {
-          @extend .form-control-label;
+          @extend .col-form-label;
           display: inline-block;
           color: $ez_cream_darker2;
           margin: 0;
