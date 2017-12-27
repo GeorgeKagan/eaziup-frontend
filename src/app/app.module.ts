@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgModule, ErrorHandler} from '@angular/core';
 import {
@@ -122,7 +122,7 @@ const APP_PROVIDERS = [
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     WizardModule,
     NgbModule.forRoot(),
     SlimLoadingBarModule.forRoot(),
