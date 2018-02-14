@@ -10,7 +10,8 @@ const SEP = '<span class="ez-sep"></span>';
 export class Nl2listPipe implements PipeTransform {
   transform(value: string, args: string[]): any {
     if (!value) return value;
-    let arr = value.split(/(?:\r\n|\r|\n)/g);
+    // Split by new lines and filter out blank lines
+    let arr = value.split(/(?:\r\n|\r|\n)/g).filter(x => x);
 
     if (arr.length > 1) {
       return arr.map(x => `${SEP}${x}<br>`).join('');
