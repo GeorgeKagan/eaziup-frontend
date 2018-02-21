@@ -29,6 +29,7 @@ import {MyProjectsComponent} from './states/my-projects';
 import {AllProjectsComponent} from './states/all-projects';
 import {ViewProjectComponent} from './states/view-project/view-project.component';
 import {ProjectComponent} from './states/project';
+import {ProjectApplicationsComponent} from './states/project-applications';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
 
@@ -93,6 +94,7 @@ const APP_PROVIDERS = [
     AllProjectsComponent,
     ViewProjectComponent,
     ProjectComponent,
+    ProjectApplicationsComponent,
     HowItWorksComponent,
     NoContentComponent,
     ProjectFormComponent,

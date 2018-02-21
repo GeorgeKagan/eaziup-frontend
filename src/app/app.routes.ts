@@ -6,9 +6,13 @@ import {ProjectComponent} from './states/project';
 import {HowItWorksComponent} from './states/how-it-works';
 import {NoContentComponent} from './states/no-content';
 import {ChooseAccTypeComponent} from './states/choose-acc-type';
-import {CountriesResolver, CatsResolver, MyProjectsResolver, ProjectResolver, AllProjectsResolver} from './app.resolver';
+import {
+  CountriesResolver, CatsResolver, MyProjectsResolver, ProjectResolver, AllProjectsResolver,
+  ProjectApplicationsResolver
+} from './app.resolver';
 import {OnlyEntrepreneurGuard, OnlyLoggedInUsersGuard, OnlyStudentGuard} from './states/state-guards';
 import {ViewProjectComponent} from './states/view-project/view-project.component';
+import { ProjectApplicationsComponent } from './states/project-applications';
 
 export const ROUTES: Routes = [
   // ENTREPRENEUR
@@ -31,6 +35,16 @@ export const ROUTES: Routes = [
       project: ProjectResolver,
       countries: CountriesResolver,
       cats: CatsResolver
+    },
+    canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
+  },
+  // Manage project applications
+  {
+    path: 'project/:id/applications',
+    component: ProjectApplicationsComponent,
+    resolve: {
+      project: ProjectResolver,
+      applications: ProjectApplicationsResolver,
     },
     canActivate: [OnlyLoggedInUsersGuard, OnlyEntrepreneurGuard]
   },

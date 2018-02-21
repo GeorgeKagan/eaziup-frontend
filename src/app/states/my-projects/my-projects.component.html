@@ -17,16 +17,25 @@
             <hr>
             <p class="card-text mb-4" [innerHTML]="p.desc | nl2list"></p>
             <div *ngIf="p.status!==CONFIG.PROJECT.DONE">
+
               <!-- Modify project -->
               <span class="card-link ez-link" routerLink="/project/edit/{{p.id}}">
                 <i class="fa fa-sliders mr-1"></i>
                 Modify
               </span>
+
               <!-- Remove project -->
               <span class="card-link ez-link" *ngIf="p.status!==CONFIG.PROJECT.IN_WORK" (click)="confirmRemove(p, i)">
                 <i class="fa fa-trash-o mr-1"></i>
                 Remove
               </span>
+
+              <!-- Student Applications -->
+              <span class="card-link ez-link" routerLink="/project/{{p.id}}/applications">
+                <i class="fa fa-wpforms mr-1"></i>
+                Student Applications
+              </span>
+
             </div>
           </div>
           <div class="card-footer text-muted">

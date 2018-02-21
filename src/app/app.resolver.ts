@@ -43,6 +43,14 @@ export class ProjectResolver implements Resolve<any> {
   }
 }
 
+@Injectable()
+export class ProjectApplicationsResolver implements Resolve<any> {
+  constructor(private projectService: ProjectService) {}
+  public resolve(route: ActivatedRouteSnapshot) {
+    return this.projectService.getProjectApplications(route.params.id);
+  }
+}
+
 /**
  * An array of services to resolve routes with data.
  */
@@ -51,5 +59,6 @@ export const APP_RESOLVER_PROVIDERS = [
   CatsResolver,
   MyProjectsResolver,
   AllProjectsResolver,
-  ProjectResolver
+  ProjectResolver,
+  ProjectApplicationsResolver
 ];

@@ -21,6 +21,10 @@ export class ProjectService {
     return this.rest.one('project', projectId).get();
   }
 
+  public getProjectApplications(projectId: number) {
+    return this.rest.one('project', projectId).customGET('applications');
+  }
+
   public saveProject(data: object) {
     return this.rest.all('project').post(data);
   }
@@ -28,7 +32,7 @@ export class ProjectService {
   public removeProject(projectId: number) {
     return this.rest.one('project', projectId).remove();
   }
-  
+
   /**
    * Calculate delivery date of a project by adding milestones' duration to the start date.
    * @param {string} startDate
