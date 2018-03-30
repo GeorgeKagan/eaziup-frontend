@@ -14,7 +14,7 @@ export class ProjectApplicationsComponent implements OnInit {
   ICONS: object;
   project: object = {};
   applications: any[] = [];
-  
+
   constructor(private route: ActivatedRoute) {
     this.CONFIG = CONFIG;
     this.ICONS = ICONS;

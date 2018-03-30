@@ -1,7 +1,7 @@
 import { ErrorHandler } from '@angular/core';
 
 export class MyErrorHandler implements ErrorHandler {
-  handleError(error) {
+  public handleError(error) {
     if (IS_DEV || IS_TEST) {
       console.error(error);
       return;

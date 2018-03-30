@@ -9,7 +9,7 @@ const SEP = '<span class="ez-sep"></span>';
 @Pipe({name: 'nl2list'})
 export class Nl2listPipe implements PipeTransform {
   transform(value: string, args: string[]): any {
-    if (!value) return value;
+    if (!value) { return value; }
     // Split by new lines and filter out blank lines
     let arr = value.split(/(?:\r\n|\r|\n)/g).filter(x => x);
 
@@ -27,7 +27,7 @@ export class Nl2listPipe implements PipeTransform {
 @Pipe({name: 'nl2sep'})
 export class Nl2sepPipe implements PipeTransform {
   transform(value: string, args: string[]): any {
-    if (!value) return value;
+    if (!value) { return value; }
 
     // Replaces new lines and commas (,)
     return (value + '').replace(/(?:\r\n|\r|\n|,)/g, SEP);

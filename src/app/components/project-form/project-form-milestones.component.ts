@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, FormArray} from '@angular/forms';
 import {slideDown} from '../../consts/animations';
 import {CONFIG} from '../../consts/config';
@@ -11,7 +11,7 @@ import {WizardStepsService} from '../../services/wizard-steps.service';
   templateUrl: './project-form-milestones.component.html',
   animations: [slideDown]
 })
-export class ProjectFormMilestonesComponent {
+export class ProjectFormMilestonesComponent implements OnInit {
   @Input() fb: FormBuilder;
   @Input() myForm: FormGroup;
   @Input() milestones: FormGroup;

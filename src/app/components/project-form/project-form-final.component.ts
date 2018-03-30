@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {FormArray, FormGroup} from '@angular/forms';
 import {slideDown} from '../../consts/animations';
 import {WizardStepsService} from '../../services/wizard-steps.service';
@@ -9,7 +9,7 @@ import {CONFIG} from '../../consts/config';
   templateUrl: './project-form-final.component.html',
   animations: [slideDown]
 })
-export class ProjectFormFinalComponent {
+export class ProjectFormFinalComponent implements OnInit {
   @Input() myForm: FormGroup;
   @Input() formErrors: object = {};
   @Input() gotError: Function;

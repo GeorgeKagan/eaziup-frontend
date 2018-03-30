@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError} from '@angular/router';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {AuthService} from './services/auth.service';

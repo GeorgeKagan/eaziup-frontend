@@ -1,8 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {FormGroup} from '@angular/forms';
-import {slideDown} from '../../consts/animations';
-import {WizardStepsService} from '../../services/wizard-steps.service';
-import {CONFIG} from '../../consts/config';
+import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { slideDown } from '../../consts/animations';
 import 'rxjs/add/operator/filter';
 
 @Component({
@@ -11,16 +9,8 @@ import 'rxjs/add/operator/filter';
   animations: [slideDown]
 })
 export class ProjectFormBuyerInfoComponent {
-  @Input() myForm: FormGroup;
-  @Input() formErrors: object = {};
-  @Input() gotError: Function;
-  @Input() countries: string[] = [];
-
-  constructor(private wizardSteps: WizardStepsService) {}
-
-  ngOnInit() {
-    this.wizardSteps.changeEmitted$.filter(index => index === CONFIG.WIZARD.STEPS.GENERAL).subscribe(index => {
-
-    });
-  }
+  @Input() public myForm: FormGroup;
+  @Input() public formErrors: object = {};
+  @Input() public gotError: Function;
+  @Input() public countries: string[] = [];
 }
