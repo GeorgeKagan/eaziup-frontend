@@ -1,4 +1,3 @@
-/* tslint:disable */
 /*
  * Custom Type Definitions
  * When including 3rd party modules you also need to include the type definition for the module
@@ -70,6 +69,17 @@ declare var ENV: string;
 declare var HMR: boolean;
 // noinspection JSUnusedGlobalSymbols
 declare var System: SystemJS;
+// declare const FIREBASE_CONFIG: FirebaseConfig;
+
+// noinspection JSUnusedGlobalSymbols
+interface FirebaseConfig {
+    apiKey: string;
+    authDomain: string;
+    databaseURL: string;
+    projectId: string;
+    storageBucket: string;
+    messagingSenderId: string;
+}
 
 interface SystemJS {
     import: (path?: string) => Promise<any>;
@@ -80,24 +90,27 @@ interface GlobalEnvironment {
     HMR: boolean;
     SystemJS: SystemJS;
     System: SystemJS;
+    // FIREBASE_CONFIG: FirebaseConfig;
 }
 
 interface Es6PromiseLoader {
+    // noinspection TsLint
     (id: string): (exportName?: string) => Promise<any>;
 }
 
 type FactoryEs6PromiseLoader = () => Es6PromiseLoader;
 type FactoryPromise = () => Promise<any>;
 
-// noinspection JSUnusedGlobalSymbols
+// noinspection TsLint, JSUnusedGlobalSymbols
 type AsyncRoutes = {
+    // noinspection TsLint
     [component: string]: Es6PromiseLoader |
         Function |
         FactoryEs6PromiseLoader |
-        FactoryPromise;
+        FactoryPromise ;
 };
 
-// noinspection JSUnusedGlobalSymbols
+// noinspection TsLint, JSUnusedGlobalSymbols
 type IdleCallbacks = Es6PromiseLoader |
     Function |
     FactoryEs6PromiseLoader |
@@ -121,11 +134,8 @@ interface WebpackModule {
 
 interface WebpackRequire {
     (id: string): any;
-
     (paths: string[], callback: (...modules: any[]) => void): void;
-
     ensure(ids: string[], callback: (req: WebpackRequire) => void, chunkName?: string): void;
-
     context(directory: string, useSubDirectories?: boolean, regExp?: RegExp): WebpackContext;
 }
 
@@ -138,22 +148,13 @@ interface ErrorStackTraceLimit {
 }
 
 // Extend typings
-// noinspection JSUnusedGlobalSymbols
-interface NodeRequire extends WebpackRequire {
-}
-
-// noinspection JSUnusedGlobalSymbols
-interface ErrorConstructor extends ErrorStackTraceLimit {
-}
-
-// noinspection JSUnusedGlobalSymbols
-interface NodeRequireFunction extends Es6PromiseLoader {
-}
-
-// noinspection JSUnusedGlobalSymbols
-interface NodeModule extends WebpackModule {
-}
-
-// noinspection JSUnusedGlobalSymbols
-interface Global extends GlobalEnvironment {
-}
+// noinspection TsLint, JSUnusedGlobalSymbols
+interface NodeRequire extends WebpackRequire {}
+// noinspection TsLint, JSUnusedGlobalSymbols
+interface ErrorConstructor extends ErrorStackTraceLimit {}
+// noinspection TsLint, JSUnusedGlobalSymbols
+interface NodeRequireFunction extends Es6PromiseLoader  {}
+// noinspection TsLint, JSUnusedGlobalSymbols
+interface NodeModule extends WebpackModule {}
+// noinspection TsLint, JSUnusedGlobalSymbols
+interface Global extends GlobalEnvironment  {}

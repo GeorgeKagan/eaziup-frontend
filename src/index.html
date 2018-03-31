@@ -1,87 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--suppress ALL -->
+<html>
 <head>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <style>
-    body {
-      background: #efedef;
-    }
-    .my-loader {
-      color: #5cb85c;
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -30px;
-      margin-left: -30px;
-    }
-    .ez-global-loader {
-      background: rgba(255, 255, 255, 0.5);
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      opacity: 0;
-      transition: 1s opacity;
-    }
-    .ez-global-loader.ez-is-loading {
-      z-index: 1;
-      opacity: 1;
-    }
-    .ez-global-loader .fa {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin: -20px 0 0 -20px;
-    }
-  </style>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #efedef;
+        }
+        .my-loader {
+            color: #5cb85c;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -30px;
+            margin-left: -30px;
+        }
+        .ez-global-loader {
+            background: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0;
+            transition: 1s opacity;
+        }
+        .ez-global-loader.ez-is-loading {
+            z-index: 1;
+            opacity: 1;
+        }
+        .ez-global-loader .fa {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -20px 0 0 -20px;
+        }
+    </style>
 
-  <link rel="shortcut icon" href="/assets/icon/favicon.png">
-
+    <link rel="shortcut icon" href="/assets/icon/favicon.png">
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= htmlWebpackPlugin.options.title %></title>
-
-  <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
-
+  <meta name="description" content="<%= htmlWebpackPlugin.options.metadata.description %>">
+  <!-- base url -->
+  <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
   <% if (webpackConfig.htmlElements.headTags) { %>
   <!-- Configured Head Tags  -->
   <%= webpackConfig.htmlElements.headTags %>
   <% } %>
 
-  <!-- base url -->
-  <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
 
   <%= htmlWebpackPlugin.files.webpackManifest %>
-
-</head>
-
-<body class="bg-inverse">
-
-  <app>
-    <i class="fa fa-circle-o-notch fa-spin fa-2x my-loader"></i>
-  </app>
-
-  <!-- Google Analytics: change UA-71073175-1 to be your site's ID -->
-  <script>
-    (function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=r;A[l]=A[l]||function(){
-    (A[l].q=A[l].q||[]).push(arguments)},A[l].l=1*new Date();a=n.createElement(g),
-    r=n.getElementsByTagName(g)[0];a.async=1;a.src=u;r.parentNode.insertBefore(a,r)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-71073175-1', 'auto');
-    ga('send', 'pageview');
-  </script>
 
   <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
   <!-- Webpack Dev Server reload -->
   <script src="/webpack-dev-server.js"></script>
   <% } %>
 
+  <!-- Async Google Tag Manager: change gtmKey value inside config.prod.conf to your to be your site's ID-->
+  <% if (htmlWebpackPlugin.options.gtmKey) { %>
+  <!-- Google Tag Manager, EqualityComparisonWithCoercionJS -->
+  <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','<%= htmlWebpackPlugin.options.gtmKey %>');</script>
+  <!-- End Google Tag Manager -->
+  <% } %>
+  <!-- End Google Analytics -->
 
+  <!-- CSS will be injected by webpack here -->
+  <!-- Preload link tags will be injected by webpack here -->
+
+</head>
+
+<body class="bg-inverse">
+<% if (htmlWebpackPlugin.options.gtmKey) { %>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= htmlWebpackPlugin.options.gtmKey %>"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<% } %>
+
+<app>
+    <i class="fa fa-circle-o-notch fa-spin fa-2x my-loader"></i>
+</app>
+
+<!-- Scripts will be injected by webpack here -->
 </body>
 </html>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule } from '@angular/router';
@@ -10,7 +10,7 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { RestangularModule } from 'ngx-restangular';
 import { WizardModule } from 'ng2-archwizard/dist';
 // Platform and Environment providers/directives/pipes
-import { ENV_PROVIDERS } from './environment';
+import { environment } from 'environments/environment';
 import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
@@ -55,10 +55,12 @@ import { OnlyEntrepreneurGuard } from './guards/only-entrepreneur.guard';
 import { OnlyStudentGuard } from './guards/only-student.guard';
 import { MyNewlineToList } from './pipes/my-newline-to-list.pipe';
 import { MyNewlineToSeparator } from './pipes/my-newline-to-separator.pipe';
+import { AppState, InternalStateType } from './app.service';
 
 // Application wide providers
 const APP_PROVIDERS = [
     ...APP_RESOLVER_PROVIDERS,
+    AppState,
     OnlyLoggedInUsersGuard,
     OnlyEntrepreneurGuard,
     OnlyStudentGuard,
@@ -68,6 +70,13 @@ const APP_PROVIDERS = [
     ProjectService,
     ApplicationService
 ];
+
+// noinspection JSUnusedLocalSymbols
+interface StoreType {
+    state: InternalStateType;
+    restoreInputValues: () => void;
+    disposeOldHosts: () => void;
+}
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -115,18 +124,21 @@ const APP_PROVIDERS = [
         BrowserModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        HttpModule,
+        HttpClientModule,
         WizardModule,
         NgbModule.forRoot(),
         SlimLoadingBarModule.forRoot(),
         RestangularModule.forRoot([NgbModal, AuthService], RestangularConfigFactory),
-        RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules})
+        RouterModule.forRoot(ROUTES, {
+            useHash: Boolean(history.pushState) === false,
+            preloadingStrategy: PreloadAllModules
+        })
     ],
     /**
      * Expose our Services and Providers into Angular's dependency injection.
      */
     providers: [
-        ENV_PROVIDERS,
+        environment.ENV_PROVIDERS,
         APP_PROVIDERS,
         DatePipe,
         DecimalPipe,

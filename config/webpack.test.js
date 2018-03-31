@@ -1,9 +1,10 @@
 /**
- * @author: @AngularClass
+ * @author: tipe.io
  */
 
 const helpers = require('./helpers');
 
+// noinspection JSUnusedLocalSymbols
 /**
  * Webpack Plugins
  */
@@ -17,264 +18,256 @@ const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
  */
 const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
 
+// noinspection JSUnusedLocalSymbols
 /**
  * Webpack configuration
  *
- * See: http://webpack.github.io/docs/configuration.html#cli
+ * See: https://webpack.js.org/configuration/
  */
 module.exports = function (options) {
-  return {
-
-    /**
-     * Source map for Karma from the help of karma-sourcemap-loader &  karma-webpack
-     *
-     * Do not change, leave as is or it wont work.
-     * See: https://github.com/webpack/karma-webpack#source-maps
-     */
-    devtool: 'inline-source-map',
-
-    /**
-     * Options affecting the resolving of modules.
-     *
-     * See: http://webpack.github.io/docs/configuration.html#resolve
-     */
-    resolve: {
-
-      /**
-       * An array of extensions that should be used to resolve modules.
-       *
-       * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
-       */
-      extensions: ['.ts', '.js'],
-
-      /**
-       * Make sure root is src
-       */
-      modules: [helpers.root('src'), 'node_modules']
-
-    },
-
-    /**
-     * Options affecting the normal modules.
-     *
-     * See: http://webpack.github.io/docs/configuration.html#module
-     *
-     * 'use:' revered back to 'loader:' as a temp. workaround for #1188
-     * See: https://github.com/AngularClass/angular2-webpack-starter/issues/1188#issuecomment-262872034
-     */
-    module: {
-
-      rules: [
+    // noinspection RegExpRedundantEscape, RegExpSingleCharAlternation
+    return {
 
         /**
-         * Source map loader support for *.js files
-         * Extracts SourceMaps for source files that as added as sourceMappingURL comment.
+         * Source map for Karma from the help of karma-sourcemap-loader &  karma-webpack
          *
-         * See: https://github.com/webpack/source-map-loader
+         * Do not change, leave as is or it wont work.
+         * See: https://github.com/webpack/karma-webpack#source-maps
          */
-        {
-          enforce: 'pre',
-          test: /\.js$/,
-          loader: 'source-map-loader',
-          exclude: [
+        devtool: 'inline-source-map',
+
+        /**
+         * Options affecting the resolving of modules.
+         *
+         * See: https://webpack.js.org/configuration/resolve/
+         */
+        resolve: {
+
             /**
-             * These packages have problems with their sourcemaps
+             * An array of extensions that should be used to resolve modules.
+             *
+             * See: https://webpack.js.org/configuration/resolve/#resolve-extensions
              */
-            helpers.root('node_modules/rxjs'),
-            helpers.root('node_modules/@angular')
-          ]
+            extensions: ['.ts', '.js'],
+
+            /**
+             * Make sure root is src
+             */
+            modules: [helpers.root('src'), 'node_modules']
+
         },
 
         /**
-         * Typescript loader support for .ts and Angular 2 async routes via .async.ts
+         * Options affecting the normal modules.
          *
-         * See: https://github.com/s-panferov/awesome-typescript-loader
+         * See: https://webpack.js.org/configuration/module/
+         *
+         * 'use:' revered back to 'loader:' as a temp. workaround for #1188
+         * See: https://github.com/gdi2290/angular-starter/issues/1188#issuecomment-262872034
          */
-        {
-          test: /\.ts$/,
-          use: [
-            {
-              loader: 'awesome-typescript-loader',
-              query: {
+        module: {
+
+            rules: [
+
                 /**
-                 * Use inline sourcemaps for "karma-remap-coverage" reporter
+                 * Source map loader support for *.js files
+                 * Extracts SourceMaps for source files that as added as sourceMappingURL comment.
+                 *
+                 * See: https://github.com/webpack/source-map-loader
                  */
-                sourceMap: false,
-                inlineSourceMap: true,
-                compilerOptions: {
+                {
+                    enforce: 'pre',
+                    test: /\.js$/,
+                    loader: 'source-map-loader',
+                    exclude: [
+                        /**
+                         * These packages have problems with their sourcemaps
+                         */
+                        helpers.root('node_modules/rxjs'),
+                        helpers.root('node_modules/@angular')
+                    ]
+                },
 
-                  /**
-                   * Remove TypeScript helpers to be injected
-                   * below by DefinePlugin
-                   */
-                  removeComments: true
+                /**
+                 * Typescript loader support for .ts and Angular 2 async routes via .async.ts
+                 *
+                 * See: https://github.com/s-panferov/awesome-typescript-loader
+                 */
+                {
+                    test: /\.ts$/,
+                    use: [
+                        {
+                            loader: 'awesome-typescript-loader',
+                            query: {
+                                /**
+                                 * Use inline sourcemaps for "karma-remap-coverage" reporter
+                                 */
+                                sourceMap: false,
+                                inlineSourceMap: true,
+                                compilerOptions: {
 
+                                    /**
+                                     * Remove TypeScript helpers to be injected
+                                     * below by DefinePlugin
+                                     */
+                                    removeComments: true
+
+                                }
+                            },
+                        },
+                        'angular2-template-loader'
+                    ],
+                    exclude: [/\.e2e\.ts$/]
+                },
+
+                /**
+                 * Raw loader support for *.css files
+                 * Returns file content as string
+                 *
+                 * See: https://github.com/webpack/raw-loader
+                 */
+                {
+                    test: /\.css$/,
+                    loader: ['to-string-loader', { loader: 'css-loader', options: { url: false } }],
+                    exclude: [helpers.root('src/index.html')]
+                },
+
+                /**
+                 * Raw loader support for *.scss files
+                 *
+                 * See: https://github.com/webpack/raw-loader
+                 */
+                {
+                    test: /\.scss$/,
+                    loader: ['raw-loader', 'sass-loader'],
+                    exclude: [helpers.root('src/index.html')]
+                },
+
+                /**
+                 * Raw loader support for *.html
+                 * Returns file content as string
+                 *
+                 * See: https://github.com/webpack/raw-loader
+                 */
+                {
+                    test: /\.html$/,
+                    loader: 'raw-loader',
+                    exclude: [helpers.root('src/index.html')]
+                },
+
+                /**
+                 * Instruments JS files with Istanbul for subsequent code coverage reporting.
+                 * Instrument only testing sources.
+                 *
+                 * See: https://github.com/deepsweet/istanbul-instrumenter-loader
+                 */
+                {
+                    enforce: 'post',
+                    test: /\.(js|ts)$/,
+                    loader: 'istanbul-instrumenter-loader',
+                    include: helpers.root('src'),
+                    exclude: [
+                        /\.(e2e|spec)\.ts$/,
+                        /node_modules/
+                    ]
                 }
-              },
-            },
-            'angular2-template-loader'
-          ],
-          exclude: [/\.e2e\.ts$/]
+
+            ]
         },
 
         /**
-         * Json loader support for *.json files.
+         * Add additional plugins to the compiler.
          *
-         * See: https://github.com/webpack/json-loader
+         * See: https://webpack.js.org/configuration/plugins/
          */
-        {
-          test: /\.json$/,
-          loader: 'json-loader',
-          exclude: [helpers.root('src/index.html')]
+        plugins: [
+
+            /**
+             * Plugin: DefinePlugin
+             * Description: Define free variables.
+             * Useful for having development builds with debug logging or adding global constants.
+             *
+             * Environment helpers
+             *
+             * See: https://webpack.js.org/plugins/define-plugin/
+             *
+             * NOTE: when adding more properties make sure you include them in custom-typings.d.ts
+             */
+            new DefinePlugin({
+                'SITE_URL': JSON.stringify('https://eaziup-test-47293.firebaseapp.com'),
+                'API_URL': JSON.stringify('https://test.eaziup.com/api'),
+                'IS_DEV': JSON.stringify(false),
+                'IS_TEST': JSON.stringify(true),
+                'IS_PROD': JSON.stringify(false),
+                'ENV': JSON.stringify(ENV),
+                'HMR': false,
+                'process.env': {
+                    'ENV': JSON.stringify(ENV),
+                    'NODE_ENV': JSON.stringify(ENV),
+                    'HMR': false,
+                }
+            }),
+
+            /**
+             * Plugin: ContextReplacementPlugin
+             * Description: Provides context to Angular's use of System.import
+             *
+             * See: https://webpack.js.org/plugins/context-replacement-plugin/
+             * See: https://github.com/angular/angular/issues/11580
+             */
+            new ContextReplacementPlugin(
+                /**
+                 * The (\\|\/) piece accounts for path separators in *nix and Windows
+                 */
+                /\@angular(\\|\/)core(\\|\/)esm5/,
+                helpers.root('src'), // location of your src
+                {
+                    /**
+                     * your Angular Async Route paths relative to this root directory
+                     */
+                }
+            ),
+
+            /**
+             * Plugin LoaderOptionsPlugin (experimental)
+             *
+             * See: https://gist.github.com/sokra/27b24881210b56bbaff7
+             */
+            new LoaderOptionsPlugin({
+                debug: false,
+                options: {
+                    /**
+                     * legacy options go here
+                     */
+                }
+            }),
+
+        ],
+
+        /**
+         * Disable performance hints
+         *
+         * See: https://github.com/a-tarasyuk/rr-boilerplate/blob/master/webpack/dev.config.babel.js#L41
+         */
+        performance: {
+            hints: false
         },
 
         /**
-         * Raw loader support for *.css files
-         * Returns file content as string
+         * Include polyfills or mocks for various node stuff
+         * Description: Node configuration
          *
-         * See: https://github.com/webpack/raw-loader
+         * See: https://webpack.js.org/configuration/node/
          */
-        {
-          test: /\.css$/,
-          loader: ['to-string-loader', 'css-loader'],
-          exclude: [helpers.root('src/index.html')]
-        },
-
-        /**
-         * Raw loader support for *.scss files
-         *
-         * See: https://github.com/webpack/raw-loader
-         */
-        {
-            test: /\.scss$/,
-            loader: ['raw-loader', 'sass-loader'],
-            exclude: [helpers.root('src/index.html')]
-        },
-
-        /**
-         * Raw loader support for *.html
-         * Returns file content as string
-         *
-         * See: https://github.com/webpack/raw-loader
-         */
-        {
-          test: /\.html$/,
-          loader: 'raw-loader',
-          exclude: [helpers.root('src/index.html')]
-        },
-
-        /**
-         * Instruments JS files with Istanbul for subsequent code coverage reporting.
-         * Instrument only testing sources.
-         *
-         * See: https://github.com/deepsweet/istanbul-instrumenter-loader
-         */
-        {
-          enforce: 'post',
-          test: /\.(js|ts)$/,
-          loader: 'istanbul-instrumenter-loader',
-          include: helpers.root('src'),
-          exclude: [
-            /\.(e2e|spec)\.ts$/,
-            /node_modules/
-          ]
+        node: {
+            global: true,
+            crypto: 'empty',
+            process: false,
+            module: false,
+            clearImmediate: false,
+            setImmediate: false,
+            fs: 'empty'
         }
 
-      ]
-    },
-
-    /**
-     * Add additional plugins to the compiler.
-     *
-     * See: http://webpack.github.io/docs/configuration.html#plugins
-     */
-    plugins: [
-
-      /**
-       * Plugin: DefinePlugin
-       * Description: Define free variables.
-       * Useful for having development builds with debug logging or adding global constants.
-       *
-       * Environment helpers
-       *
-       * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
-       *
-       * NOTE: when adding more properties make sure you include them in custom-typings.d.ts
-       */
-      new DefinePlugin({
-        'SITE_URL': JSON.stringify('https://eaziup-test-47293.firebaseapp.com'),
-        'API_URL': JSON.stringify('https://test.eaziup.com/api'),
-        'IS_DEV': JSON.stringify(false),
-        'IS_TEST': JSON.stringify(true),
-        'IS_PROD': JSON.stringify(false),
-        'ENV': JSON.stringify(ENV),
-        'HMR': false,
-        'process.env': {
-          'ENV': JSON.stringify(ENV),
-          'NODE_ENV': JSON.stringify(ENV),
-          'HMR': false,
-        }
-      }),
-
-      /**
-       * Plugin: ContextReplacementPlugin
-       * Description: Provides context to Angular's use of System.import
-       *
-       * See: https://webpack.github.io/docs/list-of-plugins.html#contextreplacementplugin
-       * See: https://github.com/angular/angular/issues/11580
-       */
-      new ContextReplacementPlugin(
-        /**
-         * The (\\|\/) piece accounts for path separators in *nix and Windows
-         */
-        /angular(\\|\/)core(\\|\/)@angular/,
-        helpers.root('src'), // location of your src
-        {
-          /**
-           * your Angular Async Route paths relative to this root directory
-           */
-        }
-      ),
-
-      /**
-       * Plugin LoaderOptionsPlugin (experimental)
-       *
-       * See: https://gist.github.com/sokra/27b24881210b56bbaff7
-       */
-      new LoaderOptionsPlugin({
-        debug: false,
-        options: {
-          /**
-           * legacy options go here
-           */
-        }
-      }),
-
-    ],
-
-    /**
-     * Disable performance hints
-     *
-     * See: https://github.com/a-tarasyuk/rr-boilerplate/blob/master/webpack/dev.config.babel.js#L41
-     */
-    performance: {
-      hints: false
-    },
-
-    /**
-     * Include polyfills or mocks for various node stuff
-     * Description: Node configuration
-     *
-     * See: https://webpack.github.io/docs/configuration.html#node
-     */
-    node: {
-      global: true,
-      process: false,
-      crypto: 'empty',
-      module: false,
-      clearImmediate: false,
-      setImmediate: false
-    }
-
-  };
-}
+    };
+};
