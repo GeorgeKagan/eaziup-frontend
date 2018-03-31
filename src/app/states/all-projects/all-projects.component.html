@@ -8,7 +8,7 @@
         <ngb-tab>
           <ng-template ngbTabTitle>
             New Projects
-            <span class="badge badge-pill" *ngIf="newProjects.length">{{newProjects.length}}</span>
+            <span class="badge badge-pill badge-warning" *ngIf="newProjects.length">{{newProjects.length}}</span>
           </ng-template>
           <ng-template ngbTabContent>
             <div class="row pt-5">
@@ -26,7 +26,7 @@
         <ngb-tab>
           <ng-template ngbTabTitle>
             Applied To
-            <span class="badge badge-pill" *ngIf="appliedToProjects.length">{{appliedToProjects.length}}</span>
+            <span class="badge badge-pill badge-warning" *ngIf="appliedToProjects.length">{{appliedToProjects.length}}</span>
           </ng-template>
           <ng-template ngbTabContent>
             <div class="row pt-5">
@@ -44,7 +44,7 @@
         <ngb-tab>
           <ng-template ngbTabTitle>
             In Work
-            <span class="badge badge-pill" *ngIf="inWorkProjects.length">{{inWorkProjects.length}}</span>
+            <span class="badge badge-pill badge-warning" *ngIf="inWorkProjects.length">{{inWorkProjects.length}}</span>
           </ng-template>
           <ng-template ngbTabContent>
             <div class="row pt-5">

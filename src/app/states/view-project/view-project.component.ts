@@ -12,8 +12,8 @@ import { ApplicationService } from '../../services/application.service';
     templateUrl: 'view-project.component.html'
 })
 export class ViewProjectComponent implements OnInit {
-    public blocks: Array<object> = [];
-    public sidebarItems: Array<object> = [];
+    public blocks: object[] = [];
+    public sidebarItems: object[] = [];
     public project: any = null;
     public isApplied: boolean = false;
 
@@ -43,7 +43,7 @@ export class ViewProjectComponent implements OnInit {
                 {icon: ICONS.INFO, title: 'Full description', body: this.project.full_desc}
             ];
 
-            let compensationBody = this.decimalPipe.transform(ProjectService.calculateCompenstation(
+            const compensationBody = this.decimalPipe.transform(ProjectService.calculateCompenstation(
                 this.project.dev_count,
                 this.project.milestones.length)
             ) + ' ILS';

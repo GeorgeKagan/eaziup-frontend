@@ -33,7 +33,10 @@
               <!-- Student Applications -->
               <span class="card-link ez-link" routerLink="/project/{{p.id}}/applications">
                 <i class="fa fa-wpforms mr-1"></i>
-                Student Applications <span class="badge {{p.apps_count ? 'badge-success' : 'badge-default'}} ml-2">{{p.apps_count}}</span>
+                Student Applications
+                <span class="badge {{p.apps_count ? 'badge-success' : 'badge-default'}} ml-2" *ngIf="p.apps_count">
+                  {{p.apps_count}}
+                </span>
               </span>
 
             </div>

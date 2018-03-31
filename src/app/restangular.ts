@@ -5,7 +5,7 @@ export function RestangularConfigFactory(RestangularProvider, modalService, auth
     RestangularProvider.setBaseUrl(API_URL);
     RestangularProvider.setDefaultHeaders({
         Authorization: 'Bearer ' + localStorage.getItem('idToken'),
-        IsStudent: authService.isAccTypeStudent
+        IsStudent: authService.isAccTypeStudent.toString()
     });
 
     // Interceptor for all REST API calls

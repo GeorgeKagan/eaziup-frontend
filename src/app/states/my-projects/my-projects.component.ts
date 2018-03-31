@@ -37,9 +37,10 @@ export class MyProjectsComponent implements OnInit {
      * @param {number} i
      */
     public confirmRemove(project: any, i: number) {
+        // noinspection TsLint
         this.modalService.open(ProjectRemoveConfirmModalComponent).result.then(() => {
             this.projectService.removeProject(project.id);
             this.projects.splice(i, 1);
-        });
+        }, ).catch(() => {});
     }
 }

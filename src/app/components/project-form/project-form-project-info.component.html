@@ -123,8 +123,7 @@
           <div class="ez-inputs-group">
             <label class="custom-control custom-checkbox col-sm-4 mr-0" *ngFor="let os of operatingSystems">
               <input type="checkbox" class="custom-control-input" [formControlName]="os.key">
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">{{os.label}}</span>
+              <span class="custom-control-label">{{os.label}}</span>
             </label>
           </div>
         </div>

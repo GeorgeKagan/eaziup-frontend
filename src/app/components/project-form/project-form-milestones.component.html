@@ -10,8 +10,10 @@
         <div class="input-group">
           <input id="psd" placeholder="yyyy-mm-dd" placement="bottom-right" [minDate]="minStartDate" [maxDate]="maxStartDate" ngbDatepicker #d="ngbDatepicker" formControlName="startDate"
                  [(ngModel)]="initialStartDate">
-          <div class="input-group-addon" (click)="d.toggle()" >
-            <i class="fa fa-calendar"></i>
+          <div class="input-group-prepend" (click)="d.toggle()">
+            <div class="input-group-text">
+              <i class="fa fa-calendar"></i>
+            </div>
           </div>
         </div>
         <div class="ez-error" [@fadeInOut]="gotError('milestones.startDate')" *ngIf="gotError('milestones.startDate')">{{formErrors['milestones']['startDate']}}</div>
@@ -24,8 +26,7 @@
             <label class="custom-control custom-radio" *ngFor="let i of developerCounts">
               <input type="radio" class="custom-control-input" name="developerCount" formControlName="developerCount" [value]="i.key"
                      [checked]="i.key===myForm.get(['milestones', 'developerCount']).value">
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">{{i.label}}</span>
+              <span class="custom-control-label">{{i.label}}</span>
             </label>
           </div>
         </div>

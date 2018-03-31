@@ -33,11 +33,11 @@
         <!-- Account links + log out -->
         <div class="text-muted mt-2 pull-right" *ngIf="auth.isAuthenticated">
           <div ngbDropdown>
-            <div role="button" ngbDropdownToggle>
+            <button type="button" class="btn btn-link text-muted" ngbDropdownToggle>
               <img class="rounded-circle mr-2" width="25" height="25" [src]="auth.profile['picture']">
               {{auth.profile['name']}}
-            </div>
-            <div class="dropdown-menu mt-2">
+            </button>
+            <div class="dropdown-menu mt-2" ngbDropdownMenu>
               <div *ngIf="!auth.isAccTypeUnknown">
                 <button class="dropdown-item disabled" role="button">Settings</button>
                 <div class="dropdown-divider"></div>
