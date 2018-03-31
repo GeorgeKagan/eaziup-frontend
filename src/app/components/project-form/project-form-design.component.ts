@@ -1,24 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
-import {slideDown} from '../../consts/animations';
-import {WizardStepsService} from '../../services/wizard-steps.service';
-import {CONFIG} from '../../consts/config';
+import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { slideDown } from '../../consts/animations';
 
 @Component({
-  selector: 'project-form-design',
-  templateUrl: './project-form-design.component.html',
-  animations: [slideDown]
+    selector: 'project-form-design',
+    templateUrl: './project-form-design.component.html',
+    animations: [slideDown]
 })
-export class ProjectFormDesignComponent implements OnInit {
-  @Input() myForm: FormGroup;
-  @Input() formErrors: object = {};
-  @Input() gotError: Function;
-
-  constructor(private wizardSteps: WizardStepsService) {}
-
-  ngOnInit() {
-    this.wizardSteps.changeEmitted$.filter(index => index === CONFIG.WIZARD.STEPS.DESIGN).subscribe(index => {
-
-    });
-  }
+export class ProjectFormDesignComponent {
+    @Input() public myForm: FormGroup;
+    @Input() public formErrors: object = {};
+    @Input() public gotError: Function;
 }

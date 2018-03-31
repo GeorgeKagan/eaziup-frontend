@@ -1,3 +1,4 @@
+/* tslint:disable */
 /*
  * Custom Type Definitions
  * When including 3rd party modules you also need to include the type definition for the module
@@ -57,65 +58,74 @@ declare module 'modern-lru' {
 */
 
 // Extra variables that live on Global that will be replaced by webpack DefinePlugin
+// noinspection JSUnusedGlobalSymbols
 declare var SITE_URL: string;
 declare var API_URL: string;
 declare var IS_DEV: boolean;
 declare var IS_TEST: boolean;
+// noinspection JSUnusedGlobalSymbols
 declare var IS_PROD: boolean;
 declare var ENV: string;
+// noinspection JSUnusedGlobalSymbols
 declare var HMR: boolean;
+// noinspection JSUnusedGlobalSymbols
 declare var System: SystemJS;
 
 interface SystemJS {
-  import: (path?: string) => Promise<any>;
+    import: (path?: string) => Promise<any>;
 }
 
 interface GlobalEnvironment {
-  ENV: string;
-  HMR: boolean;
-  SystemJS: SystemJS;
-  System: SystemJS;
+    ENV: string;
+    HMR: boolean;
+    SystemJS: SystemJS;
+    System: SystemJS;
 }
 
 interface Es6PromiseLoader {
-  (id: string): (exportName?: string) => Promise<any>;
+    (id: string): (exportName?: string) => Promise<any>;
 }
 
 type FactoryEs6PromiseLoader = () => Es6PromiseLoader;
 type FactoryPromise = () => Promise<any>;
 
+// noinspection JSUnusedGlobalSymbols
 type AsyncRoutes = {
-  [component: string]: Es6PromiseLoader |
-                               Function |
-                FactoryEs6PromiseLoader |
-                         FactoryPromise ;
+    [component: string]: Es6PromiseLoader |
+        Function |
+        FactoryEs6PromiseLoader |
+        FactoryPromise;
 };
 
+// noinspection JSUnusedGlobalSymbols
 type IdleCallbacks = Es6PromiseLoader |
-                             Function |
-              FactoryEs6PromiseLoader |
-                       FactoryPromise ;
+    Function |
+    FactoryEs6PromiseLoader |
+    FactoryPromise ;
 
 interface WebpackModule {
-  hot: {
-    data?: any,
-    idle: any,
-    accept(dependencies?: string | string[], callback?: (updatedDependencies?: any) => void): void;
-    decline(deps?: any | string | string[]): void;
-    dispose(callback?: (data?: any) => void): void;
-    addDisposeHandler(callback?: (data?: any) => void): void;
-    removeDisposeHandler(callback?: (data?: any) => void): void;
-    check(autoApply?: any, callback?: (err?: Error, outdatedModules?: any[]) => void): void;
-    apply(options?: any, callback?: (err?: Error, outdatedModules?: any[]) => void): void;
-    status(callback?: (status?: string) => void): void | string;
-    removeStatusHandler(callback?: (status?: string) => void): void;
-  };
+    hot: {
+        data?: any,
+        idle: any,
+        accept(dependencies?: string | string[], callback?: (updatedDependencies?: any) => void): void;
+        decline(deps?: any | string | string[]): void;
+        dispose(callback?: (data?: any) => void): void;
+        addDisposeHandler(callback?: (data?: any) => void): void;
+        removeDisposeHandler(callback?: (data?: any) => void): void;
+        check(autoApply?: any, callback?: (err?: Error, outdatedModules?: any[]) => void): void;
+        apply(options?: any, callback?: (err?: Error, outdatedModules?: any[]) => void): void;
+        status(callback?: (status?: string) => void): void | string;
+        removeStatusHandler(callback?: (status?: string) => void): void;
+    };
 }
 
 interface WebpackRequire {
     (id: string): any;
+
     (paths: string[], callback: (...modules: any[]) => void): void;
+
     ensure(ids: string[], callback: (req: WebpackRequire) => void, chunkName?: string): void;
+
     context(directory: string, useSubDirectories?: boolean, regExp?: RegExp): WebpackContext;
 }
 
@@ -124,12 +134,26 @@ interface WebpackContext extends WebpackRequire {
 }
 
 interface ErrorStackTraceLimit {
-  stackTraceLimit: number;
+    stackTraceLimit: number;
 }
 
 // Extend typings
-interface NodeRequire extends WebpackRequire {}
-interface ErrorConstructor extends ErrorStackTraceLimit {}
-interface NodeRequireFunction extends Es6PromiseLoader  {}
-interface NodeModule extends WebpackModule {}
-interface Global extends GlobalEnvironment  {}
+// noinspection JSUnusedGlobalSymbols
+interface NodeRequire extends WebpackRequire {
+}
+
+// noinspection JSUnusedGlobalSymbols
+interface ErrorConstructor extends ErrorStackTraceLimit {
+}
+
+// noinspection JSUnusedGlobalSymbols
+interface NodeRequireFunction extends Es6PromiseLoader {
+}
+
+// noinspection JSUnusedGlobalSymbols
+interface NodeModule extends WebpackModule {
+}
+
+// noinspection JSUnusedGlobalSymbols
+interface Global extends GlobalEnvironment {
+}

@@ -1,21 +1,21 @@
-import {Injectable} from '@angular/core';
-import {Restangular} from 'ngx-restangular';
+import { Injectable } from '@angular/core';
+import { Restangular } from 'ngx-restangular';
 
 @Injectable()
 export class ApplicationService {
-  constructor(private rest: Restangular) {
-  }
+    constructor(private rest: Restangular) {
+    }
 
-  /**
-   * Student applies for a project
-   * @param projectId
-   * @returns {any}
-   */
-  public studentApply(projectId) {
-    return this.rest.one('project/apply', projectId).post();
-  }
+    /**
+     * Student applies for a project
+     * @param projectId
+     * @returns {any}
+     */
+    public studentApply(projectId) {
+        return this.rest.one('project/apply', projectId).post();
+    }
 
-  public studentApplyCancel(projectId) {
-    return this.rest.one('project/apply/cancel', projectId).remove();
-  }
+    public studentApplyCancel(projectId) {
+        return this.rest.one('project/apply/cancel', projectId).remove();
+    }
 }

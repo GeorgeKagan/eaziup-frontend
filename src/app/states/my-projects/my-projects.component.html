@@ -15,7 +15,7 @@
               {{p.cat.name + (p.company ? ' by ' + p.company : '')}}
             </h6>
             <hr>
-            <p class="card-text mb-4" [innerHTML]="p.desc | nl2list"></p>
+            <p class="card-text mb-4" [innerHTML]="p.desc | myNewlineToList"></p>
             <div *ngIf="p.status!==CONFIG.PROJECT.DONE">
 
               <!-- Modify project -->

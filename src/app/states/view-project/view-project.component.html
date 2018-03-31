@@ -23,14 +23,14 @@
             </h3>
 
             <!-- Regular body -->
-            <div class="card-text p-2" [innerHTML]="block.body | nl2list" *ngIf="block.body"></div>
+              <div class="card-text p-2" [innerHTML]="block.body | myNewlineToList" *ngIf="block.body"></div>
 
             <!-- List body -->
             <div class="card-text p-2" *ngIf="block.list">
               <div class="row mb-2" *ngFor="let item of block.list">
                 <div *ngIf="item.body">
                   <strong class="col-3">{{item.title}}</strong>
-                  <span class="col-9" [innerHTML]="item.body | nl2sep"></span>
+                    <span class="col-9" [innerHTML]="item.body | myNewlineToSeparator"></span>
                 </div>
               </div>
             </div>
